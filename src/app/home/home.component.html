@@ -1,8 +1,8 @@
 <div class="home-container">
-    {{ categoryStatus.status }}
-    <div class="sidebar">
+
+    <div class="sidebar" *ngIf="!mobileResolution || categoryStatus">
         <app-categories (showProducts)=showAllProducts($event)></app-categories>
-    </div>
+    </div>    
     
     <div class="wrapper">
         <div class="item" *ngFor="let product of products">

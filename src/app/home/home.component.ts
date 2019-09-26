@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, HostListener } from '@angular/core';
 
 import { ToggleCategoriesService } from '../toggle-categories.service';
 
@@ -19,7 +19,9 @@ export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
 
   subscription: Subscription;
-  categoryStatus: boolean = false;
+  public categoryStatus: boolean = false;
+  public mobileResolution: boolean = false;
+  public screenWidth;
 
   config = {
     animated: false,
@@ -32,8 +34,10 @@ export class HomeComponent implements OnInit {
   constructor( private modalService: BsModalService, private toggleCategoriesService: ToggleCategoriesService ) { }
 
   ngOnInit() {
+    this.onResize(event);
     this.subscription = this.toggleCategoriesService.getStatus().subscribe(status => {
-      this.categoryStatus = status;
+      this.categoryStatus = status.status;
+      
     });
   }
 
@@ -67,6 +71,15 @@ export class HomeComponent implements OnInit {
     this.modalRef = this.modalService.show(template, this.config);
   }
 
+  @HostListener('window:resize', ['$event'])
+    onResize(event?) {
+      this.screenWidth = window.innerWidth;
+      if(this.screenWidth < 992) {
+        this.mobileResolution = true;
+      } else {
+        this.mobileResolution = false;
+      }
+    }
 
 
 }
