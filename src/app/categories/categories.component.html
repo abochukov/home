@@ -1,0 +1,14 @@
+<div class="categories-wrapper">
+   <ul *ngFor="let category of categories">
+       <li [ngClass]="{'show-active': selectedElement === category.id}">
+           <div (click)="showSubCategories(category.id)">{{ category.categoryName }}</div>
+           <ul *ngFor="let subCategory of subCategories" [ngClass]="{'show-element': selectedElement === category.id}">
+                <li>    
+                    <div (click)="sendProducts(subCategory.id)">{{ subCategory.subCategoryName }} </div>
+                </li>
+            </ul>
+        </li>
+   </ul>
+</div>
+
+

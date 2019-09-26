@@ -1,0 +1,38 @@
+<div class="menu">
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+        aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+            <img src="assets/images/hamburger-menu.svg">
+        </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent15">
+
+        
+    </div> -->
+    <button class="navbar-toggler" (click)="showCategoriesOnMobile()">
+        <span class="navbar-toggler-icon">
+                <img src="assets/images/hamburger-menu.svg">
+        </span>
+    </button>
+
+    <div class="logo"><img src="assets/images/logo.png"/></div>
+    <div class="navigation">
+        <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button> -->
+        <!-- <a routerLink = '/cart' routerLinkActive = 'active'>Cart</a> -->
+        <a routerLink = '/home' routerLinkActive = 'active'>Home</a>
+        <a routerLink = '/contacts' routerLinkActive = 'active'>Contacts</a>
+        <a (click)="openModal(template)">Cart</a>
+    </div>
+
+    <ng-template #template class="cart-preview">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Shopping Cart</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <app-cart></app-cart>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,41 @@
+<div class="home-container">
+    {{ categoryStatus.status }}
+    <div class="sidebar">
+        <app-categories (showProducts)=showAllProducts($event)></app-categories>
+    </div>
+    
+    <div class="wrapper">
+        <div class="item" *ngFor="let product of products">
+            <p>{{ product.productTitle }}</p>
+            <img src="{{ product.productImage }}">
+            <p>${{ product.productPrice }}</p>
+            <p (click)="openModal(productDetails)">details</p>
+            <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)">Add to cart</button>        
+        </div>
+        
+        <app-cart [cartProducts]="cartProducts"></app-cart>
+    </div>
+
+    <div class="add-item-notification" id="add-item">
+        <p>Успешно добавихте продукта!</p>
+    </div>
+
+    <div class="remove-item-notification" id="remove-item">
+        <p>Успешно премахнахте продукта!</p>
+    </div>
+
+    <ng-template #productDetails>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Описание на продукта</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </ng-template>
+
+</div>
+
+
