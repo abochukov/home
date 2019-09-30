@@ -42,6 +42,37 @@ ul {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         cursor: pointer;
     }
+
+    .gallery-details {
+        border: 1px solid green;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        .panel-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .t {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: 1px solid green;
+        }
+        @keyframes fadeIn {  
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in 1 forwards;
+        }
+    }
+    
 }
 
 // .modal-backdrop {

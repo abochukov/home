@@ -29,8 +29,8 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   @Input() cartProducts;
 
-  constructor( private fb: FormBuilder, private dataService: DataService, private modalServices: BsModalService, private toggleCategories: ToggleCategoriesService ) { 
-    super(modalServices, toggleCategories);
+  constructor( private fb: FormBuilder, dataService: DataService, private modalServices: BsModalService, private toggleCategories: ToggleCategoriesService ) { 
+    super(modalServices, toggleCategories, dataService);
   }
 
   ngOnInit() {

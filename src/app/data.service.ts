@@ -34,11 +34,11 @@ export class DataService {
      return this.http.get('http://localhost:4000/api/categories');
    }
 
-   getSubCategories(id) {
+   getSubCategories(id: number) {
     return this.http.get(`http://localhost:4000/api/categories/${id}`)
    }
 
-   getProducts(subCategoryId) {
+   getProducts(subCategoryId: number) {
     return this.http.get(`http://localhost:4000/api/products/${subCategoryId}`);   
    }
 
@@ -50,5 +50,13 @@ export class DataService {
    search(searchKey) {
     //  console.log(searchKey);
     return this.http.get(`http://localhost:4000/api/search/${searchKey}`,)
+   }
+
+   getProductDetails(productId: number) {
+     return this.http.get(`http://localhost:4000/api/details/${productId}`);
+   }
+
+   getProductDetailsImages(productId: number) {
+    return this.http.get(`http://localhost:4000/api/detailsImages/${productId}`)
    }
 }

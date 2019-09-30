@@ -9,7 +9,7 @@
             <p>{{ product.productTitle }}</p>
             <img src="{{ product.productImage }}">
             <p>${{ product.productPrice }}</p>
-            <p (click)="openModal(productDetails)">details</p>
+            <p (click)="openModal(productDetails, product.id)">details</p>
             <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)">Add to cart</button>        
         </div>
         
@@ -32,6 +32,20 @@
             </button>
         </div>
         <div class="modal-body">
+
+            <div class="gallery-details">
+                <div class="panel-main">
+                    <img src="{{ headDetailImage }}" width="300" id="selected">
+                </div>
+
+                <div class="t">
+                    <ng-container *ngFor="let image of detailsImages">
+                        <div class="thumbs">
+                            <img src="{{ image.images }}" width="100">
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
             
         </div>
     </ng-template>

@@ -23,6 +23,9 @@ app.use('/api/search', searchRouter);
 const productDetailsRouter = require('./routes/product-details.js');
 app.use('/api/details', productDetailsRouter);
 
+const detailImagesRouter = require('./routes/details-images.js');
+app.use('/api/detailsImages', detailImagesRouter);
+
 
 app.get('/', (req, res) => res.send('Hello World!'));
 app.listen(4000, () => console.log(`Express server running on port 4000`))
