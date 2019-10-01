@@ -9,8 +9,8 @@
             <p>{{ product.productTitle }}</p>
             <img src="{{ product.productImage }}">
             <p>${{ product.productPrice }}</p>
-            <p (click)="openModal(productDetails, product.id)">details</p>
-            <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)">Add to cart</button>        
+            <p (click)="openModal(productDetails, product.id)">информация</p>
+            <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">Add to cart</button>        
         </div>
         
         <app-cart [cartProducts]="cartProducts"></app-cart>

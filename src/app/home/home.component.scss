@@ -20,8 +20,10 @@
         overflow-y: scroll;
         
         img {
-            width: 100px;
-            margin: 5px
+            width: 60%;
+            margin: 5px;
+            border: 1px solid #fff;
+            border-radius: 5px;
         } 
         
         & .item {
@@ -32,8 +34,17 @@
             border-radius: 5px;
             display: flex;
             flex-direction: column;
-            padding: 5px;
+            // padding: 5px;
             background: #c8c8c8;
+            // justify-content: center;
+            align-items: center;
+
+            & .add-to-cart {
+                background: #fff;
+                border: 0;
+                border-radius: 5px;
+                width: 40%;
+            }
         }
 
         app-cart {
