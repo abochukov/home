@@ -51,14 +51,15 @@ ul {
     .gallery-details {
         display: flex;
         flex-direction: column;
-        width: 50%;
-
+        width: 55%;
+        min-width: 50%;
+        
         .panel-main {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 7px;
-
+            
             img {
                 width: 100%;
             }
@@ -68,6 +69,14 @@ ul {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+
+            img {
+                width: 120px
+            }
+
+            img:not(:last-child) {
+                border: 1px solid red;
+            }
         }
         @keyframes fadeIn {  
             to {
@@ -81,32 +90,31 @@ ul {
         }
     }
     
+    .product-description {
+        padding: 0 20px;
+    }
+}
+  
+*:focus, *:active {
+    outline: none;
 }
 
-// .modal-backdrop {
-//     position: fixed;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     // z-index: 1040;
-//     background-color: #000;
-//     opacity: 0.3;
-// }
+@media only screen and (max-width: 992px) {
+    .modal {
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-.my-mod {
-    border: solid 4px blue;
-    width: 150%;
-  }
-  
-  .my-mod .modal-header {
-    background-color: lime;
-  }
-  
-  .my-mod .modal-body {
-    background-color: orange;
-  }
+            .gallery-details {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
 
-*:focus {
-    outline: none;
+            .product-description {
+                padding: 20px
+            }
+        }
+    }
 }

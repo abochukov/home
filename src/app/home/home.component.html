@@ -35,13 +35,13 @@
 
             <div class="gallery-details">
                 <div class="panel-main">
-                    <img src="{{ headDetailImage }}" width="300" id="selected">
+                    <img src="{{ headDetailImage }}" id="selected">
                 </div>
 
                 <div class="panel-thumbnails">
                     <ng-container *ngFor="let image of detailsImages">
                         <div class="thumbs">
-                            <img src="{{ image.images }}" width="100">
+                            <img src="{{ image.images }}">
                         </div>
                     </ng-container>
                 </div>
