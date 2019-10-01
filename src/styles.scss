@@ -44,7 +44,7 @@ ul {
     }
 
     .gallery-details {
-        border: 1px solid green;
+        // border: 1px solid green;
         display: flex;
         flex-direction: column;
         width: 50%;
@@ -53,13 +53,18 @@ ul {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 7px;
+
+            img {
+                width: 100%;
+            }
         }
 
         .t {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            border: 1px solid green;
+            // border: 1px solid green;
         }
         @keyframes fadeIn {  
             to {
