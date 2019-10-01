@@ -27,23 +27,32 @@
         } 
         
         & .item {
-            width: 25%;
-            height: 280px;
-            margin: 30px;
-            border: 1px solid #a1a1a1;
+            width: 30%;
+            height: 300px;
+            margin: 15px 0;
+            // border: 1px solid #a1a1a1;
+            border: 1px solid #ee5816;
             border-radius: 5px;
             display: flex;
             flex-direction: column;
-            // padding: 5px;
-            background: #c8c8c8;
-            // justify-content: center;
+            // background: #c8c8c8;
+            background: #fff;
             align-items: center;
+            padding-top: 5px;
 
             & .add-to-cart {
                 background: #fff;
-                border: 0;
+                border: 1px solid #ee5816;
+                color: #ee5816;
+                // border: 0;
                 border-radius: 5px;
                 width: 40%;
+            }
+
+            & .add-to-cart:hover {
+                background: transparent;
+                border: 1px solid #ee5816;
+                color: #ee5816;
             }
         }
 

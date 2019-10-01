@@ -32,25 +32,25 @@
             </button>
         </div>
         <div class="modal-body">
-
-            <div class="gallery-details">
-                <div class="panel-main">
-                    <img src="{{ headDetailImage }}" id="selected">
+            <div class="modal-details">
+                <div class="gallery-details">
+                    <div class="panel-main">
+                        <img src="{{ headDetailImage }}" id="selected">
+                    </div>
+    
+                    <div class="panel-thumbnails">
+                        <ng-container *ngFor="let image of detailsImages">
+                            <div class="thumbs">
+                                <img src="{{ image.images }}">
+                            </div>
+                        </ng-container>
+                    </div>
                 </div>
-
-                <div class="panel-thumbnails">
-                    <ng-container *ngFor="let image of detailsImages">
-                        <div class="thumbs">
-                            <img src="{{ image.images }}">
-                        </div>
-                    </ng-container>
+    
+                <div class="product-description">
+                    {{ productDescription }}
                 </div>
             </div>
-
-            <div class="product-description">
-                {{ productDescription }}
-            </div>
-            
         </div>
     </ng-template>
 

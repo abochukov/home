@@ -32,7 +32,7 @@ ul {
         }
     }
 
-    .modal-body {
+    .modal-details {
         display: flex;
         flex-direction: row;
     }
@@ -51,8 +51,8 @@ ul {
     .gallery-details {
         display: flex;
         flex-direction: column;
-        width: 55%;
-        min-width: 50%;
+        width: 75%;
+        min-width: 70%;
         
         .panel-main {
             display: flex;
