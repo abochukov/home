@@ -26,10 +26,15 @@ ul {
 
     .modal-header {
         border-bottom: 1px solid #a1a1a1;
+
+        .modal-title {
+            padding: 0 15px;
+        }
     }
 
-    .modal-title {
-        padding: 0 15px;
+    .modal-body {
+        display: flex;
+        flex-direction: row;
     }
 
     .close {
@@ -44,7 +49,6 @@ ul {
     }
 
     .gallery-details {
-        // border: 1px solid green;
         display: flex;
         flex-direction: column;
         width: 50%;
@@ -60,11 +64,10 @@ ul {
             }
         }
 
-        .t {
+        .panel-thumbnails {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            // border: 1px solid green;
         }
         @keyframes fadeIn {  
             to {

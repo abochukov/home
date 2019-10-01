@@ -38,13 +38,17 @@
                     <img src="{{ headDetailImage }}" width="300" id="selected">
                 </div>
 
-                <div class="t">
+                <div class="panel-thumbnails">
                     <ng-container *ngFor="let image of detailsImages">
                         <div class="thumbs">
                             <img src="{{ image.images }}" width="100">
                         </div>
                     </ng-container>
                 </div>
+            </div>
+
+            <div class="product-description">
+                {{ productDescription }}
             </div>
             
         </div>
