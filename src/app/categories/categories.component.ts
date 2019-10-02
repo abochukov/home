@@ -13,6 +13,7 @@ export class CategoriesComponent implements OnInit {
   public subCategories: any;
   public products: any;
   public selectedElement: any;
+  public selectedSubCategory: any;
 
   @Output() showProducts = new EventEmitter();
 
@@ -40,7 +41,7 @@ export class CategoriesComponent implements OnInit {
       this.products = products;
       this.showProducts.emit(this.products);
     })
-    
+    this.selectedSubCategory = id;
   }
 
 }
