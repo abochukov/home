@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    // align-items: flex-start;
-    // border: 1px solid blue;
+    height: 100%;
 
     .sidebar {
         width: 20%;
@@ -28,7 +27,7 @@
         
         & .item {
             width: 30%;
-            height: 300px;
+            height: 285px;
             margin: 15px 0;
             // border: 1px solid #a1a1a1;
             border: 1px solid #ee5816;
@@ -38,21 +37,28 @@
             // background: #c8c8c8;
             background: #fff;
             align-items: center;
-            padding-top: 5px;
+            padding-top: 5px; 
+
+            & p {
+                padding: 3px 0;
+                margin: 0;
+            }
 
             & .add-to-cart {
                 background: #fff;
                 border: 1px solid #ee5816;
                 color: #ee5816;
-                // border: 0;
                 border-radius: 5px;
                 width: 40%;
+                margin: 10px 0;
+                outline: 0;
             }
 
             & .add-to-cart:hover {
                 background: transparent;
                 border: 1px solid #ee5816;
                 color: #ee5816;
+                outline: 0;
             }
         }
 
