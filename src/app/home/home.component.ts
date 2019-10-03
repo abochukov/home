@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, HostListener, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, TemplateRef, HostListener, Input } from '@angular/core';
 
 import { ToggleCategoriesService } from '../toggle-categories.service';
 import { DataService } from '../data.service';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnChanges {
 
   public products: any;
   public cartProducts: any = {};
@@ -28,7 +28,9 @@ export class HomeComponent implements OnInit {
   public headDetailImage;
   public detailsImages;
 
-  @Input() showSearchedResults: Event;
+  public searchResults;
+
+  @Input() getSearchedResults: Event;
 
   config = {
     animated: false,
@@ -49,7 +51,11 @@ export class HomeComponent implements OnInit {
     this.subscription = this.toggleCategoriesService.getStatus().subscribe(status => {
       this.categoryStatus = status.status;
     });   
-    // console.log(this.showSearchedResults)
+  }
+
+  ngOnChanges() {
+    console.log(this.getSearchedResults);
+    this.search();
   }
 
   public showAllProducts(data: any) {
@@ -126,5 +132,12 @@ export class HomeComponent implements OnInit {
           e.target.style.opacity = opacity;
         }
       }, 500)
+    }
+
+    public search() {
+      this.dataService.search(this.getSearchedResults).subscribe(data => {
+        this.searchResults = data;
+        console.log(this.searchResults);
+      });
     }
 }
