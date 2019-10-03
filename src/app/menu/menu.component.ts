@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, TemplateRef, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
 import { ToggleCategoriesService } from '../toggle-categories.service';
 import { DataService } from '../data.service';
@@ -17,6 +17,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class MenuComponent implements OnInit, AfterViewInit {
 
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
+  @Output() sendSearch = new EventEmitter<Event>();
+
   modalRef: BsModalRef;
   public buttonClicked: boolean = false;
   public searchingString;
@@ -40,7 +42,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.search()
+    this.onSearch()
   }
 
   openModal(template: TemplateRef<any>) {
@@ -52,13 +54,20 @@ export class MenuComponent implements OnInit, AfterViewInit {
     this.toggleCategoriesService.sendStatus(this.buttonClicked);
   }
 
-  search() {
+  onSearch() {
     this.searchingString = Observable.fromEvent(this.searchInput.nativeElement, 'keyup').debounceTime(400).subscribe((value) => {
-      console.log(this.searchInput.nativeElement.value)
-      this.dataService.search(this.searchInput.nativeElement.value).subscribe(data => {
-        this.searchResults = data;
-        console.log(this.searchResults);
-      });
+      // console.log(this.searchInput.nativeElement.value)
+      this.sendSearch.emit(this.searchInput.nativeElement.value)
     });
   }
+
+  // search() {
+  //   this.searchingString = Observable.fromEvent(this.searchInput.nativeElement, 'keyup').debounceTime(400).subscribe((value) => {
+  //     console.log(this.searchInput.nativeElement.value)
+  //     this.dataService.search(this.searchInput.nativeElement.value).subscribe(data => {
+  //       this.searchResults = data;
+  //       console.log(this.searchResults);
+  //     });
+  //   });
+  // }
 }

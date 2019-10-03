@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, HostListener } from '@angular/core';
+import { Component, OnInit, TemplateRef, HostListener, Input } from '@angular/core';
 
 import { ToggleCategoriesService } from '../toggle-categories.service';
 import { DataService } from '../data.service';
@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
   public headDetailImage;
   public detailsImages;
 
+  @Input() showSearchedResults: Event;
+
   config = {
     animated: false,
     keyboard: true,
@@ -46,8 +48,8 @@ export class HomeComponent implements OnInit {
     this.onResize(event);
     this.subscription = this.toggleCategoriesService.getStatus().subscribe(status => {
       this.categoryStatus = status.status;
-      
     });   
+    // console.log(this.showSearchedResults)
   }
 
   public showAllProducts(data: any) {

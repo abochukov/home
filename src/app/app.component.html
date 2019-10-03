@@ -1,8 +1,9 @@
 <div class="main">
-  <app-menu></app-menu>
+  <app-menu (sendSearch)="findResults($event)"></app-menu>
     
   <div class="content">
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
+    <app-home [showSearchedResults]="keyEvent"></app-home>
   </div>
   
   <div class="footer">
