@@ -5,7 +5,6 @@
     </div>    
     
     <div class="wrapper">
-        {{ showSearchedResults }}
         <div class="item" *ngFor="let product of products">
             <p>{{ product.productTitle }}</p>
             <img src="{{ product.productImage }}">
