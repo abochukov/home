@@ -54,7 +54,6 @@ export class HomeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.getSearchedResults);
     this.search();
   }
 
@@ -136,7 +135,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
     public search() {
       this.dataService.search(this.getSearchedResults).subscribe(data => {
-        this.searchResults = data;
+        this.products = data;
         console.log(this.searchResults);
       });
     }
