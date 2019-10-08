@@ -35,7 +35,13 @@
             <button type="submit"> ORDER </button>
         </form>
     </div>
+    
     <div class="order-form-company" *ngIf="!showCitizenForm">
-        company form
+        <form [formGroup]="orderFormCompany">
+            <div>Company Name <input type="text" formControlName="companyname" ></div>
+            <div>Company Number <input type="text" formControlName="companynumber"></div>
+            <br/>
+            <button type="submit"> ORDER </button>
+        </form>
     </div>
 </div>

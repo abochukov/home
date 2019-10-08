@@ -24,6 +24,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public showOrderForm: boolean = false;
 
   public orderForm: FormGroup;
+  public orderFormCompany: FormGroup;
 
   public initialize = false;
   public showCitizenForm: boolean = true;
@@ -37,7 +38,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.loadCart();
     this.order();
+    this.orderCompany();
     this.initialize = true;
+
+    console.log(this.showCitizenForm);
   }
 
   ngOnChanges() {
@@ -136,6 +140,13 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     })
   }
 
+  public orderCompany() {
+    this.orderFormCompany = this.fb.group({
+      companyname: ['', Validators.required],
+      companynumber: ['', Validators.required],
+    })
+  }
+
   onSubmit() {
     let orderDate = new Date();
     
@@ -145,12 +156,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       this.orderForm.value.date = new Date();
       this.dataService.saveOrderForm(this.orderForm.value);
       console.log(this.orderForm.value);
-    }
-
-    // console.log(this.orderForm.controls.firstname.status)
-    // this.dataService.saveOrderForm(this.orderForm.value);
-    
-    
+    } 
   }
-
 }
