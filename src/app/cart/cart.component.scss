@@ -56,3 +56,22 @@ ul {
     border: 1px solid green;
 }
 
+form  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    div {
+        width: 50%;
+        // border: 1px solid blue;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+
+        input {
+            width: 80%;
+            // border: 1px solid gray
+        }
+    }
+    
+}
