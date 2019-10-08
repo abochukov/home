@@ -19,14 +19,23 @@
 
 
 <div class="order-form" *ngIf="showOrderForm">
-    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
-        <div>Name <input type="text" formControlName="firstname" [ngClass]="{'field-error': orderForm.controls.firstname.invalid, 'field-ok':  orderForm.controls.firstname.valid}"></div>
-        <div>Family <input type="text" formControlName="family" [ngClass]="{'field-error': orderForm.controls.family.invalid, 'field-ok':  orderForm.controls.family.valid}"></div>
-        <div>Phone <input type="text" formControlName="phone" [ngClass]="{'field-error': orderForm.controls.phone.invalid, 'field-ok':  orderForm.controls.phone.valid}"></div>
-        <div>Mail <input type="text" formControlName="mail" [ngClass]="{'field-error': orderForm.controls.mail.invalid, 'field-ok':  orderForm.controls.mail.valid}"></div>
-        <div>Address <input type="text" formControlName="address" [ngClass]="{'field-error': orderForm.controls.address.invalid, 'field-ok':  orderForm.controls.address.valid}"></div>        
-        <!-- <input type="text" [(ngModel)]="cartItems">
-        {{ cartItems }} -->
-        <button type="submit"> ORDER </button>
-    </form>
+    <input type="radio" name="showCitizenForm" [checked]="showCitizenForm" [(ngModel)]="showCitizenForm" [value]="true"> 1
+    <input type="radio" name="showCitizenForm" [checked]="!showCitizenForm" [(ngModel)]="showCitizenForm" [value]="false"> 2
+
+    <div class="order-form-citizen" *ngIf="showCitizenForm">
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+            <div>Name <input type="text" formControlName="firstname" [ngClass]="{'field-error': orderForm.controls.firstname.invalid, 'field-ok':  orderForm.controls.firstname.valid}"></div>
+            <div>Family <input type="text" formControlName="family" [ngClass]="{'field-error': orderForm.controls.family.invalid, 'field-ok':  orderForm.controls.family.valid}"></div>
+            <div>Phone <input type="text" formControlName="phone" [ngClass]="{'field-error': orderForm.controls.phone.invalid, 'field-ok':  orderForm.controls.phone.valid}"></div>
+            <div>Mail <input type="text" formControlName="mail" [ngClass]="{'field-error': orderForm.controls.mail.invalid, 'field-ok':  orderForm.controls.mail.valid}"></div>
+            <div>Address <textarea formControlName="address" [ngClass]="{'field-error': orderForm.controls.address.invalid, 'field-ok':  orderForm.controls.address.valid}"></textarea></div>        
+            <!-- <input type="text" [(ngModel)]="cartItems">
+            {{ cartItems }} -->
+            <br/>
+            <button type="submit"> ORDER </button>
+        </form>
+    </div>
+    <div class="order-form-company" *ngIf="!showCitizenForm">
+        company form
+    </div>
 </div>
