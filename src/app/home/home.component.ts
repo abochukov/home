@@ -2,8 +2,10 @@ import { Component, OnInit, OnChanges, TemplateRef, HostListener, Input } from '
 
 import { ToggleCategoriesService } from '../toggle-categories.service';
 import { DataService } from '../data.service';
-import { imageDetails } from '../image';
 
+import { Products, Categories } from '../items';
+import { imageDetails } from '../image';
+ 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 
@@ -14,7 +16,7 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit, OnChanges {
 
-  public products: any;
+  public products: Products;
   public cartProducts: any = {};
   public itemName: string;
 
@@ -23,12 +25,12 @@ export class HomeComponent implements OnInit, OnChanges {
   subscription: Subscription;
   public categoryStatus: boolean = false;
   public mobileResolution: boolean = false;
-  public screenWidth;
-  public productDescription;
-  public headDetailImage;
-  public detailsImages;
+  public screenWidth: number;
+  public productDescription: string;
+  public headDetailImage: string;
+  public detailsImages: imageDetails;
 
-  public searchResults;
+  // public searchResults;
 
   @Input() getSearchedResults: Event;
 
@@ -57,7 +59,7 @@ export class HomeComponent implements OnInit, OnChanges {
     this.search();
   }
 
-  public showAllProducts(data: any) {
+  public showAllProducts(data: Products) {
     this.products = data;
   }
 
@@ -136,7 +138,6 @@ export class HomeComponent implements OnInit, OnChanges {
     public search() {
       this.dataService.search(this.getSearchedResults).subscribe(data => {
         this.products = data;
-        console.log(this.searchResults);
       });
     }
 }

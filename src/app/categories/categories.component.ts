@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import { Categories, SubCategories, Products } from '../items';
+
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,9 +11,9 @@ import { DataService } from '../data.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  public categories: any;
-  public subCategories: any;
-  public products: any;
+  public categories: Categories;
+  public subCategories: SubCategories;
+  public products: Products;
   public selectedElement: any;
   public selectedSubCategory: any;
 
