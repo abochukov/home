@@ -19,8 +19,8 @@
 
 
 <div class="order-form" *ngIf="showOrderForm">
-    <input type="radio" name="showCitizenForm" [checked]="showCitizenForm" [(ngModel)]="showCitizenForm" [value]="true"> 1
-    <input type="radio" name="showCitizenForm" [checked]="!showCitizenForm" [(ngModel)]="showCitizenForm" [value]="false"> 2
+    <input type="radio" name="showCitizenForm" (click)="clearForm(orderFormCompany)" [checked]="showCitizenForm" [(ngModel)]="showCitizenForm" [value]="true"> 1
+    <input type="radio" name="showCitizenForm" (click)="clearForm(orderForm)" [checked]="!showCitizenForm" [(ngModel)]="showCitizenForm" [value]="false"> 2
 
     <div class="order-form-citizen" *ngIf="showCitizenForm">
         <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
@@ -37,9 +37,11 @@
     </div>
     
     <div class="order-form-company" *ngIf="!showCitizenForm">
-        <form [formGroup]="orderFormCompany">
+        <form [formGroup]="orderFormCompany" (ngSubmit)="onSubmit()">
             <div>Company Name <input type="text" formControlName="companyname" ></div>
+            <div>Contact Person <input type="text" formControlName="contactperson" ></div>
             <div>Company Number <input type="text" formControlName="companynumber"></div>
+            <div>VAT Number <input type="text" formControlName="vatnumber" ></div>
             <br/>
             <button type="submit"> ORDER </button>
         </form>
