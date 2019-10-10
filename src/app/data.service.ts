@@ -51,6 +51,12 @@ export class DataService {
     });
    }
 
+   saveOrderFormCompany(orderValues) {
+    return this.http.post('http://localhost:4000/api/ordersCompany', orderValues).subscribe(data => {
+      
+    })
+   }
+
    search(searchKey) {
     //  console.log(searchKey);
     return this.http.get<Products>(`http://localhost:4000/api/search/${searchKey}`,)
