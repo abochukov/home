@@ -162,11 +162,11 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         this.orderForm.value.date = new Date();
         this.dataService.saveOrderForm(this.orderForm.value);
       } else if(this.orderFormCompany.valid) {
-        // this.orderFormCompany.value.productsId = JSON.parse(this.cartItems[i]).id;
-        // this.orderFormCompany.value.date = new Date();
-        // this.dataService.saveOrderFormCompany(this.orderForm.value);
+        this.orderFormCompany.value.productsId = JSON.parse(this.cartItems[i]).id;
+        this.orderFormCompany.value.date = new Date();
+        this.dataService.saveOrderFormCompany(this.orderFormCompany.value);
       }
-      console.log(this.orderForm.value);
+      console.log(this.orderFormCompany.value);
     } 
   }
 

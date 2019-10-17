@@ -57,6 +57,10 @@ export class HomeComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.search();
+    console.log(this.getSearchedResults.target)
+    // if(this.getSearchedResults.length == 0) {
+    //   console.log('null')
+    // }
   }
 
   public showAllProducts(data: Products) {

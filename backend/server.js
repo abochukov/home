@@ -17,6 +17,9 @@ app.use('/api/products', productsRouter);
 const ordersRouter = require('./routes/orders.js');
 app.use('/api/orders', ordersRouter);
 
+const ordersCompanyRouter = require('./routes/orders-company.js');
+app.use('/api/ordersCompany', ordersCompanyRouter);
+
 const searchRouter = require('./routes/search.js');
 app.use('/api/search', searchRouter);
 

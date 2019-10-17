@@ -51,8 +51,9 @@ export class DataService {
     });
    }
 
-   saveOrderFormCompany(orderValues) {
-    return this.http.post('http://localhost:4000/api/ordersCompany', orderValues).subscribe(data => {
+   saveOrderFormCompany(companyValues) {
+     console.log(companyValues);
+    return this.http.post('http://localhost:4000/api/ordersCompany', companyValues).subscribe(data => {
       
     })
    }
