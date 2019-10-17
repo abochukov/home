@@ -57,10 +57,6 @@ export class HomeComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.search();
-    console.log(this.getSearchedResults.target)
-    // if(this.getSearchedResults.length == 0) {
-    //   console.log('null')
-    // }
   }
 
   public showAllProducts(data: Products) {
@@ -140,8 +136,10 @@ export class HomeComponent implements OnInit, OnChanges {
     }
 
     public search() {
-      this.dataService.search(this.getSearchedResults).subscribe(data => {
-        this.products = data;
-      });
+      if(this.getSearchedResults) {
+        this.dataService.search(this.getSearchedResults).subscribe(data => {
+          this.products = data;
+        });
+      }
     }
 }
