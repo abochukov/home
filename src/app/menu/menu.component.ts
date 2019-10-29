@@ -20,7 +20,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
   @Output() sendSearch = new EventEmitter<Event>();
 
   modalRef: BsModalRef;
-  public buttonClicked: boolean = false;
+  public buttonCategoriesClicked: boolean = false;
+  public buttonMenuClicked: boolean = false;
   public searchingString;
   public searchResults;
 
@@ -50,8 +51,12 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
   public showCategoriesOnMobile() {
-    this.buttonClicked = !this.buttonClicked;
-    this.toggleCategoriesService.sendStatus(this.buttonClicked);
+    this.buttonCategoriesClicked = !this.buttonCategoriesClicked;
+    this.toggleCategoriesService.sendStatus(this.buttonCategoriesClicked);
+  }
+
+  public showMenuOnMobile() {
+    this.buttonMenuClicked = !this.buttonMenuClicked;
   }
 
   onSearch() {
