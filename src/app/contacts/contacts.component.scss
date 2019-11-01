@@ -1,44 +1,83 @@
 .contacts-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     .wrapper {
-        width: 50%;
-        margin-top: 50px;
-        border: 1px solid #999;
-        border-radius: 10px;
+        width: 90%;
+        // margin-top: 50px;
         display: flex;
+        flex-direction: row;
         justify-content: center;
+        margin-bottom: 30px;
 
-        input {
+        & .contact-form {
+
+            border: 1px solid #999;
+            border-radius: 10px;
+            width: 40%;
+
+            input {
+                display: flex;
+                flex-direction: column;
+                width: 400px;
+                height: 50px;
+                margin: 25px 0;
+                font-size: 18px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 0 10px;
+                outline: 0;
+            }
+    
+            .brd {
+                border: 1px solid #999;
+            }
+    
+            .save-btn, .reset-btn {
+                width: 80px;
+                height: 30px;
+                background: #e0e0e0;
+                border-radius: 5px;
+                border: 1px solid #999;
+                box-shadow: 5px 2px 18px#e0e0e0;
+                margin-right: 30px;
+                margin-bottom: 30px;
+            }
+    
+            .error {
+                border: 1px solid red;
+            }
+
+        }
+
+        & .contact-details {
             display: flex;
             flex-direction: column;
-            width: 400px;
-            height: 50px;
-            margin: 25px 0;
-            font-size: 18px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 0 10px;
-            outline: 0;
-        }
-
-        .brd {
+            justify-content: center;
+            width: 40%;
             border: 1px solid #999;
+            border-radius: 10px;
+
+            & div {
+                padding: 10px 0; 
+            }
         }
 
-        .save-btn, .reset-btn {
-            width: 80px;
-            height: 30px;
-            background: #e0e0e0;
-            border-radius: 5px;
-            border: 1px solid #999;
-            box-shadow: 5px 2px 18px#e0e0e0;
-            margin-right: 30px;
-            margin-bottom: 30px;
-        }
-
-        .error {
-            border: 1px solid red;
-        }
     }
+    .map {
+        position: relative;
+        width: 90%;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+    .map iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
 }
