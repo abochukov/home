@@ -44,6 +44,16 @@
                 height: 125px;
             }
 
+            & img:hover {
+                animation: crescendo 1s alternate ease-in;
+                -webkit-animation-fill-mode: forwards;
+            }
+
+            @keyframes crescendo {
+                0%   {transform: scale(1);}
+                100% {transform: scale(1.8);}
+              }
+
             & p {
                 padding: 3px 0;
                 margin: 0;
