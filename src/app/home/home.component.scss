@@ -45,8 +45,9 @@
             }
 
             & img:hover {
-                animation: crescendo 1s alternate ease-in;
-                -webkit-animation-fill-mode: forwards;
+                animation: crescendo 1s;
+                -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+                animation-fill-mode: forwards;
             }
 
             @keyframes crescendo {
