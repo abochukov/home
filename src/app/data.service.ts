@@ -34,15 +34,15 @@ export class DataService {
      });
    }
 
-   getAllCategories() {
+   getAllCategories(): Observable<Categories> {
      return this.http.get<Categories>('http://localhost:4000/api/categories');
    }
 
-   getSubCategories(id: number) {
+   getSubCategories(id: number): Observable<SubCategories> {
     return this.http.get<SubCategories>(`http://localhost:4000/api/categories/${id}`)
    }
 
-   getProducts(subCategoryId: number) {
+   getProducts(subCategoryId: number): Observable<Products> {
     return this.http.get<Products>(`http://localhost:4000/api/products/${subCategoryId}`);   
    }
 
