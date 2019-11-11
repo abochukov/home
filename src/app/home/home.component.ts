@@ -61,6 +61,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
   public showAllProducts(data: Products) {
     this.products = data;
+    this.categoryStatus=false
   }
 
   public saveToLocalStorage(id: number, title: string, price: string) {
