@@ -63,15 +63,51 @@ form  {
 
     div {
         width: 50%;
-        // border: 1px solid blue;
         display: flex;
         flex-direction: column;
         margin-top: 10px;
 
         input, textarea {
             width: 80%;
+            border-radius: 5px;
             // border: 1px solid gray
         }
     }
     
+}
+
+.order-form { 
+    // span {
+    //     margin-right: 50px;
+    // }
+
+    .order-btn {
+        margin-top: 30px;
+        width: 200px;
+        height: 40px;
+        background-image: linear-gradient(to bottom, #f6ad8d, #f69970, #f58554, #f26f37, #ee5816);
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+    }
+
+    .total-sum {
+        margin: 15px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        & span:nth-child(2) {
+            font-weight: bold;
+        }
+    }
+
+    .order-change {
+        margin-top: 40px;
+        margin-bottom: 20px;
+
+        & span {
+            margin-right: 30px;
+        }
+    }
 }
