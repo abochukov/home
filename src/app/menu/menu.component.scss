@@ -92,6 +92,12 @@ a.active {
                 padding-top: 10px;
             }
         }
+
+        & .search {
+            border-radius: 10px;
+            border: 1px solid #ee5816;
+            text-align: center;
+        }
     }
 }
 
