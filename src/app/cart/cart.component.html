@@ -11,6 +11,8 @@
         </div>
     </ul>
 
+    <app-cart-total-items [totalPrice]="totalPrice"></app-cart-total-items>
+
     <!-- <p>{{ totalPrice }}</p> -->
     <ng-container *ngIf="cartItems">
         <div class="buy-button" *ngIf="cartItems.length > 0">
