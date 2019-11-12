@@ -7,7 +7,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class CartTotalItemsComponent implements OnInit, OnChanges {
 
-  @Input() totalPrice;
+  @Input() totalPrice: number;
+  @Input() items: any;
 
   constructor() { }
 
@@ -15,7 +16,7 @@ export class CartTotalItemsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.totalPrice);
+    console.log(this.items);
   }
 
 }

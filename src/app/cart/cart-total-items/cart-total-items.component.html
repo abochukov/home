@@ -1,3 +1,10 @@
 <p>cart-total-items works!</p>
 
 {{ totalPrice }}
+
+{{ items.title }}
+
+<div class="item" *ngFor="let item of items">
+    <p>{{ item.title }}</p>
+    <p>${{ item.price }}</p>
+</div>
