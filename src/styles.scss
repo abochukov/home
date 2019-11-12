@@ -101,6 +101,12 @@ ul {
 
 @media only screen and (max-width: 992px) {
     .modal {
+        
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+        }
+
         .modal-body {
             display: flex;
             flex-direction: column;
