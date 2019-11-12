@@ -75,18 +75,20 @@ a.active {
 
         & .mobile-navigation {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-around;
             align-items: center;
             width: 100%;
             position: absolute;
             top: 60px;
-            height: 60px;
+            height: auto;
             background: #fff;
+            padding: 20px 0;
             
             & a {
                 text-decoration: none;
-                color: #343434
+                color: #343434;
+                padding-top: 10px;
             }
         }
     }
