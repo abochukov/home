@@ -5,7 +5,5 @@ import { Injectable } from '@angular/core';
 })
 export class ShowCartItemsService {
 
-  constructor() { 
-    console.log('as');
-  }
+  constructor() { }
 }
