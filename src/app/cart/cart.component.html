@@ -13,7 +13,6 @@
 
 <div class="order-form" *ngIf="showOrderForm">
 
-    Вашата поръчка:
     <app-cart-total-items [totalPrice]="totalPrice" [items]="items" (onRemove)="removeCartItems($event)"></app-cart-total-items>
 
     <div class="total-sum">
