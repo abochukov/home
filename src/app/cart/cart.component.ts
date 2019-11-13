@@ -5,6 +5,7 @@ import { DataService } from '../data.service';
 import { HomeComponent } from '../home/home.component';
 
 import { ToggleCategoriesService } from '../toggle-categories.service';
+import { ShowCartItemsService } from '../common/services/show-cart-items.service';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
@@ -31,7 +32,13 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   @Input() cartProducts;
 
-  constructor( private fb: FormBuilder, dataService: DataService, private modalServices: BsModalService, private toggleCategories: ToggleCategoriesService ) { 
+  constructor( 
+    private fb: FormBuilder, 
+    dataService: DataService, 
+    private modalServices: BsModalService, 
+    private toggleCategories: ToggleCategoriesService,
+    private showCartItemsService: ShowCartItemsService,
+  ) { 
     super(modalServices, toggleCategories, dataService);
   }
 
@@ -99,7 +106,8 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
           title: item.title,
           price: item.price
         })
-        console.log(this.items.length);
+        this.showCartItemsService.setItems(this.items.length);
+        // console.log(this.items.length);
         this.totalPrice += Number(item.price);
       }
     }

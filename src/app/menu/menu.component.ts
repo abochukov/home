@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, TemplateRef, ViewChild, ElementRef, O
 
 import { ToggleCategoriesService } from '../toggle-categories.service';
 import { DataService } from '../data.service';
+import { ShowCartItemsService } from '../common/services/show-cart-items.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
@@ -24,6 +25,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public buttonMenuClicked: boolean = false;
   public searchingString;
   public searchResults;
+  public cartItems: any;
 
   config = {
     animated: false,
@@ -37,13 +39,19 @@ export class MenuComponent implements OnInit, AfterViewInit {
     private modalService: BsModalService, 
     private toggleCategoriesService: ToggleCategoriesService,
     private dataService: DataService,
+    private showCartItemsService: ShowCartItemsService,
     ) { }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {
-    this.onSearch()
+    this.onSearch();
+    this.showCartItemsService.getItems().subscribe((data => {
+      // console.log('menu ->' + data.countItems);
+      this.cartItems = data.countItems;
+    }));
   }
 
   openModal(template: TemplateRef<any>) {
