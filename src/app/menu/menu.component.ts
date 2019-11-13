@@ -49,7 +49,6 @@ export class MenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.onSearch();
     this.showCartItemsService.getItems().subscribe((data => {
-      // console.log('menu ->' + data.countItems);
       this.cartItems = data.countItems;
     }));
   }
