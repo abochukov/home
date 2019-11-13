@@ -4,16 +4,26 @@
     padding: 20px;
 
     p {
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // width: 150px;
+        // height: 40px;
+        // border-radius: 5px;
+        // background: #00c851;
+        // color: #fff;
+        // font-size: 20px;
+        // box-shadow: 1px 2px 18px #a1a1a1;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 150px;
+        width: 200px;
         height: 40px;
+        background-image: linear-gradient(to bottom, #f6ad8d, #f69970, #f58554, #f26f37, #ee5816);
+        border: 1px solid #fff;
         border-radius: 5px;
-        background: #00c851;
         color: #fff;
-        font-size: 20px;
-        box-shadow: 1px 2px 18px #a1a1a1;
+        box-shadow: 1px 2px 18px #c9c9c9;
     }
 }
 
@@ -55,6 +65,7 @@ form  {
         border: 1px solid #fff;
         border-radius: 5px;
         color: #fff;
+        box-shadow: 1px 2px 18px #c9c9c9;
     }
 
     .total-sum {
