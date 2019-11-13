@@ -106,10 +106,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
           title: item.title,
           price: item.price
         })
-        this.showCartItemsService.setItems(this.items.length);
-        // console.log(this.items.length);
         this.totalPrice += Number(item.price);
       }
+      this.showCartItemsService.setItems(this.items.length);
+      // console.log(this.items.length);
     }
   }
 
