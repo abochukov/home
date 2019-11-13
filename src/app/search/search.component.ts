@@ -30,10 +30,8 @@ export class SearchComponent implements OnInit, AfterViewInit {
 
   search() {
     this.searchingString = Observable.fromEvent(this.searchInput.nativeElement, 'keyup').debounceTime(400).subscribe((value) => {
-      console.log(this.searchInput.nativeElement.value)
       this.dataService.search(this.searchInput.nativeElement.value).subscribe(data => {
         this.searchResults = data;
-        console.log(this.searchResults);
       });
     });
   }

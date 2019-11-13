@@ -16,21 +16,10 @@ export class DataService {
   public result: any;
 
   constructor(private http: HttpClient) {
-    console.log('GitHub Service');
-   }
-
-   getAllUsers() {
-     return this.http.get('http://api.github.com/users');
-   }
-
-   getUserById(id) {
-     return this.http.get(`http://api.github.com/users/${id}`)
    }
 
    saveFormData(formData) {
-     console.log(formData);
      this.http.post('http://localhost:3000/users', formData).subscribe(data => {
-      console.log(data);
      });
    }
 
@@ -52,14 +41,12 @@ export class DataService {
    }
 
    saveOrderFormCompany(companyValues) {
-     console.log(companyValues);
     return this.http.post('http://localhost:4000/api/ordersCompany', companyValues).subscribe(data => {
       
     })
    }
 
    search(searchKey) {
-    //  console.log(searchKey);
     return this.http.get<Products>(`http://localhost:4000/api/search/${searchKey}`,)
    }
 

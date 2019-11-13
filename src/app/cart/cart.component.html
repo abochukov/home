@@ -1,16 +1,5 @@
 <div *ngIf="!showOrderForm">
-    <!-- <ul *ngFor="let item of items">
-        <div class="product-information">
-            <li>{{ item.title }}</li>
-            <li>${{ item.price }}</li>
-        </div>
-        <div class="remove-button">
-            <li>
-                <div (click)="removeCartItems(item.id)"><img src="/assets/images/delete-button.svg" width="30" alt="Remove"></div>
-            </li>
-        </div>
-    </ul> -->
-
+    
     <app-cart-total-items [totalPrice]="totalPrice" [items]="items" (onRemove)="removeCartItems($event)"></app-cart-total-items>
 
     <!-- <p>{{ totalPrice }}</p> -->
@@ -25,18 +14,6 @@
 <div class="order-form" *ngIf="showOrderForm">
 
     Вашата поръчка:
-    <!-- <ul *ngFor="let item of items">
-        <div class="product-information">
-            <li>{{ item.title }}</li>
-            <li>${{ item.price }}</li>
-        </div>
-        <div class="remove-button">
-            <li>
-                <div (click)="removeCartItems(item.id)"><img src="/assets/images/delete-button.svg" width="30" alt="Remove"></div>
-            </li>
-        </div>
-    </ul> -->
-
     <app-cart-total-items [totalPrice]="totalPrice" [items]="items" (onRemove)="removeCartItems($event)"></app-cart-total-items>
 
     <div class="total-sum">

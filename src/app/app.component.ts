@@ -13,7 +13,6 @@ export class AppComponent {
 
   findResults(event: Event) {
     this.keyEvent = event;
-    // console.log(event)
   }
 }
 
