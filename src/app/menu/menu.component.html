@@ -8,13 +8,16 @@
 
     <div class="logo"><img src="assets/images/logo.png"/></div>
     <div class="navigation">
-        <div *ngIf="cartItems">
-            {{ cartItems }}
-        </div>
         <input type="text" class="search" #searchInput placeholder="Search Product">
         <a routerLink = '/home' routerLinkActive = 'active'>Продукти</a>
         <a routerLink = '/contacts' routerLinkActive = 'active'>Контакти</a>
-        <a (click)="openModal(template)"><img src="/assets/images/shopping-cart.png" width="32"></a>
+        <a (click)="openModal(template)" class="shopping-cart-icon">
+            <img src="/assets/images/shopping-cart.png" width="32">
+            <div class="items-count">
+                <p>{{ cartItems }}</p>
+            </div>
+        </a>
+
     </div>
 
     <button class="menu-toggler" (click)="showMenuOnMobile()">

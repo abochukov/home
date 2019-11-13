@@ -34,7 +34,30 @@
         & a {
             margin-left: 20px;
             text-decoration: none;
-            color: #343434
+            color: #343434;
+            
+        }
+
+        .shopping-cart-icon {
+            position: relative;
+        }
+
+        .items-count {
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: -30%;
+            right: -30%;
+            background: #fff;
+            color: #ee5816;
+            border: 1px solid #ee5816;
+            text-align: center;
+
+            & p {
+                margin-top: -4px
+            }
+         
         }
     }
 
