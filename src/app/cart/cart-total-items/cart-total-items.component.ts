@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cart-total-items',
@@ -9,6 +9,7 @@ export class CartTotalItemsComponent implements OnInit, OnChanges {
 
   @Input() totalPrice: number;
   @Input() items: any;
+  @Output() onRemove = new EventEmitter();
 
   constructor() { }
 
@@ -16,7 +17,11 @@ export class CartTotalItemsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.items);
+    
+  }
+
+  public removeCartItems(id: number) {
+    this.onRemove.emit(id);
   }
 
 }

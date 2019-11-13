@@ -1,10 +1,11 @@
-<p>cart-total-items works!</p>
-
-{{ totalPrice }}
-
-{{ items.title }}
-
-<div class="item" *ngFor="let item of items">
-    <p>{{ item.title }}</p>
-    <p>${{ item.price }}</p>
-</div>
+<ul *ngFor="let item of items">
+    <div class="product-information">
+        <li>{{ item.title }}</li>
+        <li>${{ item.price }}</li>
+    </div>
+    <div class="remove-button">
+        <li>
+            <div (click)="removeCartItems(item.id)"><img src="/assets/images/delete-button.svg" width="30" alt="Remove"></div>
+        </li>
+    </div>
+</ul>
