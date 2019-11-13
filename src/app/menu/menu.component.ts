@@ -48,7 +48,11 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.onSearch();
-    this.showCartItems();
+    // this.showCartItems();
+  }
+
+  ngAfterContentInit() {
+    // this.showCartItems();
   }
 
   openModal(template: TemplateRef<any>) {
@@ -58,7 +62,6 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public showCartItems() {
     this.showCartItemsService.getItems().subscribe((data => {
       this.cartItems = data.countItems;
-      console.log(data.countItems);
     }));
   }
 
