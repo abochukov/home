@@ -31,6 +31,10 @@ export class DataService {
     return this.http.get<SubCategories>(`http://localhost:4000/api/categories/${id}`)
    }
 
+   getProduct(productId: number): Observable<Products> {
+     return this.http.get<Products>(`http://localhost:4000/api/product/${productId}`);
+   }
+
    getProducts(subCategoryId: number): Observable<Products> {
     return this.http.get<Products>(`http://localhost:4000/api/products/${subCategoryId}`);   
    }
