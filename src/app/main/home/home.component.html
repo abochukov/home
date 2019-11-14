@@ -8,9 +8,9 @@
         <div class="item" *ngFor="let product of products">
             <p>{{ product.productTitle }}</p>
             <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)">
+            <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p>
             <p>{{ product.productPrice }} лв</p>
-            <p (click)="openModal(productDetails, product.id)">информация</p>
-            <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">Add to cart</button>        
+            <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">добави</button>        
         </div>
         
         <app-cart [cartProducts]="cartProducts"></app-cart>
@@ -55,6 +55,8 @@
                 <div class="product-description">
                     {{ productDescription }}
                 </div>
+
+                <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">добави</button>        
             </div>
         </div>
     </ng-template>

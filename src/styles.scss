@@ -33,8 +33,8 @@ ul {
     }
 
     .modal-details {
-        display: flex;
-        flex-direction: row;
+        // display: flex;
+        // flex-direction: row;
     }
 
     .close {
@@ -49,6 +49,8 @@ ul {
     }
 
     .gallery-details {
+        float: left;
+        padding-right: 15px;
         display: flex;
         flex-direction: column;
         width: 75%;
@@ -91,7 +93,8 @@ ul {
     }
     
     .product-description {
-        padding: 0 20px;
+        // padding: 0 20px;
+        padding: 0;
     }
 }
   

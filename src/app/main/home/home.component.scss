@@ -80,9 +80,11 @@
             }
 
             & .add-to-cart:hover {
-                background: transparent;
-                border: 1px solid #ee5816;
-                color: #ee5816;
+                // background: transparent;
+                // color: #ee5816;
+                background-image: linear-gradient(to bottom, #f6ad8d, #f69970, #f58554, #f26f37, #ee5816);
+                color: #fff;
+                border: 1px solid #fff;
                 outline: 0;
             }
         }
