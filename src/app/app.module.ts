@@ -7,15 +7,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ContactsComponent } from './contacts/contacts.component';
+import { HomeComponent } from './main/home/home.component';
+import { ContactsComponent } from './main/contacts/contacts.component';
 
 import { HttpClientModule }    from '@angular/common/http';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './main/search/search.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { MenuComponent } from './menu/menu.component';
-import { CartComponent } from './cart/cart.component';
-import { CartTotalItemsComponent } from './cart/cart-total-items/cart-total-items.component';
+import { MenuComponent } from './main/menu/menu.component';
+import { CartComponent } from './main/cart/cart.component';
+import { CartTotalItemsComponent } from './main/cart/cart-total-items/cart-total-items.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Categories, SubCategories, Products } from './items';
-import { imageDetails } from './image';
+import { Categories, SubCategories, Products } from './common/interfaces/items';
+import { imageDetails } from './common/interfaces/image';
 
 // import 'rxjs/Rx';
 import { Observable } from 'rxjs';

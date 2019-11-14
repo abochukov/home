@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { Categories, SubCategories, Products } from '../items';
+import { Categories, SubCategories, Products } from '../common/interfaces/items';
 
 import { DataService } from '../data.service';
 

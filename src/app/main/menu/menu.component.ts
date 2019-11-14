@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit, TemplateRef, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
-import { ToggleCategoriesService } from '../common/services/toggle-categories.service';
-import { DataService } from '../data.service';
-import { ShowCartItemsService } from '../common/services/show-cart-items.service';
+import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
+import { DataService } from '../../data.service';
+import { ShowCartItemsService } from '../../common/services/show-cart-items.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';

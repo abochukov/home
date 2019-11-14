@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 
-import { DataService } from '../data.service';
+import { DataService } from '../../data.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
