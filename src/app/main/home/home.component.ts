@@ -4,7 +4,6 @@ import { ToggleCategoriesService } from '../../common/services/toggle-categories
 import { DataService } from '../../data.service';
 
 import { Products, Categories } from '../../common/interfaces/items';
-import { imageDetails } from '../../common/interfaces/image';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
@@ -26,9 +25,11 @@ export class HomeComponent implements OnInit, OnChanges {
   public categoryStatus: boolean = false;
   public mobileResolution: boolean = false;
   public screenWidth: number;
-  public productDescription: string;
-  public headDetailImage: string;
-  public detailsImages: imageDetails;
+  // public productDescription: string;
+  // public headDetailImage: string;
+  // public detailsImages: imageDetails;
+
+  public productId: number;
 
   // public searchResults;
 
@@ -101,18 +102,12 @@ export class HomeComponent implements OnInit, OnChanges {
   }
 
   openModal(template: TemplateRef<any>, productId: number) {
+    this.productId = productId;
     this.modalRef = this.modalService.show(template, this.config);
+  }
 
-    this.dataService.getProductDetails(productId).subscribe(data => {
-      this.productDescription = data[0].description;
-    });
-
-    this.dataService.getProductDetailsImages(productId).subscribe(data => {
-      this.detailsImages = data;
-      this.headDetailImage = data[0].images;
-    })
-
-    this.gallery();
+  closeModal() {
+    this.modalRef.hide()
   }
 
   @HostListener('window:resize', ['$event'])
@@ -123,31 +118,6 @@ export class HomeComponent implements OnInit, OnChanges {
       } else {
         this.mobileResolution = false;
       }
-    }
-
-    public gallery() {
-      setTimeout(() => {
-        const current = document.querySelector('#selected');
-        const thumbs = document.querySelectorAll('.thumbs img');
-        const opacity = '0.5';
-  
-        (thumbs[0] as HTMLElement).style.opacity = opacity;
-  
-        
-        thumbs.forEach(img => img.addEventListener('click', imgActivate));
-  
-        function imgActivate(e) {
-          thumbs.forEach(img => ((img as HTMLElement).style.opacity = '1'));
-  
-          (current as HTMLImageElement).src = e.target.src;
-  
-          current.classList.add('fade-in');
-  
-          setTimeout(() => current.classList.remove('fade-in'), 500);
-  
-          e.target.style.opacity = opacity;
-        }
-      }, 500)
     }
 
     public search() {

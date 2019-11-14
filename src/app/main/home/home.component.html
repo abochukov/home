@@ -8,7 +8,7 @@
         <div class="item" *ngFor="let product of products">
             <p>{{ product.productTitle }}</p>
             <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)">
-            <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p>
+            <p (click)="sendMe(product)" class="product-details">повече информация</p>
             <p>{{ product.productPrice }} лв</p>
             <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">добави</button>        
         </div>
@@ -30,33 +30,7 @@
     <!-- Alert message for already add product -->
 
     <ng-template #productDetails>
-        <div class="modal-header">
-            <h4 class="modal-title pull-left">Описание на продукта</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-details">
-                <div class="gallery-details">
-                    <div class="panel-main">
-                        <img src="{{ headDetailImage }}" id="selected">
-                    </div>
-    
-                    <div class="panel-thumbnails">
-                        <ng-container *ngFor="let image of detailsImages">
-                            <div class="thumbs">
-                                <img src="{{ image.images }}">
-                            </div>
-                        </ng-container>
-                    </div>
-                </div>
-    
-                <div class="product-description">
-                    {{ productDescription }}
-                </div>
-            </div>
-        </div>
+            <app-product-details [productId]="productId" (onClose)="closeModal()"></app-product-details>
     </ng-template>
 
 </div>
