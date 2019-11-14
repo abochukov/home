@@ -39,6 +39,14 @@
             align-items: center;
             padding-top: 5px; 
 
+            & p:first-child {
+                width: 90%;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
             & img {
                 width: auto;
                 height: 125px;
