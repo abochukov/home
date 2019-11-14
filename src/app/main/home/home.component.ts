@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
     setTimeout(() => {
       message.textContent = message.textContent.split(" ").slice(0,2).join(" ");
-    }, 3200);
+    }, 3100);
   } 
 
   public removeItemNotification() {
