@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, TemplateRef, HostListener, Input } from '@angular/core';
 
-import { ToggleCategoriesService } from '../toggle-categories.service';
+import { ToggleCategoriesService } from '../common/services/toggle-categories.service';
 import { DataService } from '../data.service';
 
 import { Products, Categories } from '../items';

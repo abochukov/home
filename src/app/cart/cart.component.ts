@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { DataService } from '../data.service';
 import { HomeComponent } from '../home/home.component';
 
-import { ToggleCategoriesService } from '../toggle-categories.service';
+import { ToggleCategoriesService } from '../common/services/toggle-categories.service';
 import { ShowCartItemsService } from '../common/services/show-cart-items.service';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
