@@ -68,17 +68,33 @@ export class HomeComponent implements OnInit, OnChanges {
     this.cartProducts = { id: id, title: title, price: price }
   }
 
-  public addItemNotification() {
+  public addItemNotification(productTitle: string) {
     let message = document.getElementById('add-item');
-    
+    // let productMessageTitle = document.createTextNode(title);
+    // message.appendChild(productMessageTitle);
+    message.textContent += " " + productTitle;
+
     message.classList.add('toggleMessage');
     setTimeout(() => {
       message.classList.remove('toggleMessage');
     }, 3000);
-  }
+
+    setTimeout(() => {
+      message.textContent = message.textContent.split(" ").slice(0,2).join(" ");
+    }, 3200);
+  } 
 
   public removeItemNotification() {
     let message = document.getElementById('remove-item');
+
+    message.classList.add('toggleMessage');
+    setTimeout(() => {
+      message.classList.remove('toggleMessage');
+    }, 3000)
+  }
+
+  public alertItemNotification() {
+    let message = document.getElementById('already-add-item');
 
     message.classList.add('toggleMessage');
     setTimeout(() => {

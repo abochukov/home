@@ -80,9 +80,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       if(index == -1) {
         cart.push(JSON.stringify(item));
         localStorage.setItem('cart', JSON.stringify(cart));
-        this.addItemNotification();
-        // this.addItemNotification(item.title); 
+        // this.addItemNotification();
+        this.addItemNotification(item.title); 
       } else {
+        this.alertItemNotification();
         let item = JSON.parse(cart[index]);
         // item.quantity += 1;
         cart[index] = JSON.stringify(item);
@@ -109,7 +110,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         this.totalPrice += Number(item.price);
       }
       this.showCartItemsService.setItems(this.items.length);
-      // console.log(this.items.length);
     }
   }
 
@@ -156,7 +156,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   onSubmit() {
     let orderDate = new Date();
-    
     for(let i = 0; i < this.cartItems.length; i++) {
       let item = JSON.parse(this.cartItems[i]);
       if(this.orderForm.valid) {

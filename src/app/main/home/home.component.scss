@@ -83,7 +83,7 @@
         }
     }
 
-    .add-item-notification, .remove-item-notification {
+    .add-item-notification, .remove-item-notification, .already-add-item-notification {
         opacity: 0;
     }
 
@@ -100,6 +100,8 @@
 
         p {
             color: #fff;
+            line-height: 30px;
+            margin-top: 10px;
         }
     }
 
@@ -107,13 +109,38 @@
     .remove-item-notification {
         position: absolute;
         bottom: 10%;
-        left: 0;
+        right: 0;
         background:#ff3547;
-        width: 100%;
+        width: 400px;
         height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         p {
             color: #fff;
+            line-height: 30px;
+            margin-top: 10px;
+
+        }
+    }
+
+    .already-add-item-notification  {
+        position: absolute;
+        bottom: 10%;
+        right: 0;
+        background:#ffbb33;
+        width: 400px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            color: #fff;
+            line-height: 30px;
+            margin-top: 10px;
+
         }
     }
 
@@ -124,6 +151,7 @@
         animation-duration: 3s;
         opacity: 0;
         right: -30%;
+        color: #fff;
     }
 
     /* Safari 4.0 - 8.0 */
