@@ -43,7 +43,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
     ) { }
 
   ngOnInit() {
-    this.showCartItems();
+    //this.showCartItems();
   }
 
   ngAfterViewInit() {
