@@ -14,6 +14,9 @@ app.use('/api/categories', categoriesRouter);
 const productsRouter = require('./routes/products.js');
 app.use('/api/products', productsRouter);
 
+const productRouter = require('./routes/product.js');
+app.use('/api/product', productRouter);
+
 const ordersRouter = require('./routes/orders.js');
 app.use('/api/orders', ordersRouter);
 
