@@ -16,6 +16,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { MenuComponent } from './main/menu/menu.component';
 import { CartComponent } from './main/cart/cart.component';
 import { CartTotalItemsComponent } from './main/cart/cart-total-items/cart-total-items.component';
+import { ProductDetailsComponent } from './main/home/product-details/product-details.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     MenuComponent,
     CartComponent,
     CartTotalItemsComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
