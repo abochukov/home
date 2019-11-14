@@ -70,8 +70,6 @@ export class HomeComponent implements OnInit, OnChanges {
 
   public addItemNotification(productTitle: string) {
     let message = document.getElementById('add-item');
-    // let productMessageTitle = document.createTextNode(title);
-    // message.appendChild(productMessageTitle);
     message.textContent += " " + productTitle;
 
     message.classList.add('toggleMessage');
