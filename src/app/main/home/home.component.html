@@ -8,7 +8,7 @@
         <div class="item" *ngFor="let product of products">
             <p>{{ product.productTitle }}</p>
             <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)">
-            <p (click)="sendMe(product)" class="product-details">повече информация</p>
+            <p (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
             <p>{{ product.productPrice }} лв</p>
             <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">вземи</button>        
         </div>
