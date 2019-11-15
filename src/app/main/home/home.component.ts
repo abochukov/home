@@ -63,12 +63,10 @@ export class HomeComponent implements OnInit, OnChanges {
 
   public saveToLocalStorage(id: number, title: string, price: string) {
     this.cartProducts = { id: id, title: title, price: price }
-    console.log(id, title, price)
   }
 
   public addFromProductDetails(productDetails: { id: number, title: string, price:number }) {
     this.cartProducts = {id: productDetails.id, title: productDetails.title, price: productDetails.price }
-    console.log(productDetails.id, productDetails.title, productDetails.price)
   }
 
   public addItemNotification(productTitle: string) {
