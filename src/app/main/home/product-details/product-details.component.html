@@ -23,5 +23,7 @@
         <div class="product-description">
             {{ productDescription }}
         </div>
+        {{ productPrice }}
+        <button (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">добави</button>
     </div>
 </div>

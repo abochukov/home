@@ -58,7 +58,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   public addCartItems() { 
     let item = { id: this.cartProducts.id, title: this.cartProducts.title, price: this.cartProducts.price };
-    
+    console.log(item);
     if(localStorage.getItem('cart') == null) {
       let cart: any = [];
       cart.push(JSON.stringify(item))

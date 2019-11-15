@@ -7,6 +7,7 @@ import { Products, Categories } from '../../common/interfaces/items';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -25,13 +26,8 @@ export class HomeComponent implements OnInit, OnChanges {
   public categoryStatus: boolean = false;
   public mobileResolution: boolean = false;
   public screenWidth: number;
-  // public productDescription: string;
-  // public headDetailImage: string;
-  // public detailsImages: imageDetails;
 
   public productId: number;
-
-  // public searchResults;
 
   @Input() getSearchedResults: Event;
 
@@ -67,6 +63,12 @@ export class HomeComponent implements OnInit, OnChanges {
 
   public saveToLocalStorage(id: number, title: string, price: string) {
     this.cartProducts = { id: id, title: title, price: price }
+    console.log(id, title, price)
+  }
+
+  public addFromProductDetails(productDetails: { id: number, title: string, price:number }) {
+    this.cartProducts = {id: productDetails.id, title: productDetails.title, price: productDetails.price }
+    console.log(productDetails.id, productDetails.title, productDetails.price)
   }
 
   public addItemNotification(productTitle: string) {

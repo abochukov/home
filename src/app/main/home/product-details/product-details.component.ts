@@ -12,12 +12,14 @@ import { imageDetails } from '../../../common/interfaces/image';
 export class ProductDetailsComponent implements OnInit, OnChanges {
 
     public productTitle: string;
+    public productPrice: number;
     public productDescription: string;
     public headDetailImage: string;
     public detailsImages: imageDetails;
 
   @Input() productId: any;
   @Output() onClose = new EventEmitter();
+  @Output() onAdd = new EventEmitter<{id: number, title: string, price: number}>();
 
   constructor( private dataService: DataService) { }
 
@@ -31,6 +33,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   public productDetails() {
     this.dataService.getProduct(this.productId).subscribe(data => {
       this.productTitle = data[0].productTitle;
+      this.productPrice = data[0].productPrice;
     })
 
     this.dataService.getProductDetails(this.productId).subscribe(data => {
@@ -73,6 +76,10 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
   public closeModal() {
     this.onClose.emit();
+  }
+
+  addProduct(id: number, title: string, price: number) {
+    this.onAdd.emit({id: id, title: title, price: price});
   }
 
 }

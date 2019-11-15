@@ -30,7 +30,7 @@
     <!-- Alert message for already add product -->
 
     <ng-template #productDetails>
-            <app-product-details [productId]="productId" (onClose)="closeModal()"></app-product-details>
+            <app-product-details [productId]="productId" (onClose)="closeModal()" (onAdd)="addFromProductDetails($event)"></app-product-details>
     </ng-template>
 
 </div>
