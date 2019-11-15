@@ -10,7 +10,7 @@
             <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)">
             <p (click)="sendMe(product)" class="product-details">повече информация</p>
             <p>{{ product.productPrice }} лв</p>
-            <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">добави</button>        
+            <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">вземи</button>        
         </div>
         
         <app-cart [cartProducts]="cartProducts"></app-cart>

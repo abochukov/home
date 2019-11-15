@@ -14,3 +14,10 @@
     border: 1px solid #fff;
     outline: 0;
 }
+
+.modal-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
