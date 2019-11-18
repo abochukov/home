@@ -6,8 +6,8 @@ import { DataService } from '../../data.service';
 import { Products, Categories } from '../../common/interfaces/items';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Subscription } from 'rxjs';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Subscription, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit, OnChanges {
   public screenWidth: number;
 
   public productId: number;
+  public productIds: any;
 
   @Input() getSearchedResults: Event;
 
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit, OnChanges {
     private modalService: BsModalService, 
     private toggleCategoriesService: ToggleCategoriesService,
     protected dataService: DataService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -104,6 +106,7 @@ export class HomeComponent implements OnInit, OnChanges {
   openModal(template: TemplateRef<any>, productId: number) {
     this.productId = productId;
     this.modalRef = this.modalService.show(template, this.config);
+    this.router.navigate(['single-product', productId]);
   }
 
   closeModal() {

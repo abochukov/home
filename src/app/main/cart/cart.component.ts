@@ -8,6 +8,7 @@ import { ToggleCategoriesService } from '../../common/services/toggle-categories
 import { ShowCartItemsService } from '../../common/services/show-cart-items.service';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 
 
 // import { getDate, getMonth, getFullYear } from 'ngx-bootstrap/chronos/utils/date-getters';
@@ -38,8 +39,9 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     private modalServices: BsModalService, 
     private toggleCategories: ToggleCategoriesService,
     private showCartItemsService: ShowCartItemsService,
+    private routerz: Router
   ) { 
-    super(modalServices, toggleCategories, dataService);
+    super(modalServices, toggleCategories, dataService, routerz);
   }
 
   ngOnInit() {
@@ -58,7 +60,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   public addCartItems() { 
     let item = { id: this.cartProducts.id, title: this.cartProducts.title, price: this.cartProducts.price };
-    console.log(item);
+    
     if(localStorage.getItem('cart') == null) {
       let cart: any = [];
       cart.push(JSON.stringify(item))

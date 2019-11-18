@@ -19,6 +19,7 @@ import { CartTotalItemsComponent } from './main/cart/cart-total-items/cart-total
 import { ProductDetailsComponent } from './main/home/product-details/product-details.component';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'contacts', component: ContactsComponent },
