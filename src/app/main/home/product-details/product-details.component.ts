@@ -1,9 +1,10 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
 
+import { AddCartItemsFromDetailsService } from '../../../common/services/add-cart-items-from-details.service';
+import { DataService } from '../../../data.service';
+
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router, ActivatedRoute } from '@angular/router'
-
-import { DataService } from '../../../data.service';
 
 import { imageDetails } from '../../../common/interfaces/image';
 
@@ -27,7 +28,13 @@ export class ProductDetailsComponent implements OnInit, OnChanges, AfterViewInit
 
     @ViewChild('template', {static: false}) templateRef: TemplateRef<any>;
 
-  constructor( private dataService: DataService, private modalService: BsModalService, private route: ActivatedRoute, private router: Router) { }
+  constructor( 
+    private dataService: DataService, 
+    private modalService: BsModalService, 
+    private route: ActivatedRoute, 
+    private router: Router,
+    private addCartItemsFromDetailsService: AddCartItemsFromDetailsService,
+  ) { }
 
   ngOnInit() {
     this.urlProductId = this.route.snapshot.params.id;
@@ -91,7 +98,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges, AfterViewInit
   }
 
   addProduct(id: number, title: string, price: number) {
-    this.onAdd.emit({id: id, title: title, price: price});
+    this.addCartItemsFromDetailsService.setItems({id: id, title: title, price: price});
   }
 
 }

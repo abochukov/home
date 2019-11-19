@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, HostListener, Input } from '@angular/core
 
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { DataService } from '../../data.service';
+import { AddCartItemsFromDetailsService } from '../../common/services/add-cart-items-from-details.service';
 
 import { Products, Categories } from '../../common/interfaces/items';
  
@@ -31,13 +32,18 @@ export class HomeComponent implements OnInit, OnChanges {
   constructor( 
     private toggleCategoriesService: ToggleCategoriesService,
     protected dataService: DataService,
+    private addCartItemsFromDetails: AddCartItemsFromDetailsService,
   ) { }
 
   ngOnInit() {
     this.onResize(event);
     this.subscription = this.toggleCategoriesService.getStatus().subscribe(status => {
       this.categoryStatus = status.status;
-    });   
+    }); 
+    
+    this.addCartItemsFromDetails.getItems().subscribe(items => {
+      this.cartProducts = { id: items.items.id, title: items.items.title, price: items.items.price }
+    })
   }
 
   ngOnChanges() {
