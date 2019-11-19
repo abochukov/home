@@ -28,23 +28,6 @@ export class CategoriesComponent implements OnInit {
     this.openProductsByDefault();
   }
 
-  public openProductsByDefault() {
-    this.selectedElement = 1;
-    this.selectedSubCategory = 1;
-    this.router.navigate([], {
-      queryParams: {
-        cat: this.selectedElement,
-        subCat: this.selectedSubCategory
-      },
-      queryParamsHandling: 'merge'
-    })
-
-    this.dataService.getProducts(1).subscribe(products => {
-      this.products = products;
-      this.showProducts.emit(this.products);
-    })
-  }
-
   public getAllCategories() {
     this.dataService.getAllCategories().subscribe(categories => {
       this.categories = categories;
@@ -75,6 +58,26 @@ export class CategoriesComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     })
+  }
+
+  public openProductsByDefault() {
+    this.selectedElement = 1;
+    this.selectedSubCategory = 1;
+
+    this.router.navigate([], {
+      queryParams: {
+        cat: this.selectedElement,
+        subCat: this.selectedSubCategory
+      },
+      queryParamsHandling: 'merge'
+    })
+
+    this.dataService.getProducts(1).subscribe(products => {
+      this.products = products;
+      this.showProducts.emit(this.products);
+    })
+    
+    this.showSubCategories(1);
   }
 
 }
