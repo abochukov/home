@@ -1,31 +1,33 @@
-<div class="modal-header">
-    <h4 class="modal-title pull-left">{{ productTitle }}</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-    <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="modal-body">
-    <div class="modal-details">
-        <div class="gallery-details">
-            <div class="panel-main">
-                <img src="{{ headDetailImage }}" id="selected">
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ productTitle }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-details">
+            <div class="gallery-details">
+                <div class="panel-main">
+                    <img src="{{ headDetailImage }}" id="selected">
+                </div>
+            
+                <div class="panel-thumbnails">
+                    <ng-container *ngFor="let image of detailsImages">
+                        <div class="thumbs">
+                            <img src="{{ image.images }}">
+                        </div>
+                    </ng-container>
+                </div>
             </div>
-        
-            <div class="panel-thumbnails">
-                <ng-container *ngFor="let image of detailsImages">
-                    <div class="thumbs">
-                        <img src="{{ image.images }}">
-                    </div>
-                </ng-container>
+            
+            <div class="product-description">
+                {{ productDescription }}
             </div>
-        </div>
-        
-        <div class="product-description">
-            {{ productDescription }}
-        </div>
-        <div class="modal-footer">
-            <button (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">вземи</button>
-            Цена: {{ productPrice }} лв
+            <div class="modal-footer">
+                <button (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">вземи</button>
+                Цена: {{ productPrice }} лв
+            </div>
         </div>
     </div>
-</div>
+</ng-template>

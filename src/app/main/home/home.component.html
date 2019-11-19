@@ -7,7 +7,8 @@
     <div class="wrapper">
         <div class="item" *ngFor="let product of products">
             <p>{{ product.productTitle }}</p>
-            <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)">
+            <!-- <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)"> -->
+            <img src="{{ product.productImage }}" routerLink='/product/{{product.id}}'>
             <p (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
             <p>{{ product.productPrice }} лв</p>
             <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">вземи</button>
@@ -31,9 +32,9 @@
     </div>
     <!-- Alert message for already add product -->
 
-    <ng-template #productDetails>
+    <!-- <ng-template #productDetails>
             <app-product-details [productId]="productId" (onClose)="closeModal()" (onAdd)="addFromProductDetails($event)"></app-product-details>
-    </ng-template>
+    </ng-template> -->
 
 </div>
 
