@@ -16,3 +16,9 @@ export interface SubCategories {
     categoryId: number;
     subCategoryName: string;
 }
+
+export interface addCartItemsFromDetails {
+    id: number;
+    title: string;
+    price: number;
+}
