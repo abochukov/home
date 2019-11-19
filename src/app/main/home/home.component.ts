@@ -106,12 +106,18 @@ export class HomeComponent implements OnInit, OnChanges {
   openModal(template: TemplateRef<any>, productId: number) {
     this.productId = productId;
     this.modalRef = this.modalService.show(template, this.config);
-    this.router.navigate(['single-product', productId]);
+    // this.router.navigate();
   }
 
   closeModal() {
     this.modalRef.hide()
   }
+
+  // public openTestModal(id: any) {
+  //   // this.router.navigateByUrl(`/product/{id}`);
+  //   // this.router.navigateByUrl('product/', id)
+  //   console.log('this should open modal', id);
+  // }
 
   @HostListener('window:resize', ['$event'])
     onResize(event?) {
