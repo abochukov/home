@@ -2,10 +2,11 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { DataService } from '../../data.service';
-import { HomeComponent } from '../home/home.component';
-
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { ShowCartItemsService } from '../../common/services/show-cart-items.service';
+import { AddCartItemsFromDetailsService } from '../../common/services/add-cart-items-from-details.service';
+
+import { HomeComponent } from '../home/home.component';
 
 // import { getDate, getMonth, getFullYear } from 'ngx-bootstrap/chronos/utils/date-getters';
 
@@ -34,8 +35,9 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     dataService: DataService, 
     private toggleCategories: ToggleCategoriesService,
     private showCartItemsService: ShowCartItemsService,
+    private addCartItemsFromDetailsService: AddCartItemsFromDetailsService
   ) { 
-    super(toggleCategories, dataService);
+    super(toggleCategories, dataService, addCartItemsFromDetailsService);
   }
 
   ngOnInit() {
