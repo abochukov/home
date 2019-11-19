@@ -5,8 +5,7 @@ import { DataService } from '../../data.service';
 
 import { Products, Categories } from '../../common/interfaces/items';
  
-import { Subscription, Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +31,6 @@ export class HomeComponent implements OnInit, OnChanges {
   constructor( 
     private toggleCategoriesService: ToggleCategoriesService,
     protected dataService: DataService,
-    private router: Router,
   ) { }
 
   ngOnInit() {

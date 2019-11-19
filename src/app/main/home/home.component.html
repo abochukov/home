@@ -7,13 +7,10 @@
     <div class="wrapper">
         <div class="item" *ngFor="let product of products">
             <p>{{ product.productTitle }}</p>
-            <!-- <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)"> -->
             <img src="{{ product.productImage }}" routerLink='/product/{{product.id}}'>
             <p  routerLink='/product/{{product.id}}' class="product-details">повече информация</p>
             <p>{{ product.productPrice }} лв</p>
             <button (click)="saveToLocalStorage(product.id, product.productTitle, product.productPrice)" class="add-to-cart">вземи</button>
-            <a routerLink='/product/{{product.id}}'>Modal Test</a>        
-            <!-- <a (click)="openTestModal(product.id)">Test Modal</a> -->
         </div>
         
         <app-cart [cartProducts]="cartProducts"></app-cart>

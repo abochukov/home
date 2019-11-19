@@ -7,9 +7,6 @@ import { HomeComponent } from '../home/home.component';
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { ShowCartItemsService } from '../../common/services/show-cart-items.service';
 
-import { Router } from '@angular/router';
-
-
 // import { getDate, getMonth, getFullYear } from 'ngx-bootstrap/chronos/utils/date-getters';
 
 @Component({
@@ -37,9 +34,8 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     dataService: DataService, 
     private toggleCategories: ToggleCategoriesService,
     private showCartItemsService: ShowCartItemsService,
-    private routerz: Router
   ) { 
-    super(toggleCategories, dataService, routerz);
+    super(toggleCategories, dataService);
   }
 
   ngOnInit() {
