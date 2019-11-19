@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { DataService } from '../../data.service';
 import { HomeComponent } from '../home/home.component';
@@ -7,7 +7,6 @@ import { HomeComponent } from '../home/home.component';
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { ShowCartItemsService } from '../../common/services/show-cart-items.service';
 
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 
 
@@ -36,12 +35,11 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   constructor( 
     private fb: FormBuilder, 
     dataService: DataService, 
-    private modalServices: BsModalService, 
     private toggleCategories: ToggleCategoriesService,
     private showCartItemsService: ShowCartItemsService,
     private routerz: Router
   ) { 
-    super(modalServices, toggleCategories, dataService, routerz);
+    super(toggleCategories, dataService, routerz);
   }
 
   ngOnInit() {

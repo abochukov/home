@@ -1,11 +1,10 @@
-import { Component, OnInit, OnChanges, TemplateRef, HostListener, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, HostListener, Input } from '@angular/core';
 
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { DataService } from '../../data.service';
 
 import { Products, Categories } from '../../common/interfaces/items';
  
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -20,8 +19,6 @@ export class HomeComponent implements OnInit, OnChanges {
   public cartProducts: any = {};
   public itemName: string;
 
-  modalRef: BsModalRef;
-
   subscription: Subscription;
   public categoryStatus: boolean = false;
   public mobileResolution: boolean = false;
@@ -32,16 +29,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
   @Input() getSearchedResults: Event;
 
-  config = {
-    animated: false,
-    keyboard: true,
-    backdrop: true,
-    ignoreBackdropClick: false,
-    class: "modal-lg",
-  };
-
   constructor( 
-    private modalService: BsModalService, 
     private toggleCategoriesService: ToggleCategoriesService,
     protected dataService: DataService,
     private router: Router,
@@ -102,22 +90,6 @@ export class HomeComponent implements OnInit, OnChanges {
       message.classList.remove('toggleMessage');
     }, 3000)
   }
-
-  openModal(template: TemplateRef<any>, productId: number) {
-    this.productId = productId;
-    this.modalRef = this.modalService.show(template, this.config);
-    // this.router.navigate();
-  }
-
-  closeModal() {
-    this.modalRef.hide()
-  }
-
-  // public openTestModal(id: any) {
-  //   // this.router.navigateByUrl(`/product/{id}`);
-  //   // this.router.navigateByUrl('product/', id)
-  //   console.log('this should open modal', id);
-  // }
 
   @HostListener('window:resize', ['$event'])
     onResize(event?) {
