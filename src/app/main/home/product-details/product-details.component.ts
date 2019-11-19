@@ -14,7 +14,7 @@ import { imageDetails } from '../../../common/interfaces/image';
 })
 export class ProductDetailsComponent implements OnInit, OnChanges, AfterViewInit {
     
-    public productIds: any;
+    public urlProductId: any;
     public productTitle: string;
     public productPrice: number;
     public productDescription: string;
@@ -23,8 +23,6 @@ export class ProductDetailsComponent implements OnInit, OnChanges, AfterViewInit
 
     modalRef: BsModalRef;
 
-    // @Input() productId: any;
-    @Output() onClose = new EventEmitter();
     @Output() onAdd = new EventEmitter<{id: number, title: string, price: number}>();
 
     @ViewChild('template', {static: false}) templateRef: TemplateRef<any>;
@@ -32,37 +30,34 @@ export class ProductDetailsComponent implements OnInit, OnChanges, AfterViewInit
   constructor( private dataService: DataService, private modalService: BsModalService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.productIds = this.route.snapshot.params.id;
-    console.log(this.productIds)
+    this.urlProductId = this.route.snapshot.params.id;
   }
 
   ngOnChanges() {
-    // this.productDetails();
   }
 
   ngAfterViewInit() { 
-    this.modalRef = this.modalService.show(this.templateRef);
+    this.modalRef = this.modalService.show(this.templateRef, {class: 'modal-lg'});
     this.productDetails();
   }
 
   closeModal() {
     this.modalRef.hide();
     this.router.navigate(['/home']);
-    console.log('this should close modal')
   }
 
   public productDetails() {
-    this.dataService.getProduct(this.productIds).subscribe(data => {
+    this.dataService.getProduct(this.urlProductId).subscribe(data => {
       this.productTitle = data[0].productTitle;
       this.productPrice = data[0].productPrice;
     })
 
-    this.dataService.getProductDetails(this.productIds).subscribe(data => {
+    this.dataService.getProductDetails(this.urlProductId).subscribe(data => {
       this.productDescription = data[0].description;  
       // TO DO: check if data is empty
     });
 
-    this.dataService.getProductDetailsImages(this.productIds).subscribe(data => {
+    this.dataService.getProductDetailsImages(this.urlProductId).subscribe(data => {
       this.detailsImages = data;
       this.headDetailImage = data[0].images;
     })
@@ -94,10 +89,6 @@ export class ProductDetailsComponent implements OnInit, OnChanges, AfterViewInit
       }
     }, 500)
   }
-
-  // public closeModal() {
-  //   this.onClose.emit();
-  // }
 
   addProduct(id: number, title: string, price: number) {
     this.onAdd.emit({id: id, title: title, price: price});
