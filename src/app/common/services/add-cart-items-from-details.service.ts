@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { addCartItemsFromDetails } from '../interfaces/items';
+
 import { Subject, Observable } from 'rxjs';
 
 @Injectable({
@@ -13,8 +15,8 @@ export class AddCartItemsFromDetailsService {
     return this.subject.asObservable();
   }
 
-  public setItems(message: string) {
-    this.subject.next({text: message})
+  public setItems(items: addCartItemsFromDetails) {
+    this.subject.next({items: items})
   }
 
   constructor() { }
