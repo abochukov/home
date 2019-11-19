@@ -25,10 +25,12 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCategories();
+    this.selectedElement = 1;
+    this.selectedSubCategory = 1;
     this.router.navigate([], {
       queryParams: {
-        cat: 1,
-        subCat: 1
+        cat: this.selectedElement,
+        subCat: this.selectedSubCategory
       },
       queryParamsHandling: 'merge'
     })
