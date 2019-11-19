@@ -25,6 +25,10 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCategories();
+    this.openProductsByDefault();
+  }
+
+  public openProductsByDefault() {
     this.selectedElement = 1;
     this.selectedSubCategory = 1;
     this.router.navigate([], {
