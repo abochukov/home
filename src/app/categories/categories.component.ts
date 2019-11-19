@@ -1,8 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import { DataService } from '../data.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Categories, SubCategories, Products } from '../common/interfaces/items';
 
-import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-categories',
@@ -19,10 +21,22 @@ export class CategoriesComponent implements OnInit {
 
   @Output() showProducts = new EventEmitter();
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getAllCategories();
+    this.router.navigate([], {
+      queryParams: {
+        cat: 1,
+        subCat: 1
+      },
+      queryParamsHandling: 'merge'
+    })
+
+    this.dataService.getProducts(1).subscribe(products => {
+      this.products = products;
+      this.showProducts.emit(this.products);
+    })
   }
 
   public getAllCategories() {
@@ -36,6 +50,7 @@ export class CategoriesComponent implements OnInit {
       this.subCategories = subCategories;
     })
     this.selectedElement = id;
+    
   }
 
   public sendProducts(id: number) {
@@ -44,6 +59,16 @@ export class CategoriesComponent implements OnInit {
       this.showProducts.emit(this.products);
     })
     this.selectedSubCategory = id;
+    console.log(this.selectedElement)
+    console.log(this.selectedSubCategory);
+
+    this.router.navigate([], {
+      queryParams: {
+        cat: this.selectedElement,
+        subCat: this.selectedSubCategory
+      },
+      queryParamsHandling: 'merge'
+    })
   }
 
 }

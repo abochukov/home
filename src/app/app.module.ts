@@ -20,12 +20,14 @@ import { ProductDetailsComponent } from './main/home/product-details/product-det
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  // { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'wiki-search', component: SearchComponent },
-  // { path: 'product/:id', component: ModalComponent }
-  { path: 'product/:id', component: ProductDetailsComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'home/:cat', component: HomeComponent },
+  { path: 'home/:cat/:subCat', component: HomeComponent },
+  { path: 'product/:id', component: ProductDetailsComponent },
 ]
 
 @NgModule({
