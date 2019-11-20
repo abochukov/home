@@ -19,7 +19,7 @@ import { CartTotalItemsComponent } from './main/cart/cart-total-items/cart-total
 import { ProductDetailsComponent } from './main/home/product-details/product-details.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'wiki-search', component: SearchComponent },

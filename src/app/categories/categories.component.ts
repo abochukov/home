@@ -1,8 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import { DataService } from '../data.service';
+
 import { Categories, SubCategories, Products } from '../common/interfaces/items';
 
-import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -19,10 +21,11 @@ export class CategoriesComponent implements OnInit {
 
   @Output() showProducts = new EventEmitter();
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
     this.getAllCategories();
+    this.openProductsByDefault();
   }
 
   public getAllCategories() {
@@ -44,6 +47,37 @@ export class CategoriesComponent implements OnInit {
       this.showProducts.emit(this.products);
     })
     this.selectedSubCategory = id;
+
+    console.log(this.selectedElement)
+    console.log(this.selectedSubCategory);
+
+    this.router.navigate([], {
+      queryParams: {
+        cat: this.selectedElement,
+        subCat: this.selectedSubCategory
+      },
+      queryParamsHandling: 'merge'
+    })
+  }
+
+  public openProductsByDefault() {
+    this.selectedElement = 1;
+    this.selectedSubCategory = 1;
+
+    this.router.navigate([], {
+      queryParams: {
+        cat: this.selectedElement,
+        subCat: this.selectedSubCategory
+      },
+      queryParamsHandling: 'merge'
+    })
+
+    this.dataService.getProducts(1).subscribe(products => {
+      this.products = products;
+      this.showProducts.emit(this.products);
+    })
+    
+    this.showSubCategories(1);
   }
 
 }
