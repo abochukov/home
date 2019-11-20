@@ -7,7 +7,7 @@ import { Products, Categories } from '../../common/interfaces/items';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit, OnChanges {
   public screenWidth: number;
 
   public productId: number;
+  public currentUrl: any;
 
   @Input() getSearchedResults: Event;
 
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit, OnChanges {
     private modalService: BsModalService, 
     private toggleCategoriesService: ToggleCategoriesService,
     protected dataService: DataService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -50,6 +52,12 @@ export class HomeComponent implements OnInit, OnChanges {
     this.subscription = this.toggleCategoriesService.getStatus().subscribe(status => {
       this.categoryStatus = status.status;
     });   
+
+    if(window.location.href.includes('product')) {
+      console.log('open modal');
+    } else {
+      console.log('dont open modal')
+    }
   }
 
   ngOnChanges() {
@@ -101,13 +109,26 @@ export class HomeComponent implements OnInit, OnChanges {
     }, 3000)
   }
 
-  openModal(template: TemplateRef<any>, productId: number) {
+  public openModal(template: TemplateRef<any>, productId: number) {
     this.productId = productId;
     this.modalRef = this.modalService.show(template, this.config);
+
+    this.router.navigate([], {
+      queryParams: {
+        product: productId
+      },
+      queryParamsHandling: 'merge'
+    })
   }
 
   closeModal() {
-    this.modalRef.hide()
+    this.modalRef.hide();
+    this.router.navigate([], {
+      queryParams: {
+        product: null
+      },
+      queryParamsHandling: 'merge'
+    })
   }
 
   @HostListener('window:resize', ['$event'])
