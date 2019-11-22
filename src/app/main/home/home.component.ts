@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     private toggleCategoriesService: ToggleCategoriesService,
     protected dataService: DataService,
     private router: Router,
+    
   ) { }
 
   ngOnInit() {
@@ -60,17 +61,15 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   }
   
   ngAfterViewInit() {
-
-
+    
     if(window.location.href.includes('product')) {
-      console.log('open modal');
+      // console.log(window.location.href.split('&')[2].split('=')[1]);  
       if(this.productDetails) {
-        console.log(this.productDetails);
-
-          this.initialModal(this.productDetails, 1);
+          let productId = Number(window.location.href.split('&')[2].split('=')[1])
+          this.initialModal(this.productDetails, productId);
       }
     } else {
-      console.log('dont open modal')
+      // console.log('dont open modal')
     }
   }
 
@@ -132,14 +131,16 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   public initialModal(productDetails, productId: number) {
+    let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
+    let subCategory = window.location.href.split('&')[1].split('=')[1];
+    // console.log(window.location.href.split('&')[1].split('=')[1])
     this.productId = productId;
-    console.log(this.productId)
     this.modalRef = this.modalService.show(productDetails, this.config);
 
     this.router.navigate([], {
       queryParams: {
-          cat: 1,
-          subCat: 1,
+          cat: category,
+          subCat: subCategory,
           product: productId
       },
       queryParamsHandling: 'merge'
@@ -147,13 +148,20 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   closeModal() {
+    let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
+    let subCategory = window.location.href.split('&')[1].split('=')[1];
+
     this.modalRef.hide();
+
     this.router.navigate([], {
       queryParams: {
+        cat: 1,
+        subCat: 1,
         product: null
       },
       queryParamsHandling: 'merge'
     })
+
   }
 
   @HostListener('window:resize', ['$event'])
