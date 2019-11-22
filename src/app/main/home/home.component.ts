@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, TemplateRef, HostListener, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, TemplateRef, HostListener, Input, ViewChild, ElementRef } from '@angular/core';
 
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { DataService } from '../../data.service';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss', './home.mobile.scss']
 })
-export class HomeComponent implements OnInit, OnChanges {
+export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public products: Products;
   public cartProducts: any = {};
@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit, OnChanges {
   public currentUrl: any;
 
   @Input() getSearchedResults: Event;
+  @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
 
   config = {
     animated: false,
@@ -52,16 +53,25 @@ export class HomeComponent implements OnInit, OnChanges {
     this.subscription = this.toggleCategoriesService.getStatus().subscribe(status => {
       this.categoryStatus = status.status;
     });   
+  }
+  
+  ngOnChanges() {
+    this.search();
+  }
+  
+  ngAfterViewInit() {
+
 
     if(window.location.href.includes('product')) {
       console.log('open modal');
+      if(this.productDetails) {
+        console.log(this.productDetails);
+
+          this.initialModal(this.productDetails, 1);
+      }
     } else {
       console.log('dont open modal')
     }
-  }
-
-  ngOnChanges() {
-    this.search();
   }
 
   public showAllProducts(data: Products) {
@@ -116,6 +126,21 @@ export class HomeComponent implements OnInit, OnChanges {
     this.router.navigate([], {
       queryParams: {
         product: productId
+      },
+      queryParamsHandling: 'merge'
+    })
+  }
+
+  public initialModal(productDetails, productId: number) {
+    this.productId = productId;
+    console.log(this.productId)
+    this.modalRef = this.modalService.show(productDetails, this.config);
+
+    this.router.navigate([], {
+      queryParams: {
+          cat: 1,
+          subCat: 1,
+          product: productId
       },
       queryParamsHandling: 'merge'
     })
