@@ -1,0 +1,34 @@
+<div class="footer">
+    <div class="footer-nav">
+      <a (click)="showConditions(conditions)">Условия</a>
+      <a (click)=showDelivery(delivery)>Доставка</a>
+      <a href="#" target="_blank">Контакти</a>
+      <!-- <a href="#" target="_blank">Prices</a>
+      <a routerLink='/wiki-search' routerLinkActive='active'>Wiki Search</a> -->
+    </div>
+  </div>
+
+  <ng-template #conditions>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Условия</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      ПРАВИЛО НОМЕР 1:
+      ВИНАГИ ГОВОРИ ЗА МАГАЗИНА
+    </div>
+  </ng-template>
+
+  <ng-template #delivery>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Доставка</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      dostavka
+    </div>
+  </ng-template>
