@@ -45,16 +45,10 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.showCartItems();
-    // this.test()
   }
 
   ngAfterViewInit() {
     this.onSearch();
-    // this.showCartItems();
-  }
-
-  ngAfterContentInit() {
-    // this.showCartItems();
   }
 
   openModal(template: TemplateRef<any>) {
