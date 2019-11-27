@@ -32,25 +32,24 @@
 
     <div class="order-form-citizen" *ngIf="showCitizenForm">
         <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
-            <div>Name <input type="text" formControlName="firstname" [ngClass]="{'field-error': orderForm.controls.firstname.invalid, 'field-ok':  orderForm.controls.firstname.valid}"></div>
-            <div>Family <input type="text" formControlName="family" [ngClass]="{'field-error': orderForm.controls.family.invalid, 'field-ok':  orderForm.controls.family.valid}"></div>
-            <div>Phone <input type="text" formControlName="phone" [ngClass]="{'field-error': orderForm.controls.phone.invalid, 'field-ok':  orderForm.controls.phone.valid}"></div>
-            <div>Mail <input type="text" formControlName="mail" [ngClass]="{'field-error': orderForm.controls.mail.invalid, 'field-ok':  orderForm.controls.mail.valid}"></div>
-            <div>Address <textarea formControlName="address" [ngClass]="{'field-error': orderForm.controls.address.invalid, 'field-ok':  orderForm.controls.address.valid}"></textarea></div>        
-            <!-- <input type="text" [(ngModel)]="cartItems">
-            {{ cartItems }} -->
+            <div>Име <input type="text" formControlName="firstname" [ngClass]="{'field-error': orderForm.controls.firstname.invalid, 'field-ok':  orderForm.controls.firstname.valid}"></div>
+            <div>Фамилия <input type="text" formControlName="family" [ngClass]="{'field-error': orderForm.controls.family.invalid, 'field-ok':  orderForm.controls.family.valid}"></div>
+            <div>Телефон<input type="text" formControlName="phone" [ngClass]="{'field-error': orderForm.controls.phone.invalid, 'field-ok':  orderForm.controls.phone.valid}"></div>
+            <div>E-mail<input type="text" formControlName="mail" [ngClass]="{'field-error': orderForm.controls.mail.invalid, 'field-ok':  orderForm.controls.mail.valid}"></div>
+            <div>Адрес<textarea formControlName="address" [ngClass]="{'field-error': orderForm.controls.address.invalid, 'field-ok':  orderForm.controls.address.valid}"></textarea></div>        
+            <br/>
+            <button type="submit" class="order-btn"> Поръчай </button>
         </form>
-        <button type="submit" class="order-btn"> Поръчай </button>
     </div>
     
     <div class="order-form-company" *ngIf="!showCitizenForm">
         <form [formGroup]="orderFormCompany" (ngSubmit)="onSubmit()">
-            <div>Company Name <input type="text" formControlName="companyname" ></div>
-            <div>Contact Person <input type="text" formControlName="contactperson" ></div>
-            <div>Company Number <input type="text" formControlName="companynumber"></div>
-            <div>VAT Number <input type="text" formControlName="vatnumber" ></div>
+            <div>Име на фирмата <input type="text" formControlName="companyname" ></div>
+            <div>МОЛ <input type="text" formControlName="contactperson" ></div>
+            <div>ЕИК(Булстат)<input type="text" formControlName="companynumber"></div>
+            <div>ЕИК по ДДС <input type="text" formControlName="vatnumber" ></div>
             <br/>
+            <button type="submit" class="order-btn"> Поръчай </button>
         </form>
-        <button type="submit" class="order-btn"> Поръчай </button>
     </div>
 </div>
