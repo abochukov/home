@@ -47,10 +47,7 @@ export class CategoriesComponent implements OnInit {
       this.showProducts.emit(this.products);
     })
     this.selectedSubCategory = id;
-
-    console.log(this.selectedElement)
-    console.log(this.selectedSubCategory);
-
+    
     this.router.navigate([], {
       queryParams: {
         cat: this.selectedElement,

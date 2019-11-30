@@ -17,6 +17,5 @@ export class ToggleCategoriesService {
 
   sendStatus(status: boolean) {
     this.buttonStatus.next({ status: status });
-    console.log(status)
   }
 }
