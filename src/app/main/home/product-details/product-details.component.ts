@@ -3,7 +3,9 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
 import { DataService } from '../../../data.service';
 
 import { imageDetails } from '../../../common/interfaces/image';
-
+import { cartItems } from '../../../common/interfaces/cart-items';
+// import { cartItems } from 'src/app/common/interfaces/cart-items';
+ 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -19,7 +21,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
   @Input() productId: any;
   @Output() onClose = new EventEmitter();
-  @Output() onAdd = new EventEmitter<{id: number, title: string, price: number}>();
+  @Output() onAdd = new EventEmitter<cartItems>();
 
   constructor( private dataService: DataService) { }
 

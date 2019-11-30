@@ -60,13 +60,13 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public addCartItems() { 
     let item = { id: this.cartProducts.id, title: this.cartProducts.title, price: this.cartProducts.price };
     
-    if(localStorage.getItem('cart') == null) {
+    if(localStorage.getItem('profitstore.bg') == null) {
       let cart: any = [];
       cart.push(JSON.stringify(item))
-      localStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem('profitstore.bg', JSON.stringify(cart));
       
     } else {
-      let cart: any = JSON.parse(localStorage.getItem('cart'));
+      let cart: any = JSON.parse(localStorage.getItem('profitstore.bg'));
       let index: number = -1;
 
       for(let i = 0; i < cart.length; i++) {
@@ -80,7 +80,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
       if(index == -1) {
         cart.push(JSON.stringify(item));
-        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('profitstore.bg', JSON.stringify(cart));
         // this.addItemNotification();
         this.addItemNotification(item.title); 
       } else {
@@ -88,7 +88,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         let item = JSON.parse(cart[index]);
         // item.quantity += 1;
         cart[index] = JSON.stringify(item);
-        // localStorage.setItem('cart', JSON.stringify(cart));
+        // localStorage.setItem('profitstore.bg', JSON.stringify(cart));
       }
     }
     this.loadCart();
@@ -97,7 +97,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public loadCart() {
     this.totalPrice = 0;
     this.items = [];
-    this.cartItems = JSON.parse(localStorage.getItem('cart'));
+    this.cartItems = JSON.parse(localStorage.getItem('profitstore.bg'));
     
     if(this.cartItems) {
       for(var i = 0; i < this.cartItems.length; i++) {
@@ -115,7 +115,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   }
 
   public removeCartItems(id: number) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
+    let cart = JSON.parse(localStorage.getItem('profitstore.bg'));
     let index: number = -1;
 
     for(var i = 0; i < cart.length; i++) {
@@ -127,7 +127,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       }
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('profitstore.bg', JSON.stringify(cart));
     this.removeItemNotification();
     this.loadCart();
   }

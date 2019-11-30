@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, TemplateRef, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, TemplateRef, ViewChild, ElementRef, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { DataService } from '../../data.service';
@@ -40,19 +40,15 @@ export class MenuComponent implements OnInit, AfterViewInit {
     private toggleCategoriesService: ToggleCategoriesService,
     private dataService: DataService,
     private showCartItemsService: ShowCartItemsService,
+    private cd: ChangeDetectorRef,
     ) { }
 
   ngOnInit() {
-    //this.showCartItems();
+    this.showCartItems();
   }
 
   ngAfterViewInit() {
     this.onSearch();
-    // this.showCartItems();
-  }
-
-  ngAfterContentInit() {
-    // this.showCartItems();
   }
 
   openModal(template: TemplateRef<any>) {
@@ -62,6 +58,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public showCartItems() {
     this.showCartItemsService.getItems().subscribe((data => {
       this.cartItems = data.countItems;
+      this.cd.detectChanges();
     }));
   }
 
