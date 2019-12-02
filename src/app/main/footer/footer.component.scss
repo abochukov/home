@@ -17,12 +17,18 @@
         // font-size: 14px;
     }
 
-    // .footer-nav {
-    //     display: flex;
-    //     justify-content: flex-end;
-    //     //
-    //     a {
-    //         align-items: center;
-    //     }
-    //}
+
+    .footer-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid red;
+        width: 100%;
+        height: 50px;
+
+        & div:first-child {
+            margin-left: 20px;
+        }
+
+    }
 }
