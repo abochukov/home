@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { DataService } from '../data.service';
+import { DataService } from '../../data.service';
+import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 
-import { Categories, SubCategories, Products } from '../common/interfaces/items';
+import { Categories, SubCategories, Products } from '../../common/interfaces/items';
 
 import { Router } from '@angular/router';
 
@@ -21,7 +22,7 @@ export class CategoriesComponent implements OnInit {
 
   @Output() showProducts = new EventEmitter();
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private toggleCategoriesService: ToggleCategoriesService) { }
 
   ngOnInit() {
     this.getAllCategories();
@@ -55,6 +56,9 @@ export class CategoriesComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     })
+    setTimeout(() => {
+      this.toggleCategoriesService.sendStatus(false);
+    }, 200)
   }
 
   public openProductsByDefault() {

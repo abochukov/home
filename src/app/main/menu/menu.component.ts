@@ -63,8 +63,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
   public showCategoriesOnMobile() {
-    this.buttonCategoriesClicked = !this.buttonCategoriesClicked;
-    this.toggleCategoriesService.sendStatus(this.buttonCategoriesClicked);
+    this.buttonCategoriesClicked = true;
+    this.toggleCategoriesService.sendStatus(true);
   }
 
   public showMenuOnMobile() {

@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   modalRef: BsModalRef;
 
   subscription: Subscription;
-  public categoryStatus: boolean = false;
+  public categoryStatus: boolean = true;
   public mobileResolution: boolean = false;
   public screenWidth: number;
 
@@ -63,7 +63,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   ngAfterViewInit() {
     
     if(window.location.href.includes('product')) {
-      // console.log(window.location.href.split('&')[2].split('=')[1]);  
       if(this.productDetails) {
           let productId = Number(window.location.href.split('&')[2].split('=')[1])
           this.initialModal(this.productDetails, productId);
@@ -75,7 +74,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public showAllProducts(data: Products) {
     this.products = data;
-    this.categoryStatus=false
   }
 
   public saveToLocalStorage(id: number, title: string, price: string) {
