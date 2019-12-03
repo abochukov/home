@@ -24,41 +24,41 @@ export class DataService {
    }
 
    getAllCategories(): Observable<Categories> {
-     return this.http.get<Categories>('http://localhost:4000/api/categories');
+     return this.http.get<Categories>('http://test-store.site:4000/api/categories');
    }
 
    getSubCategories(id: number): Observable<SubCategories> {
-    return this.http.get<SubCategories>(`http://localhost:4000/api/categories/${id}`)
+    return this.http.get<SubCategories>(`http://test-store.site:4000/api/categories/${id}`)
    }
 
    getProduct(productId: number): Observable<Products> {
-     return this.http.get<Products>(`http://localhost:4000/api/product/${productId}`);
+     return this.http.get<Products>(`http://test-store.site:4000/api/product/${productId}`);
    }
 
    getProducts(subCategoryId: number): Observable<Products> {
-    return this.http.get<Products>(`http://localhost:4000/api/products/${subCategoryId}`);   
+    return this.http.get<Products>(`http://test-store.site:4000/api/products/${subCategoryId}`);   
    }
 
    saveOrderForm(orderValues) {
-    return this.http.post('http://localhost:4000/api/orders', orderValues).subscribe(data => {
+    return this.http.post('http://test-store.site:4000/api/orders', orderValues).subscribe(data => {
     });
    }
 
    saveOrderFormCompany(companyValues) {
-    return this.http.post('http://localhost:4000/api/ordersCompany', companyValues).subscribe(data => {
+    return this.http.post('http://test-store.site:4000/api/ordersCompany', companyValues).subscribe(data => {
       
     })
    }
 
    search(searchKey) {
-    return this.http.get<Products>(`http://localhost:4000/api/search/${searchKey}`,)
+    return this.http.get<Products>(`http://test-store.site:4000/api/search/${searchKey}`,)
    }
 
    getProductDetails(productId: number) {
-     return this.http.get(`http://localhost:4000/api/details/${productId}`);
+     return this.http.get(`http://test-store.site:4000/api/details/${productId}`);
    }
 
    getProductDetailsImages(productId: number) {
-    return this.http.get<imageDetails>(`http://localhost:4000/api/detailsImages/${productId}`)
+    return this.http.get<imageDetails>(`http://test-store.site:4000/api/detailsImages/${productId}`)
    }
 }
