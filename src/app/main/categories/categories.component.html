@@ -4,7 +4,7 @@
            <div (click)="showSubCategories(category.id)" [ngClass]="{'highlightCategory': selectedElement === category.id}">{{ category.category_title }}</div>
            <ul *ngFor="let subCategory of subCategories" [ngClass]="{'show-element': selectedElement === category.id}">
                 <li>    
-                    <div (click)="sendProducts(subCategory.id)" [ngClass]="{'highlightSubCategory': selectedSubCategory === subCategory.id}">{{ subCategory.subCategoryName }} </div>
+                    <div (click)="sendProducts(subCategory.id)" [ngClass]="{'highlightSubCategory': selectedSubCategory === subCategory.id}">{{ subCategory.category_title }} </div>
                 </li>
             </ul>
         </li>

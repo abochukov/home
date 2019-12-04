@@ -28,7 +28,7 @@ export class DataService {
    }
 
    getSubCategories(id: number): Observable<SubCategories> {
-    return this.http.get<SubCategories>(`http://test-store.site:4000/api/categories/${id}`)
+    return this.http.get<SubCategories>(`http://profitstore.bg:8000/api/category/${id}`)
    }
 
    getProduct(productId: number): Observable<Products> {
