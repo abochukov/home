@@ -27,9 +27,9 @@ export class DataService {
      return this.http.get<Categories>('http://profitstore.bg:8000/api/category');
    }
 
-   getSubCategories(id: number): Observable<SubCategories> {
-    return this.http.get<SubCategories>(`http://profitstore.bg:8000/api/category/${id}`)
-   }
+  //  getSubCategories(id: number): Observable<SubCategories> {
+  //   return this.http.get<SubCategories>(`http://profitstore.bg:8000/api/category/${id}`)
+  //  }
 
    getProduct(productId: number): Observable<Products> {
      return this.http.get<Products>(`http://test-store.site:4000/api/product/${productId}`);

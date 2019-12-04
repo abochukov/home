@@ -43,9 +43,9 @@ export class CategoriesComponent implements OnInit {
     this.dataService.getAllCategories().subscribe(area => {
       this.subCategories = Object.keys(area).map(i => {
         return area[i];
-      }).filter(a => {
-        if(a.parent == id) {
-          return a;
+      }).filter(subcategory => {
+        if(subcategory.parent == id) {
+          return subcategory;
         }
       })   
     })
