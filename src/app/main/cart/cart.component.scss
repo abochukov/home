@@ -4,16 +4,6 @@
     padding: 20px;
 
     p {
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        // width: 150px;
-        // height: 40px;
-        // border-radius: 5px;
-        // background: #00c851;
-        // color: #fff;
-        // font-size: 20px;
-        // box-shadow: 1px 2px 18px #a1a1a1;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -49,7 +39,6 @@ form  {
         input, textarea {
             width: 80%;
             border-radius: 5px;
-            // border: 1px solid gray
         }
     }
     
@@ -87,4 +76,31 @@ form  {
             margin-right: 30px;
         }
     }
+}
+
+@media only screen and (max-width: 992px) {
+
+    .buy-button {   
+        display: flex;
+        justify-content: center;
+    }
+
+    form  {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    
+        div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+    
+            input, textarea {
+                width: 80%;
+                border-radius: 5px;
+            }
+        }
+    }
+        
 }
