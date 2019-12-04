@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class CategoriesComponent implements OnInit {
 
-  public categories: Categories;
+  public categories: Categories[];
   public subCategories: SubCategories;
   public products: Products;
   public selectedElement: any;
@@ -31,7 +31,14 @@ export class CategoriesComponent implements OnInit {
 
   public getAllCategories() {
     this.dataService.getAllCategories().subscribe(categories => {
-      this.categories = categories;
+      const cat = categories;
+      // console.log(this.categories)
+      this.categories = Object.keys(cat).map(i => {
+        return cat[i]
+      }).filter(a => {
+        return a.parent == 0
+      });
+      // console.log(this.categories);
     })
   }
 
