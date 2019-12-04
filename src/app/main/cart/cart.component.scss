@@ -79,6 +79,12 @@ form  {
 }
 
 @media only screen and (max-width: 992px) {
+
+    .buy-button {   
+        display: flex;
+        justify-content: center;
+    }
+
     form  {
         display: flex;
         flex-direction: column;
