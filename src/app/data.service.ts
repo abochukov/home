@@ -54,9 +54,10 @@ export class DataService {
     return this.http.get<Products>(`http://test-store.site:4000/api/search/${searchKey}`,)
    }
 
-   getProductDetails(productId: number) {
-     return this.http.get(`http://test-store.site:4000/api/details/${productId}`);
-   }
+  // We don't need this endpoint
+  //  getProductDetails(productId: number) {
+  //    return this.http.get(`http://test-store.site:4000/api/details/${productId}`);
+  //  }
 
    getProductDetailsImages(productId: number) {
     return this.http.get<imageDetails>(`http://test-store.site:4000/api/detailsImages/${productId}`)
