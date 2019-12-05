@@ -32,11 +32,11 @@ export class DataService {
   //  }
 
    getProduct(productId: number): Observable<Products> {
-     return this.http.get<Products>(`http://test-store.site:4000/api/product/${productId}`);
+     return this.http.get<Products>(`http://profitstore.bg:8000/api/products/${productId}`);
    }
 
-   getProducts(subCategoryId: number): Observable<Products> {
-    return this.http.get<Products>(`http://test-store.site:4000/api/products/${subCategoryId}`);   
+   getProducts(): Observable<Products> {
+    return this.http.get<Products>(`http://profitstore.bg:8000/api/products`);   
    }
 
    saveOrderForm(orderValues) {

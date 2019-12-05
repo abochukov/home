@@ -13,6 +13,8 @@ import { cartItems } from '../../../common/interfaces/cart-items';
 })
 export class ProductDetailsComponent implements OnInit, OnChanges {
 
+    public itemDetails: any;
+
     public productTitle: string;
     public productPrice: number;
     public productDescription: string;
@@ -34,14 +36,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
   public productDetails() {
     this.dataService.getProduct(this.productId).subscribe(data => {
-      this.productTitle = data[0].productTitle;
-      this.productPrice = data[0].productPrice;
+      this.itemDetails = data;
+      this.productTitle = this.itemDetails.name;
+      this.productPrice = this.itemDetails.price;
+      this.productDescription = this.itemDetails.description;
     })
 
-    this.dataService.getProductDetails(this.productId).subscribe(data => {
-      this.productDescription = data[0].description;  
-      // TO DO: check if data is empty
-    });
 
     this.dataService.getProductDetailsImages(this.productId).subscribe(data => {
       this.detailsImages = data;
