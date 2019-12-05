@@ -40,15 +40,17 @@ export class CategoriesComponent implements OnInit {
   }
 
   public showSubCategories(id: number) {
-    this.dataService.getAllCategories().subscribe(area => {
-      this.subCategories = Object.keys(area).map(i => {
-        return area[i];
-      }).filter(subcategory => {
-        if(subcategory.parent == id) {
-          return subcategory;
-        }
-      })   
-    })
+    this.subCategories = [];
+      this.dataService.getAllCategories().subscribe(area => {
+        this.subCategories = Object.keys(area).map(i => {
+          return area[i];
+        }).filter(subcategory => {
+          if(subcategory.parent == id) {
+            return subcategory;
+          }
+        })   
+      })
+
     this.selectedElement = id;
   }
 
