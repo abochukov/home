@@ -41,6 +41,7 @@ export class CategoriesComponent implements OnInit {
 
   public showSubCategories(id: number) {
     this.subCategories = [];
+
       this.dataService.getAllCategories().subscribe(area => {
         this.subCategories = Object.keys(area).map(i => {
           return area[i];
@@ -50,7 +51,6 @@ export class CategoriesComponent implements OnInit {
           }
         })   
       })
-
     this.selectedElement = id;
   }
 
@@ -97,7 +97,6 @@ export class CategoriesComponent implements OnInit {
     //   this.showProducts.emit(this.products);
     // })
     
-    this.showSubCategories(1);
+    // this.showSubCategories(1);
   }
-
 }
