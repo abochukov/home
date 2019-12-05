@@ -117,7 +117,7 @@ export class CategoriesComponent implements OnInit {
           return product
         }
       })
-      console.log(this.products);
+      // console.log(this.products);
       this.showProducts.emit(this.products);
       this.selectedSubCategory = 7;
     })
