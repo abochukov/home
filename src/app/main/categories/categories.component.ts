@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
 
   public categories: Categories[];
   public subCategories: SubCategories[];
-  public products: Products;
+  public products: Products[];
   public selectedElement: any;
   public selectedSubCategory: any;
 
@@ -53,8 +53,15 @@ export class CategoriesComponent implements OnInit {
   }
 
   public sendProducts(id: number) {
-    this.dataService.getProducts(id).subscribe(products => {
-      this.products = products;
+    this.dataService.getProducts().subscribe(products => {
+      // this.products = products;
+      this.products = Object.keys(products).map(i => {
+        return products[i];
+      }).filter(product => {
+        if(product.category_id == id) {
+          return product;
+        }
+      })
       this.showProducts.emit(this.products);
     })
     this.selectedSubCategory = id;
@@ -83,10 +90,10 @@ export class CategoriesComponent implements OnInit {
       queryParamsHandling: 'merge'
     })
 
-    this.dataService.getProducts(1).subscribe(products => {
-      this.products = products;
-      this.showProducts.emit(this.products);
-    })
+    // this.dataService.getProducts(1).subscribe(products => {
+    //   this.products = products;
+    //   this.showProducts.emit(this.products);
+    // })
     
     this.showSubCategories(1);
   }
