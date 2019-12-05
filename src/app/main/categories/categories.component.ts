@@ -56,7 +56,6 @@ export class CategoriesComponent implements OnInit {
 
   public sendProducts(id: number) {
     this.dataService.getProducts().subscribe(products => {
-      // this.products = products;
       this.products = Object.keys(products).map(i => {
         return products[i];
       }).filter(product => {
@@ -98,5 +97,30 @@ export class CategoriesComponent implements OnInit {
     // })
     
     // this.showSubCategories(1);
+
+    this.dataService.getAllCategories().subscribe(area => {
+      this.subCategories = Object.keys(area).map(i => {
+        return area[i];
+      }).filter(subcategory => {
+        if(subcategory.parent == 1) {
+          return subcategory;
+        }
+      });   
+      // console.log(this.subCategories);
+    })
+
+    this.dataService.getProducts().subscribe(products => {
+      this.products = Object.keys(products).map(i => {
+        return products[i];
+      }).filter(product => {
+        if(product.category_id == 7) {
+          return product
+        }
+      })
+      console.log(this.products);
+      this.showProducts.emit(this.products);
+      this.selectedSubCategory = 7;
+    })
+    
   }
 }
