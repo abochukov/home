@@ -51,7 +51,7 @@ export class DataService {
    }
 
    search(searchKey) {
-    return this.http.get<Products>(`http://test-store.site:4000/api/search/${searchKey}`,)
+    return this.http.get<Products>(`http://profitstore.bg:8000/api/search/${searchKey}`,)
    }
 
   // We don't need this endpoint
