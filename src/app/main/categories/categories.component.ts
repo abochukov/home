@@ -68,8 +68,8 @@ export class CategoriesComponent implements OnInit {
     
     this.router.navigate([], {
       queryParams: {
-        cat: this.selectedElement,
-        subCat: this.selectedSubCategory
+        category: this.selectedElement,
+        area: this.selectedSubCategory
       },
       queryParamsHandling: 'merge'
     })
