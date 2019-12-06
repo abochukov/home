@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
-  public products: Products;
+  public products: any;
   public cartProducts: any = {};
   public itemName: string;
 
@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     this.subscription = this.toggleCategoriesService.getStatus().subscribe(status => {
       this.categoryStatus = status.status;
     });   
+    this.openProductsByDefault();
   }
   
   ngOnChanges() {
@@ -70,6 +71,29 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     } else {
       // console.log('dont open modal')
     }
+  }
+
+  public openProductsByDefault() {
+    let category = 1;
+    let subCategory = 7;
+
+    this.router.navigate([], {
+      queryParams: {
+        cat: category,
+        subCat: subCategory
+      },
+      queryParamsHandling: 'merge'
+    })
+
+    this.dataService.getProducts().subscribe(products => {
+      this.products = Object.keys(products).map(i => {
+        return products[i];
+      }).filter(product => {
+        if(product.category_id == 7) {
+          return product;
+        }
+      })
+    })
   }
 
   public showAllProducts(data: Products) {
