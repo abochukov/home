@@ -63,6 +63,7 @@ export class CategoriesComponent implements OnInit {
         }
       })
       this.showProducts.emit(this.products);
+      this.toggleCategoriesService.sendStatus(false);
     })
     this.selectedSubCategory = id;
     
@@ -73,8 +74,5 @@ export class CategoriesComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     })
-    setTimeout(() => {
-      this.toggleCategoriesService.sendStatus(false);
-    }, 200)
   }
 }
