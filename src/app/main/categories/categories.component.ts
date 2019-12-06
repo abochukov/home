@@ -26,7 +26,6 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCategories();
-    this.openProductsByDefault();
   }
 
   public getAllCategories() {
@@ -77,50 +76,5 @@ export class CategoriesComponent implements OnInit {
     setTimeout(() => {
       this.toggleCategoriesService.sendStatus(false);
     }, 200)
-  }
-
-  public openProductsByDefault() {
-    this.selectedElement = 1;
-    this.selectedSubCategory = 1;
-
-    this.router.navigate([], {
-      queryParams: {
-        cat: this.selectedElement,
-        subCat: this.selectedSubCategory
-      },
-      queryParamsHandling: 'merge'
-    })
-
-    // this.dataService.getProducts(1).subscribe(products => {
-    //   this.products = products;
-    //   this.showProducts.emit(this.products);
-    // })
-    
-    // this.showSubCategories(1);
-
-    this.dataService.getAllCategories().subscribe(area => {
-      this.subCategories = Object.keys(area).map(i => {
-        return area[i];
-      }).filter(subcategory => {
-        if(subcategory.parent == 1) {
-          return subcategory;
-        }
-      });   
-      // console.log(this.subCategories);
-    })
-
-    this.dataService.getProducts().subscribe(products => {
-      this.products = Object.keys(products).map(i => {
-        return products[i];
-      }).filter(product => {
-        if(product.category_id == 7) {
-          return product
-        }
-      })
-      // console.log(this.products);
-      this.showProducts.emit(this.products);
-      this.selectedSubCategory = 7;
-    })
-    
   }
 }
