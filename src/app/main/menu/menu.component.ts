@@ -45,6 +45,9 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.showCartItems();
+    this.toggleCategoriesService.getStatus().subscribe(status => {
+      this.buttonCategoriesClicked = status.status; 
+    });
   }
 
   ngAfterViewInit() {
