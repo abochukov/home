@@ -18,6 +18,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class MenuComponent implements OnInit, AfterViewInit {
 
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
+  @ViewChild('searchInputMobile', {static: false}) searchInputMobile: ElementRef;
   @Output() sendSearch = new EventEmitter<Event>();
 
   modalRef: BsModalRef;
@@ -78,5 +79,10 @@ export class MenuComponent implements OnInit, AfterViewInit {
     this.searchingString = Observable.fromEvent(this.searchInput.nativeElement, 'keyup').debounceTime(400).subscribe((value) => {
       this.sendSearch.emit(this.searchInput.nativeElement.value)
     });
+  }
+
+  mobileSearch() {
+    let searchingString= this.searchInputMobile.nativeElement.value;
+    this.sendSearch.emit(searchingString)
   }
 }
