@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   modalRef: BsModalRef;
 
   subscription: Subscription;
-  public categoryStatus: boolean = true;
+  public categoryStatus: boolean = false;
   public mobileResolution: boolean = false;
   public screenWidth: number;
 
