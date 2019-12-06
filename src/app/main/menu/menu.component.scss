@@ -125,6 +125,9 @@ a.active {
 
         & .categories-toggler, .menu-toggler {
             display: block;
+            border: none;
+            padding: 0 10px;
+            cursor: pointer;
         }
 
         & .navigation {
