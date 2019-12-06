@@ -75,12 +75,12 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public openProductsByDefault() {
     let category = 1;
-    let subCategory = 7;
+    let area = 7;
 
     this.router.navigate([], {
       queryParams: {
-        cat: category,
-        subCat: subCategory
+        category: category,
+        area: area
       },
       queryParamsHandling: 'merge'
     })
@@ -161,8 +161,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
     this.router.navigate([], {
       queryParams: {
-          cat: category,
-          subCat: subCategory,
+          category: category,
+          area: subCategory,
           product: productId
       },
       queryParamsHandling: 'merge'
