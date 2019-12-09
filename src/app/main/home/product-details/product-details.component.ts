@@ -19,7 +19,9 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     public productPrice: number;
     public productDescription: string;
     public headDetailImage: string;
-    public detailsImages: imageDetails;
+    // public detailsImages: imageDetails;
+    public detailsImages: any;
+    public allGalleryImages: any;
 
   @Input() productId: any;
   @Output() onClose = new EventEmitter();
@@ -45,7 +47,10 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
     this.dataService.getProductDetailsImages(this.productId).subscribe(data => {
       this.detailsImages = data;
-      this.headDetailImage = data[0].images;
+      this.headDetailImage = this.detailsImages.images[0].path;
+      this.allGalleryImages = this.detailsImages.images.map(img => {
+        return img.path
+      })
     })
 
     this.gallery();
