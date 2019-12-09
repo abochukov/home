@@ -36,7 +36,7 @@
     .footer {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         height: 35px;
         margin-top: -40px;
         
@@ -52,7 +52,7 @@
         .footer-nav {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-between;
             width: 100%;
             
             
