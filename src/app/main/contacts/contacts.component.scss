@@ -102,38 +102,3 @@
     }
 
 }
-
-@media only screen and (max-width: 992px) {
-    .contacts-container {
-        display: flex;
-        flex-direction: column;
-
-        .questions, .wrapper {
-            width: 100%;
-        }
-
-        .questions {
-            margin-top: 700px;
-        }
-
-        .wrapper {
-            margin-bottom: 150px;
-
-            img {
-                margin-right: 10px;
-            }
-        }
-
-        input {
-            // display: flex;
-            // flex-direction: column;
-            width: 100% !important;
-            height: 40px !important;
-            margin-top: 10px !important;
-            // font-size: 18px;
-            // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            // padding: 0 10px;
-            // outline: 0;
-        }
-    }   
-}
