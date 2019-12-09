@@ -100,18 +100,20 @@
 
     .add-item-notification, .remove-item-notification, .already-add-item-notification {
         opacity: 0;
+        color: #fff
     }
 
     .add-item-notification {
         position: absolute;
-        bottom: 10%;
+        top: 60px;
         right: 0;
         background:#00c851;
-        width: 400px;
+        width: 100%;
         height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 9999;
 
         p {
             color: #fff;
@@ -123,14 +125,15 @@
     
     .remove-item-notification {
         position: absolute;
-        bottom: 10%;
+        top: 60px;
         right: 0;
         background:#ff3547;
-        width: 400px;
+        width: 100%;
         height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 9999;
 
         p {
             color: #fff;
@@ -142,14 +145,15 @@
 
     .already-add-item-notification  {
         position: absolute;
-        bottom: 10%;
+        top: 60px;
         right: 0;
         background:#ffbb33;
-        width: 400px;
+        width: 100%;
         height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 9999;
 
         p {
             color: #fff;
@@ -164,24 +168,24 @@
         -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
         animation-name: showMessage;
         animation-duration: 3s;
-        opacity: 0;
+        opacity: 1;
         right: -30%;
         color: #fff;
     }
 
     /* Safari 4.0 - 8.0 */
     @-webkit-keyframes showMessage {
-        0%   {opacity: 0; right: -30%; }
+        0%   {opacity: 0; right: 0%; }
         25%  {opacity: 1; right: 0; }
         75%  {opacity: 1; right: 0%; }
-        100% {opacity: 0; right: -30% }
+        100% {opacity: 0; right: 0% }
     }
     
     /* Standard syntax */
     @keyframes showMessage {
-        0%   {opacity: 0; right: -30%; }
+        0%   {opacity: 0; right: 0%; }
         25%  {opacity: 1; right: 0; }
         75%  {opacity: 1; right: 0%; }
-        100% {opacity: 0; right: -30% }
+        100% {opacity: 0; right: 0% }
     }
 }
