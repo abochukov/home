@@ -60,6 +60,6 @@ export class DataService {
   //  }
 
    getProductDetailsImages(productId: number) {
-    return this.http.get<imageDetails>(`http://test-store.site:4000/api/detailsImages/${productId}`)
+    return this.http.get<imageDetails>(`http://profitstore.bg:8000/api/products/${productId}`)
    }
 }
