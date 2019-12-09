@@ -89,4 +89,10 @@ export class MenuComponent implements OnInit, AfterViewInit {
     let searchingString= this.searchInputMobile.nativeElement.value;
     this.sendSearch.emit(searchingString)
   }
+
+  closeMenu() {
+    setTimeout(() => {
+      this.buttonMenuClicked = false;
+    }, 150)
+  }
 }
