@@ -7,7 +7,7 @@
     <div class="wrapper">
         <div class="item" *ngFor="let product of products">
             <p>{{ product.name }}</p>
-            <img src="{{ product.productImage }}" (click)="openModal(productDetails, product.id)">
+            <img src="{{ product.images[0].path }}" (click)="openModal(productDetails, product.id)">
             <p (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
             <p>{{ product.price }} лв</p>
             <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>        

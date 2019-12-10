@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public productId: number;
   public currentUrl: any;
 
+  public headImage: any;
+
   @Input() getSearchedResults: Event;
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
 
@@ -96,7 +98,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     })
   }
 
-  public showAllProducts(data: Products) {
+  public showAllProducts(data: Products[]) {
     this.products = data;
   }
 
@@ -200,6 +202,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       if(this.getSearchedResults) {
         this.dataService.search(this.getSearchedResults).subscribe(data => {
           this.products = data;
+          console.log(data)
         });
       }
     }
