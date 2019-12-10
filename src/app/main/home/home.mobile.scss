@@ -38,13 +38,33 @@
         background:#00c851;
         width: 100%;
         height: 30px;
+        max-height: 30px;
+
+
+        p {
+            color: #fff;
+            width: 90%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .remove-item-notification {
+        // position: absolute;
+        // bottom: 10%;
+        // left: 0;
+        background:#ff3547;
+        width: 100%;
+        height: 30px;
 
         p {
             color: #fff;
         }
     }
 
-    .remove-item-notification {
+    .already-add-item-notification  {
         // position: absolute;
         // bottom: 10%;
         // left: 0;

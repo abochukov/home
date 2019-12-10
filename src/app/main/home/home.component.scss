@@ -169,8 +169,14 @@
         animation-name: showMessage;
         animation-duration: 3s;
         opacity: 1;
-        right: -30%;
+        // right: -30%;
+        text-align: center;
         color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* Safari 4.0 - 8.0 */
