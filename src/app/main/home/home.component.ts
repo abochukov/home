@@ -202,7 +202,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       if(this.getSearchedResults) {
         this.dataService.search(this.getSearchedResults).subscribe(data => {
           this.products = data;
-          console.log(data)
         });
       }
     }
