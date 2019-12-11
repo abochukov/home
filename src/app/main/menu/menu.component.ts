@@ -74,4 +74,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
     }
   }
 
+  public closeMenu() {
+    this.buttonMenuClicked = false;
+  }
+
 }
