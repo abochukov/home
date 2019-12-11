@@ -25,7 +25,8 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
   { path: 'contacts', component: ContactsComponent },
-  { path: 'wiki-search', component: SearchComponent },
+  { path: 'about-us', component: AboutUsComponent }
+  // { path: 'wiki-search', component: SearchComponent },
 ]
 
 @NgModule({
