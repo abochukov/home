@@ -4,18 +4,20 @@
         <app-categories (showProducts)=showAllProducts($event)></app-categories>
     </div>    
     
-    <!-- <input type="text" class="search" #searchInput placeholder="Search Product"> -->
-    
-    <div class="wrapper">
-        <div class="item" *ngFor="let product of products">
-            <p>{{ product.name }}</p>
-            <img src="{{ product.images[0].path }}" (click)="openModal(productDetails, product.id)">
-            <p (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
-            <p>{{ product.price }} лв</p>
-            <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>        
-        </div>
+    <div class="product-content">
+        <input type="text" class="search" #searchInput placeholder="Search Product">
         
-        <app-cart [cartProducts]="cartProducts"></app-cart>
+        <div class="wrapper">
+            <div class="item" *ngFor="let product of products">
+                <p>{{ product.name }}</p>
+                <img src="{{ product.images[0].path }}" (click)="openModal(productDetails, product.id)">
+                <p (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
+                <p>{{ product.price }} лв</p>
+                <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>        
+            </div>
+            
+            <app-cart [cartProducts]="cartProducts"></app-cart>
+        </div>
     </div>
 
     <div class="add-item-notification" id="add-item">
