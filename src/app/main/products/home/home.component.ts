@@ -1,9 +1,9 @@
 import { Component, OnInit, OnChanges, AfterViewInit, TemplateRef, HostListener, Input, ViewChild, ElementRef } from '@angular/core';
 
-import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
-import { DataService } from '../../data.service';
+import { ToggleCategoriesService } from '../../../common/services/toggle-categories.service';
+import { DataService } from '../../../data.service';
 
-import { Products, Categories } from '../../common/interfaces/items';
+import { Products, Categories } from '../../../common/interfaces/items';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';

@@ -1,9 +1,9 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
-import { DataService } from '../../../data.service';
+import { DataService } from '../../../../data.service';
 
-import { imageDetails } from '../../../common/interfaces/image';
-import { cartItems } from '../../../common/interfaces/cart-items';
+import { imageDetails } from '../../../../common/interfaces/image';
+import { cartItems } from '../../../../common/interfaces/cart-items';
 // import { cartItems } from 'src/app/common/interfaces/cart-items';
  
 @Component({

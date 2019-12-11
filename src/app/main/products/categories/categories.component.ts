@@ -1,9 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { DataService } from '../../data.service';
-import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
+import { DataService } from '../../../data.service';
+import { ToggleCategoriesService } from '../../../common/services/toggle-categories.service';
 
-import { Categories, SubCategories, Products } from '../../common/interfaces/items';
+import { Categories, SubCategories, Products } from '../../../common/interfaces/items';
 
 import { Router } from '@angular/router';
 

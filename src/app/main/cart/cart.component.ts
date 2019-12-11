@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 import { DataService } from '../../data.service';
-import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from '../products/home/home.component';
 
 import { ToggleCategoriesService } from '../../common/services/toggle-categories.service';
 import { ShowCartItemsService } from '../../common/services/show-cart-items.service';
