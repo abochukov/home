@@ -4,6 +4,8 @@
         <app-categories (showProducts)=showAllProducts($event)></app-categories>
     </div>    
     
+    <!-- <input type="text" class="search" #searchInput placeholder="Search Product"> -->
+    
     <div class="wrapper">
         <div class="item" *ngFor="let product of products">
             <p>{{ product.name }}</p>
