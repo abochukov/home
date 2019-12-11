@@ -7,7 +7,7 @@ import { Products, Categories } from '../../../common/interfaces/items';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/debounceTime';
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     private toggleCategoriesService: ToggleCategoriesService,
     protected dataService: DataService,
     private router: Router,
-    
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -176,18 +176,21 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   closeModal() {
     let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
-    let subCategory = window.location.href.split('&')[1].split('=')[1];
+    let area = window.location.href.split('&')[1].split('=')[1];
+
+    this.router.navigate(['.'], 
+      { 
+        relativeTo: this.route, 
+        queryParams: { 
+          category: category, 
+          area: area, 
+          product: null 
+        },
+        queryParamsHandling: 'merge' 
+      }
+    );
 
     this.modalRef.hide();
-
-    this.router.navigate([], {
-      queryParams: {
-        cat: 1,
-        subCat: 1,
-        product: null
-      },
-      queryParamsHandling: 'merge'
-    })
 
   }
 
