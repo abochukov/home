@@ -115,8 +115,10 @@
 
 
     .add-item-notification, .remove-item-notification, .already-add-item-notification {
-        opacity: 0;
-        color: #fff
+        // display: none;
+        visibility: hidden;
+        opacity: 1;
+        color: #fff;
     }
 
     .add-item-notification {
@@ -193,6 +195,7 @@
         text-overflow: ellipsis;
         width: 100%;
         max-width: 100%;
+        visibility: visible;
     }
 
     /* Safari 4.0 - 8.0 */
