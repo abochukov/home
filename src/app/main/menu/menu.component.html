@@ -3,7 +3,6 @@
         <div class="logo"><img src="assets/images/logo.png"/></div>
         
         <div class="navigation">
-            <!-- <input type="text" class="search" #searchInput placeholder="Search Product"> -->
             <a routerLink = '/home' routerLinkActive = 'active'>Продукти</a>
             <a routerLink = '/contacts' routerLinkActive = 'active'>Контакти</a>
             <a routerLink = '/about-us' routerLinkActive = 'active'>За нас</a>
@@ -33,12 +32,6 @@
     </div>
 
     <div class="mobile-navigation" *ngIf="buttonMenuClicked">
-        <div>
-            <input type="text" class="search" #searchInputMobile placeholder="Search Product">
-            <a (click)="mobileSearch()">
-                <img src="assets/images/magnifier-icon.png" width="27" (click)="closeMenu()">
-            </a>
-        </div>
         <a routerLink = '/home' routerLinkActive = 'active' (click)="closeMenu()">Продукти</a>
         <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()">Контакти</a>
         <a (click)="openModal(template)"><img src="/assets/images/shopping-cart.png" width="32"></a>

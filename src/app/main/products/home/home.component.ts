@@ -8,6 +8,9 @@ import { Products, Categories } from '../../../common/interfaces/items';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'app-home',
@@ -31,9 +34,10 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public currentUrl: any;
 
   public headImage: any;
+  public searchingString;
 
-  @Input() getSearchedResults: Event;
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
+  @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
 
   config = {
     animated: false,
@@ -60,7 +64,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   }
   
   ngOnChanges() {
-    this.search();
   }
   
   ngAfterViewInit() {
@@ -198,11 +201,17 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       }
     }
 
-    public search() {
-      if(this.getSearchedResults) {
-        this.dataService.search(this.getSearchedResults).subscribe(data => {
+    public sendSearch() {
+      let searchString = this.searchInput.nativeElement.value;
+      if(searchString) {
+        this.dataService.search(searchString).subscribe(data => {
           this.products = data;
         });
       }
+      // this.searchingString = Observable.fromEvent(this.searchInput.nativeElement, 'keyup').debounceTime(400).subscribe((value) => {
+      //     this.dataService.search().subscribe(data => {
+      //       this.products = data;
+      //     });
+      //   });
     }
 }

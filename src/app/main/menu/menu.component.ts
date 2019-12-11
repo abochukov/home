@@ -17,15 +17,10 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class MenuComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
-  @ViewChild('searchInputMobile', {static: false}) searchInputMobile: ElementRef;
-  @Output() sendSearch = new EventEmitter<Event>();
-
   modalRef: BsModalRef;
   public buttonCategoriesClicked: boolean = false;
   public buttonMenuClicked: boolean = false;
   public searchingString;
-  public searchResults;
   public cartItems: any;
 
   config = {
@@ -52,7 +47,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.onSearch();
+
   }
 
   openModal(template: TemplateRef<any>) {
@@ -79,20 +74,4 @@ export class MenuComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onSearch() {
-    this.searchingString = Observable.fromEvent(this.searchInput.nativeElement, 'keyup').debounceTime(400).subscribe((value) => {
-      this.sendSearch.emit(this.searchInput.nativeElement.value)
-    });
-  }
-
-  mobileSearch() {
-    let searchingString= this.searchInputMobile.nativeElement.value;
-    this.sendSearch.emit(searchingString)
-  }
-
-  closeMenu() {
-    setTimeout(() => {
-      this.buttonMenuClicked = false;
-    }, 150)
-  }
 }
