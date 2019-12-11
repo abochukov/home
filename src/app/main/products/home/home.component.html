@@ -16,7 +16,7 @@
             <div class="item" *ngFor="let product of products">
                 <p>{{ product.name }}</p>
                 <img src="{{ product.images[0].path }}" (click)="openModal(productDetails, product.id)">
-                <p (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
+                <p (mouseover)="showHoverModal()" (mouseout)="hideHoverModal()"  (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
                 <p>{{ product.price }} лв</p>
                 <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>        
             </div>
@@ -40,6 +40,10 @@
 
     <ng-template #productDetails>
             <app-product-details [productId]="productId" (onClose)="closeModal()" (onAdd)="addFromProductDetails($event)"></app-product-details>
+    </ng-template>
+
+    <ng-template #productBrief>
+
     </ng-template>
 
 </div>

@@ -19,6 +19,7 @@ import { CartTotalItemsComponent } from './main/cart/cart-total-items/cart-total
 import { ProductDetailsComponent } from './main/products/home/product-details/product-details.component';
 import { FooterComponent } from './main/footer/footer.component';
 import { AboutUsComponent } from './main/about-us/about-us.component';
+import { ProductBriefComponent } from './main/products/home/product-brief/product-brief.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     ProductDetailsComponent,
     FooterComponent,
     AboutUsComponent,
+    ProductBriefComponent,
   ],
   imports: [
     BrowserModule,

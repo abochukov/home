@@ -217,4 +217,12 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       //     });
       //   });
     }
+
+    public showHoverModal() {
+      console.log('hover in')
+    }
+
+    public hideHoverModal() {
+      console.log('hover out')
+    }
 }
