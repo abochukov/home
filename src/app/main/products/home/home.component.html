@@ -15,10 +15,16 @@
         <div class="wrapper">
             <div class="item" *ngFor="let product of products">
                 <p>{{ product.name }}</p>
-                <img src="{{ product.images[0].path }}" (click)="openModal(productDetails, product.id)">
-                <p (mouseover)="showHoverModal()" (mouseout)="hideHoverModal()"  (click)="openModal(productDetails, product.id)"class="product-details">повече информация</p>
+                <img src="{{ product.images[0].path }}" [popover]="popTemplate"  triggers="mouseenter:mouseleave" (click)="openModal(productDetails, product.id)">
+                <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p>
                 <p>{{ product.price }} лв</p>
-                <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>        
+                <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>
+                
+                <ng-template #popTemplate>
+                    <img src="{{ product.images[1].path }}">
+                    <p>{{ product.exserpt_description }}</p>
+                    <p style="color: #ee5816">За повече информация натиснете върху изображението</p>
+                </ng-template>
             </div>
             
             <app-cart [cartProducts]="cartProducts"></app-cart>
@@ -42,9 +48,6 @@
             <app-product-details [productId]="productId" (onClose)="closeModal()" (onAdd)="addFromProductDetails($event)"></app-product-details>
     </ng-template>
 
-    <ng-template #productBrief>
-
-    </ng-template>
 
 </div>
 

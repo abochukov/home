@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
 import {RouterModule, Routes } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     FooterComponent,
     AboutUsComponent,
     ProductBriefComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ const appRoutes: Routes = [
       appRoutes
     ),
     ModalModule.forRoot(),
+    PopoverModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule

@@ -36,6 +36,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public headImage: any;
   public searchingString;
 
+  public productBriefImage;
+
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
 
@@ -103,6 +105,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public showAllProducts(data: Products[]) {
     this.products = data;
+    console.log(this.products)
   }
 
   public saveToLocalStorage(id: number, title: string, price: string) {
@@ -156,6 +159,16 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       queryParamsHandling: 'merge'
     })
   }
+
+  public showHoverModal() {
+    console.log('hover in')
+  }
+
+  public hideHoverModal() {
+    // this.modalRef.hide()
+    console.log('hover out')
+  }
+
 
   public initialModal(productDetails, productId: number) {
     let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
@@ -216,13 +229,5 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       //       this.products = data;
       //     });
       //   });
-    }
-
-    public showHoverModal() {
-      console.log('hover in')
-    }
-
-    public hideHoverModal() {
-      console.log('hover out')
     }
 }
