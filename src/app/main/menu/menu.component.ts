@@ -43,7 +43,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
     ) {
       this.router.events.subscribe((event: Event) => {
         if(event instanceof NavigationStart) {
-          if(event.url != '/home' && event.url != '/home?category=1&area=7') {
+          let eventQUeryParamsCheck = event.url.startsWith('/home?category');
+          if(event.url != '/home' && !eventQUeryParamsCheck) {
             this.showCategoryButton = true;
           } else {
             this.showCategoryButton = false;
