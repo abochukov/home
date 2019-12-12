@@ -16,7 +16,7 @@
     </div>
 
     <div class="mobile-menu">
-        <button class="categories-toggler" (click)="showCategoriesOnMobile()">
+        <button class="categories-toggler" (click)="showCategoriesOnMobile()" [hidden]=showCategoryButton>
             <span class="navbar-toggler-icon">
                 <img src="assets/images/categories-icon.png" width="27">
             </span>

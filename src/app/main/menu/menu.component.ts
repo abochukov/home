@@ -9,6 +9,7 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/debounceTime';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Router, Event, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -22,6 +23,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public buttonMenuClicked: boolean = false;
   public searchingString;
   public cartItems: any;
+  public showCategoryButton: boolean;
 
   config = {
     animated: false,
@@ -37,7 +39,18 @@ export class MenuComponent implements OnInit, AfterViewInit {
     private dataService: DataService,
     private showCartItemsService: ShowCartItemsService,
     private cd: ChangeDetectorRef,
-    ) { }
+    private router: Router,
+    ) {
+      this.router.events.subscribe((event: Event) => {
+        if(event instanceof NavigationStart) {
+          if(event.url != '/home' && event.url != '/home?category=1&area=7') {
+            this.showCategoryButton = true;
+          } else {
+            this.showCategoryButton = false;
+          }
+        }
+      })
+     }
 
   ngOnInit() {
     this.showCartItems();
@@ -76,6 +89,12 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   public closeMenu() {
     this.buttonMenuClicked = false;
+    let currentRoute = this.router.url;
+    // console.log(currentRoute)
+    if(currentRoute != '/about-us') {
+      // this.showCategoryButton = false
+      // console.log('route is NOT about us  ')
+    }
   }
 
 }
