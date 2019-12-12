@@ -140,13 +140,7 @@ ul {
 }
 
 .popover {
-    
-    .popover-body {
-        // width: 300px !important;
-        // border: 5px solid green;
+    & p.more-info {
+        color: #ee5816;
     }
-    
-    // // color: red;
-    // // font-size: 10px;
-    // width: 400px !important;
 }

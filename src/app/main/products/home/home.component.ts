@@ -105,7 +105,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public showAllProducts(data: Products[]) {
     this.products = data;
-    console.log(this.products)
   }
 
   public saveToLocalStorage(id: number, title: string, price: string) {
