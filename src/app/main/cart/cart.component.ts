@@ -144,6 +144,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       phone: ['', Validators.required],
       mail: ['', Validators.required],
       address: ['', Validators.required],
+      rules: [false, Validators.requiredTrue]
     })
   }
 
@@ -161,9 +162,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     for(let i = 0; i < this.cartItems.length; i++) {
       let item = JSON.parse(this.cartItems[i]);
       if(this.orderForm.valid) {
+        console.log('valid form')
         this.orderForm.value.productsId = JSON.parse(this.cartItems[i]).id;
         this.orderForm.value.date = new Date();
-        this.dataService.saveOrderForm(this.orderForm.value);
+        // this.dataService.saveOrderForm(this.orderForm.value);
       } else if(this.orderFormCompany.valid) {
         this.orderFormCompany.value.productsId = JSON.parse(this.cartItems[i]).id;
         this.orderFormCompany.value.date = new Date();
