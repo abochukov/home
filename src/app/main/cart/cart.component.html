@@ -37,7 +37,9 @@
             <div>Телефон<input type="text" formControlName="phone" [ngClass]="{'field-error': orderForm.controls.phone.invalid, 'field-ok':  orderForm.controls.phone.valid}"></div>
             <div>E-mail<input type="text" formControlName="mail" [ngClass]="{'field-error': orderForm.controls.mail.invalid, 'field-ok':  orderForm.controls.mail.valid}"></div>
             <div>Адрес<textarea formControlName="address" [ngClass]="{'field-error': orderForm.controls.address.invalid, 'field-ok':  orderForm.controls.address.valid}"></textarea></div>        
-            <div>съгласен<input type="checkbox" formControlName="rules"></div>
+            <div></div>
+            <!-- <div>съгласен<input type="checkbox" formControlName="rules"></div> -->
+            <div><input type="checkbox" formControlName="rules">Съгласен съм с общите условия</div>
             <br/>
             <button type="submit" class="order-btn"> Поръчай </button>
         </form>
