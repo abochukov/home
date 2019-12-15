@@ -145,6 +145,9 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
       mail: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       address: ['', Validators.required],
+      // courier_address: ['', Validators.required],
+      region: ['', Validators.required],
+      city: ['', Validators.required],
       rules: [false, Validators.requiredTrue]
     })
   }
