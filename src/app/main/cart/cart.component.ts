@@ -29,6 +29,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   public initialize = false;
   public showCitizenForm: boolean = true;
+  public invoice: boolean = false;
   public errorMessage: string;
 
   @Input() cartProducts;

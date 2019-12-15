@@ -22,11 +22,14 @@
     <!-- <h4>Начин на плащане - наложен платеж</h4> -->
     
     <div class="order-change">
-        <span>
+        <!-- <span>
             <input type="radio" name="showCitizenForm" (click)="clearForm(orderFormCompany)" [checked]="showCitizenForm" [(ngModel)]="showCitizenForm" [value]="true"> физическо лице
         </span>
         <span>
             <input type="radio" name="showCitizenForm" (click)="clearForm(orderForm)" [checked]="!showCitizenForm" [(ngModel)]="showCitizenForm" [value]="false"> юридическо лице
+        </span> -->
+        <span>
+            <input type="checkbox" name="invoice" [checked]="invoice" [(ngModel)]="invoice" [value]="false"> юридическо лице
         </span>
     </div>
 
@@ -40,7 +43,7 @@
             <div></div>
             <div>Област:
                 <select formControlName="region" [ngClass]="{'field-error': orderForm.controls.region.value == 0, 'field-ok': orderForm.controls.region.value != 0}">
-                    <option value="0">Избери област ...</option>
+                    <option value="0" selected="selected">Избери област ...</option>
                     <option value="1">Благоевград</option>
                     <option value="2">Бургас</option>
                     <option value="3">Варна</option>
@@ -75,9 +78,17 @@
             <!-- <div>съгласен<input type="checkbox" formControlName="rules"></div> -->
             <div class="rules"><input type="checkbox" formControlName="rules">Съгласен съм с общите условия</div>
             <br/>
+            
+            <div class="invoice" *ngIf="invoice">
+                <div>Име на фирмата <input type="text" formControlName="companyname" ></div>
+                <div>МОЛ <input type="text" formControlName="contactperson" ></div>
+                <div>ЕИК(Булстат)<input type="text" formControlName="companynumber"></div>
+                <div>ЕИК по ДДС <input type="text" formControlName="vatnumber" ></div>
+                <br/>
+            </div>
+
             <button type="submit" class="order-btn"> Поръчай </button>
 
-            {{ errorMessage }}
         </form>
     </div>
     
