@@ -167,7 +167,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       let item = JSON.parse(this.cartItems[i]);
       if(this.orderForm.valid) {
         console.log('valid form')
-        console.log(this.orderForm)
         this.orderForm.value.productsId = JSON.parse(this.cartItems[i]).id;
         this.orderForm.value.date = new Date();
         // this.dataService.saveOrderForm(this.orderForm.value);
