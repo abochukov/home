@@ -65,6 +65,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       let cart: any = [];
       cart.push(JSON.stringify(item))
       localStorage.setItem('profitstore.bg', JSON.stringify(cart));
+      this.addItemNotification(item.title);
       
     } else {
       let cart: any = JSON.parse(localStorage.getItem('profitstore.bg'));
