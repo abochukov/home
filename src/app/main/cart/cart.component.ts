@@ -29,6 +29,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   public initialize = false;
   public showCitizenForm: boolean = true;
+  public errorMessage: string;
 
   @Input() cartProducts;
 
@@ -145,7 +146,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
       mail: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       address: ['', Validators.required],
-      // courier_address: ['', Validators.required],
       region: ['', Validators.required],
       city: ['', Validators.required],
       rules: [false, Validators.requiredTrue]
@@ -167,6 +167,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       let item = JSON.parse(this.cartItems[i]);
       if(this.orderForm.valid) {
         console.log('valid form')
+        console.log(this.orderForm)
         this.orderForm.value.productsId = JSON.parse(this.cartItems[i]).id;
         this.orderForm.value.date = new Date();
         // this.dataService.saveOrderForm(this.orderForm.value);
