@@ -149,7 +149,11 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       address: ['', Validators.required],
       region: ['', Validators.required],
       city: ['', Validators.required],
-      rules: [false, Validators.requiredTrue]
+      rules: [false, Validators.requiredTrue],
+      companyname: [''],
+      contactperson: [''],
+      companynumber: [''],
+      vatnumber: ['']
     })
   }
 
