@@ -157,16 +157,28 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    let orderDate = new Date();
-    for(let i = 0; i < this.cartItems.length; i++) {
-      let item = JSON.parse(this.cartItems[i]);
-      if(this.orderForm.valid) {
-        console.log('valid form')
-        this.orderForm.value.productsId = JSON.parse(this.cartItems[i]).id;
-        this.orderForm.value.date = new Date();
-        // this.dataService.saveOrderForm(this.orderForm.value);
-      } 
-    } 
+    if(this.orderForm.valid) {
+      console.log('valid form');
+      let allCartProducts = this.cartItems.map(products => {
+        return JSON.parse(products).id
+      })
+
+      console.log(this.orderForm.value, allCartProducts)
+      // this.orderForm.value.productsId = JSON.parse(this.cartItems).id;
+      // this.dataService.saveOrderForm(this.orderForm.value);
+    } else {
+      console.log('form is not valid');
+    }
+    // let orderDate = new Date();
+    // for(let i = 0; i < this.cartItems.length; i++) {
+    //   let item = JSON.parse(this.cartItems[i]);
+    //   if(this.orderForm.valid) {
+    //     console.log('valid form')
+    //     this.orderForm.value.productsId = JSON.parse(this.cartItems[i]).id;
+    //     this.orderForm.value.date = new Date();
+    //     // this.dataService.saveOrderForm(this.orderForm.value);
+    //   } 
+    // } 
   }
 
   clearForm(form: FormGroup) {
