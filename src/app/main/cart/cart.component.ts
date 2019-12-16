@@ -49,7 +49,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.loadCart();
     this.order();
-    this.orderCompany();
     this.initialize = true;
   }
 
@@ -157,15 +156,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     })
   }
 
-  public orderCompany() {
-    this.orderFormCompany = this.fb.group({
-      companyname: ['', Validators.required],
-      contactperson: ['', Validators.required],
-      companynumber: ['', Validators.required],
-      vatnumber: ['', Validators.required]
-    })
-  }
-
   onSubmit() {
     let orderDate = new Date();
     for(let i = 0; i < this.cartItems.length; i++) {
@@ -175,11 +165,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         this.orderForm.value.productsId = JSON.parse(this.cartItems[i]).id;
         this.orderForm.value.date = new Date();
         // this.dataService.saveOrderForm(this.orderForm.value);
-      } else if(this.orderFormCompany.valid) {
-        this.orderFormCompany.value.productsId = JSON.parse(this.cartItems[i]).id;
-        this.orderFormCompany.value.date = new Date();
-        this.dataService.saveOrderFormCompany(this.orderFormCompany.value);
-      }
+      } 
     } 
   }
 

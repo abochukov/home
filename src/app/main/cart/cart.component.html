@@ -22,12 +22,6 @@
     <!-- <h4>Начин на плащане - наложен платеж</h4> -->
     
     <div class="order-change">
-        <!-- <span>
-            <input type="radio" name="showCitizenForm" (click)="clearForm(orderFormCompany)" [checked]="showCitizenForm" [(ngModel)]="showCitizenForm" [value]="true"> физическо лице
-        </span>
-        <span>
-            <input type="radio" name="showCitizenForm" (click)="clearForm(orderForm)" [checked]="!showCitizenForm" [(ngModel)]="showCitizenForm" [value]="false"> юридическо лице
-        </span> -->
         <span>
             <input type="checkbox" name="invoice" [checked]="invoice" [(ngModel)]="invoice" [value]="false"> юридическо лице
         </span>
@@ -89,17 +83,6 @@
 
             <button type="submit" class="order-btn"> Поръчай </button>
 
-        </form>
-    </div>
-    
-    <div class="order-form-company" *ngIf="!showCitizenForm">
-        <form [formGroup]="orderFormCompany" (ngSubmit)="onSubmit()">
-            <div>Име на фирмата <input type="text" formControlName="companyname" ></div>
-            <div>МОЛ <input type="text" formControlName="contactperson" ></div>
-            <div>ЕИК(Булстат)<input type="text" formControlName="companynumber"></div>
-            <div>ЕИК по ДДС <input type="text" formControlName="vatnumber" ></div>
-            <br/>
-            <button type="submit" class="order-btn"> Поръчай </button>
         </form>
     </div>
 </div>
