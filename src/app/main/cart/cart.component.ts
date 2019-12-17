@@ -168,6 +168,24 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       // this.dataService.saveOrderForm(this.orderForm.value);
     } else {
       console.log('form is not valid');
+      // console.log(this.orderForm.controls.firstname.valid)
+      if(this.orderForm.controls.firstname.invalid) {
+        this.errorMessage = 'Моля попълнете име'
+      } else if(this.orderForm.controls.family.invalid) {
+        this.errorMessage = 'Mоля попълнете фамилия'
+      } else if(this.orderForm.controls.phone.invalid) {
+        this.errorMessage = 'Полето телефонен номер трявба да съдържа само цифри и валиден номер'
+      } else if(this.orderForm.controls.mail.invalid) {
+        this.errorMessage = 'Моля въведете валиден e-mail адрес'
+      } else if(this.orderForm.controls.address.invalid) {
+        this.errorMessage = 'Моля попълнете полето Адрес'
+      } else if(this.orderForm.controls.region.invalid) {
+        this.errorMessage = 'Моля изберете област'
+      } else if(this.orderForm.controls.city.invalid) {
+        this.errorMessage = 'Моля попълнете населено място'
+      } else if(this.orderForm.controls.rules.invalid) {
+        this.errorMessage = 'За да продължите трябва да сте съгласни с условията'
+      }
     }
     // let orderDate = new Date();
     // for(let i = 0; i < this.cartItems.length; i++) {

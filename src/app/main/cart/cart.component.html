@@ -68,8 +68,10 @@
                 </select>
             </div>
             <div>Населено място*<input formControlName="city" [ngClass]="{'field-error': orderForm.controls.city.invalid, 'field-ok':  orderForm.controls.city.valid}"></div>
-            <!-- <div>съгласен<input type="checkbox" formControlName="rules"></div> -->
             <div class="rules"><input type="checkbox" formControlName="rules">Съгласен съм с общите условия*</div>
+            <div class="rules">* задължително поле</div>
+            <div class="rules err-msg">{{ errorMessage }}</div>
+             
             <br/>
             
             <ng-container *ngIf="invoice">
@@ -79,9 +81,10 @@
                 <div>ЕИК по ДДС <input type="text" formControlName="vatnumber" class="invoice-field"></div>
                 <br/>
             </ng-container>
-
+           
             <button type="submit" class="order-btn"> Поръчай </button>
-
+            
         </form>
+
     </div>
 </div>
