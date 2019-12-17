@@ -1,4 +1,4 @@
-<div *ngIf="!showOrderForm">
+<div *ngIf="showCart">
     
     <app-cart-total-items [totalPrice]="totalPrice" [items]="items" (onRemove)="removeCartItems($event)"></app-cart-total-items>
 
@@ -87,4 +87,8 @@
         </form>
 
     </div>
+</div>
+
+<div class="order-finish" *ngIf="showOrderFinish">
+    Вие завършихте вашата поръчка успешно!
 </div>

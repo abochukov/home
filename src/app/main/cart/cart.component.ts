@@ -22,7 +22,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public cartItems: any;
   public items: any;
   public totalPrice: number;
+
   public showOrderForm: boolean = false;
+  public showOrderFinish: boolean = false;
+  public showCart: boolean = true;
 
   public orderForm: FormGroup;
   public orderFormCompany: FormGroup;
@@ -136,7 +139,9 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   }
 
   public showForm() {
-    this.showOrderForm = !this.showOrderForm;
+    // this.showOrderForm = !this.showOrderForm;
+    this.showCart = false;
+    this.showOrderForm = true
   }
 
   public order() {
@@ -158,17 +163,16 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   onSubmit() {
     if(this.orderForm.valid) {
-      console.log('valid form');
       let allCartProducts = this.cartItems.map(products => {
         return JSON.parse(products).id
       })
 
-      console.log(this.orderForm.value, allCartProducts)
+      this.showOrderForm = false;
+      this.showOrderFinish = true;
+      // console.log(this.orderForm.value, allCartProducts)
       // this.orderForm.value.productsId = JSON.parse(this.cartItems).id;
       // this.dataService.saveOrderForm(this.orderForm.value);
     } else {
-      console.log('form is not valid');
-      // console.log(this.orderForm.controls.firstname.valid)
       if(this.orderForm.controls.firstname.invalid) {
         this.errorMessage = 'Моля попълнете име'
       } else if(this.orderForm.controls.family.invalid) {
@@ -187,16 +191,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         this.errorMessage = 'За да продължите трябва да сте съгласни с условията'
       }
     }
-    // let orderDate = new Date();
-    // for(let i = 0; i < this.cartItems.length; i++) {
-    //   let item = JSON.parse(this.cartItems[i]);
-    //   if(this.orderForm.valid) {
-    //     console.log('valid form')
-    //     this.orderForm.value.productsId = JSON.parse(this.cartItems[i]).id;
-    //     this.orderForm.value.date = new Date();
-    //     // this.dataService.saveOrderForm(this.orderForm.value);
-    //   } 
-    // } 
   }
 
   clearForm(form: FormGroup) {
