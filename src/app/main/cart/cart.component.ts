@@ -169,6 +169,9 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
       this.showOrderForm = false;
       this.showOrderFinish = true;
+
+      // localStorage.setItem('profitstore.bg', '');
+
       // console.log(this.orderForm.value, allCartProducts)
       // this.orderForm.value.productsId = JSON.parse(this.cartItems).id;
       // this.dataService.saveOrderForm(this.orderForm.value);
