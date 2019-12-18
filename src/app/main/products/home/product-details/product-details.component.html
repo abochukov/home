@@ -21,7 +21,8 @@
         </div>
         
         <div class="product-description">
-            {{ productDescription }}
+            <!-- {{ productDescription }} -->
+            <span [innerHTML]="productDescription"></span>
         </div>
         <div class="modal-footer">
             <button (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">вземи</button>
