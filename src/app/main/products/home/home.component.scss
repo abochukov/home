@@ -62,6 +62,10 @@
                     left: -11px;
                     border: none;
                     outline: none;
+
+                    img {
+                        border: none;
+                    }
                 }
 
                 & .price {
