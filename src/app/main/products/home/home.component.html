@@ -14,6 +14,7 @@
         
         <div class="wrapper">
             <div class="item" *ngFor="let product of products">
+                <div class="on-sale"><img src="/assets/images/on-sale.png"></div>
                 <p>{{ product.name }}</p>
                 <img src="{{ product.images[0].path }}" [popover]="popTemplate"  triggers="mouseenter:mouseleave" (click)="openModal(productDetails, product.id)">
                 <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p>
