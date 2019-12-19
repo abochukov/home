@@ -40,7 +40,7 @@ export class DataService {
    }
 
    saveOrderForm(formValue, products) {
-    return this.http.post('http://test-store.site:4000/api/orders', formValue, products).subscribe(data => {
+    return this.http.post('http://profitstore.bg:8000/api/orders', formValue, products).subscribe(data => {
     });
    }
 
