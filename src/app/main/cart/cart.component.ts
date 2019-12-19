@@ -174,7 +174,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
       // console.log(this.orderForm.value, allCartProducts)
       // this.orderForm.value.productsId = JSON.parse(this.cartItems).id;
-      // this.dataService.saveOrderForm(this.orderForm.value);
+      this.dataService.saveOrderForm(this.orderForm.value, allCartProducts);
     } else {
       if(this.orderForm.controls.firstname.invalid) {
         this.errorMessage = 'Моля попълнете име'

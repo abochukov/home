@@ -39,16 +39,16 @@ export class DataService {
     return this.http.get<Products>(`http://profitstore.bg:8000/api/products`);   
    }
 
-   saveOrderForm(orderValues) {
-    return this.http.post('http://test-store.site:4000/api/orders', orderValues).subscribe(data => {
+   saveOrderForm(formValue, products) {
+    return this.http.post('http://test-store.site:4000/api/orders', formValue, products).subscribe(data => {
     });
    }
 
-   saveOrderFormCompany(companyValues) {
-    return this.http.post('http://test-store.site:4000/api/ordersCompany', companyValues).subscribe(data => {
+  //  saveOrderFormCompany(companyValues) {
+  //   return this.http.post('http://test-store.site:4000/api/ordersCompany', companyValues).subscribe(data => {
       
-    })
-   }
+  //   })
+  //  }
 
    search(searchKey) {
     return this.http.get<Products>(`http://profitstore.bg:8000/api/search/${searchKey}`,)
