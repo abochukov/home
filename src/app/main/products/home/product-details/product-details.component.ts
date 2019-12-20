@@ -46,11 +46,11 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
 
     this.dataService.getProductDetailsImages(this.productId).subscribe(data => {
-      this.detailsImages = data;
-      this.headDetailImage = this.detailsImages.images[0].path;
-      this.allGalleryImages = this.detailsImages.images.map(img => {
-        return img.path
-      })
+        this.detailsImages = data;
+        this.headDetailImage = this.detailsImages.images[0].path;
+        this.allGalleryImages = this.detailsImages.images.map(img => {
+          return img.path
+        })
     })
 
     this.gallery();
