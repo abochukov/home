@@ -144,6 +144,8 @@ ul {
 }
 
 .popover {
+    z-index: 1;
+    
     & p.more-info {
         color: #ee5816;
     }
