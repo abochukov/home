@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public searchingString;
 
   public productBriefImage;
+  public hideTooltip: boolean;
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -211,6 +212,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       this.screenWidth = window.innerWidth;
       if(this.screenWidth < 992) {
         this.mobileResolution = true;
+        this.hideTooltip = true;
       } else {
         this.mobileResolution = false;
       }

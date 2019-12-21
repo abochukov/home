@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
 import {RouterModule, Routes } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { PopoverModule } from 'ngx-bootstrap/popover';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
       appRoutes
     ),
     ModalModule.forRoot(),
-    PopoverModule.forRoot(),
+    TooltipModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
