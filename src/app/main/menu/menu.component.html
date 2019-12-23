@@ -5,6 +5,7 @@
         <div class="navigation">
             <a routerLink = '/home' routerLinkActive = 'active'>Продукти</a>
             <a routerLink = '/about-us' routerLinkActive = 'active'>За нас</a>
+            <a routerLink = '/delivery' routerLinkActive = 'active'>Доставка</a>
             <a routerLink = '/contacts' routerLinkActive = 'active'>Контакти</a>
             <a (click)="openModal(template)" class="shopping-cart-icon">
                 <img src="/assets/images/shopping-cart.png" width="32">
@@ -34,8 +35,9 @@
     <div class="mobile-navigation" *ngIf="buttonMenuClicked">
         <a routerLink = '/home' routerLinkActive = 'active' (click)="closeMenu()">Продукти</a>
         <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()">За нас</a>
+        <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()">Доставка</a>
         <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()">Контакти</a>
-        <a (click)="openModal(template)"><img src="/assets/images/shopping-cart.png" width="32"></a>
+        <a (click)="openModal(template); closeMenu()"><img src="/assets/images/shopping-cart.png" width="32"></a>
     </div>
 
     <!-- <ul *ngFor="let searchResult of searchResults">

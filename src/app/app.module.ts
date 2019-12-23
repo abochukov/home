@@ -27,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
   { path: 'contacts', component: ContactsComponent },
-  { path: 'about-us', component: AboutUsComponent }
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'delivery', component: DeliveryComponent }
   // { path: 'wiki-search', component: SearchComponent },
 ]
 
