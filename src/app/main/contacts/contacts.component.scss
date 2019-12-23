@@ -39,12 +39,20 @@
                 display: flex;
                 flex-direction: column;
                 width: 400px;
-                height: 50px;
+                height: 40px;
                 margin: 25px 0;
                 font-size: 18px;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 padding: 0 10px;
                 outline: 0;
+                border: 1px solid #ee5816;
+            }
+
+            textarea {
+                width: 400px;
+                height: 100px;
+                border: 1px solid #ee5816;
+                padding: 0 10px;
             }
     
             .brd {

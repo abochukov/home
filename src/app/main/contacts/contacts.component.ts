@@ -18,8 +18,9 @@ export class ContactsComponent implements OnInit {
   ngOnInit() {
     this.myForm = this.fb.group({
       name: ['', Validators.required],
-      family: ['', Validators.required],
-      phone: ['', Validators.required]
+      phone: ['', Validators.required],
+      email: ['', Validators.required],
+      message: ['', Validators.required]
     });
 
     this.myForm.get('name').statusChanges.subscribe(name => {
