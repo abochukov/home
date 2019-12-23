@@ -20,6 +20,7 @@ import { CartTotalItemsComponent } from './main/cart/cart-total-items/cart-total
 import { ProductDetailsComponent } from './main/products/home/product-details/product-details.component';
 import { FooterComponent } from './main/footer/footer.component';
 import { AboutUsComponent } from './main/about-us/about-us.component';
+import { DeliveryComponent } from './main/delivery/delivery.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     CartTotalItemsComponent,
     ProductDetailsComponent,
     FooterComponent,
-    AboutUsComponent,    
+    AboutUsComponent,
+    DeliveryComponent,    
   ],
   imports: [
     BrowserModule,
