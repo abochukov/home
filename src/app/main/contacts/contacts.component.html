@@ -16,9 +16,10 @@
                 <input type="text" placeholder="name" formControlName="name" [ngClass]="{ 'error': myForm.controls.name.invalid, 'brd': myForm.controls.name.valid }">
                 <input type="text" placeholder="family" formControlName="family" [ngClass]="{ 'error': myForm.controls.family.invalid, 'brd': myForm.controls.family.valid }">
                 <input type="text" placeholder="phone" formControlName="phone" [ngClass]="{ 'error': myForm.controls.phone.invalid, 'brd': myForm.controls.phone.valid }">
-    
-                <button class="save-btn"> Save Me </button>
-                <button class="reset-btn" (click)="onReset()"> Reset </button>
+                <textarea formControlName="conteent" [ngClass]="{'field-error': orderForm.controls.address.invalid, 'field-ok':  orderForm.controls.address.valid}"></textarea>
+                <br/><br/>
+                <button class="save-btn">изпрати</button>
+                <!-- <button class="reset-btn" (click)="onReset()"> Reset </button> -->
             </form>
         </div>
 
