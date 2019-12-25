@@ -35,7 +35,19 @@
         }
     }
 
-    // & ul li::before {
+    & ul li ul:hover {
+        color: #ee5816;
+    }
+
+    // & ul li ul {
+    //     // border: 1px solid red;
+    //     display: flex;
+    //     flex-direction: row;
+    //     align-items: center;
+    //     // line-height: 20px;
+    // }
+
+    // & ul li ul::before {
     //     content: '\203A';
     //     padding-right: 5px;
     //     font-size: 26px;
