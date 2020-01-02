@@ -6,6 +6,7 @@ import { ToggleCategoriesService } from '../../../common/services/toggle-categor
 import { Categories, SubCategories, Products } from '../../../common/interfaces/items';
 
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-categories',
@@ -19,6 +20,8 @@ export class CategoriesComponent implements OnInit {
   public products: Products[];
   public selectedElement: any;
   public selectedSubCategory: any;
+  public openCategoryStatus: boolean = false;
+  public lastSelectedCategory = [];
 
   @Output() showProducts = new EventEmitter();
 
@@ -40,7 +43,17 @@ export class CategoriesComponent implements OnInit {
 
   public showSubCategories(id: number) {
     this.subCategories = [];
+    this.selectedElement = id;
 
+    this.lastSelectedCategory.push(id);
+
+    if(this.lastSelectedCategory.slice(-2)[0] == this.lastSelectedCategory.slice(-1)[0]) {
+      this.openCategoryStatus = !this.openCategoryStatus
+    } else {
+      this.openCategoryStatus = true;
+    }
+
+    if(this.openCategoryStatus) {
       this.dataService.getAllCategories().subscribe(area => {
         this.subCategories = Object.keys(area).map(i => {
           return area[i];
@@ -50,7 +63,7 @@ export class CategoriesComponent implements OnInit {
           }
         })   
       })
-    this.selectedElement = id;
+    }
   }
 
   public sendProducts(id: number) {
