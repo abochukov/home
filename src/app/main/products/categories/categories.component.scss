@@ -59,6 +59,20 @@
     }
 }
 
+.categories-wrapper::-webkit-scrollbar {
+    width: 7px;
+  }
+   
+  .categories-wrapper::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 20px;
+  }
+  
+  .categories-wrapper::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 20px;
+  }
+
 @media only screen and (max-width: 992px) {
     .categories-wrapper {
         width: 100%;
