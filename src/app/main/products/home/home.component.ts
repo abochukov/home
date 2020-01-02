@@ -116,37 +116,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     this.cartProducts = {id: productDetails.id, title: productDetails.title, price: productDetails.price }
   }
 
-  public addItemNotification(productTitle: string) {
-    let message = document.getElementById('add-item');
-    message.textContent += " " + productTitle;
 
-    message.classList.add('toggleMessage');
-    setTimeout(() => {
-      message.classList.remove('toggleMessage');
-    }, 3000);
-
-    setTimeout(() => {
-      message.textContent = message.textContent.split(" ").slice(0,2).join(" ");
-    }, 3100);
-  } 
-
-  public removeItemNotification() {
-    let message = document.getElementById('remove-item');
-
-    message.classList.add('toggleMessage');
-    setTimeout(() => {
-      message.classList.remove('toggleMessage');
-    }, 3000)
-  }
-
-  public alertItemNotification() {
-    let message = document.getElementById('already-add-item');
-
-    message.classList.add('toggleMessage');
-    setTimeout(() => {
-      message.classList.remove('toggleMessage');
-    }, 3000)
-  }
 
   public openModal(template: TemplateRef<any>, productId: number) {
     this.productId = productId;
@@ -191,6 +161,16 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
     let area = window.location.href.split('&')[1].split('=')[1];
 
+    this.dataService.getProducts().subscribe(products => {
+      this.products = Object.keys(products).map(i => {
+        return products[i];
+      }).filter(product => {
+        if(product.category_id == area) {
+          return product;
+        }
+      })
+    })
+
     this.router.navigate(['.'], 
       { 
         relativeTo: this.route, 
@@ -205,6 +185,38 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
     this.modalRef.hide();
 
+  }
+
+  public addItemNotification(productTitle: string) {
+    let message = document.getElementById('add-item');
+    message.textContent += " " + productTitle;
+
+    message.classList.add('toggleMessage');
+    setTimeout(() => {
+      message.classList.remove('toggleMessage');
+    }, 3000);
+
+    setTimeout(() => {
+      message.textContent = message.textContent.split(" ").slice(0,2).join(" ");
+    }, 3100);
+  } 
+
+  public removeItemNotification() {
+    let message = document.getElementById('remove-item');
+
+    message.classList.add('toggleMessage');
+    setTimeout(() => {
+      message.classList.remove('toggleMessage');
+    }, 3000)
+  }
+
+  public alertItemNotification() {
+    let message = document.getElementById('already-add-item');
+
+    message.classList.add('toggleMessage');
+    setTimeout(() => {
+      message.classList.remove('toggleMessage');
+    }, 3000)
   }
 
   @HostListener('window:resize', ['$event'])
