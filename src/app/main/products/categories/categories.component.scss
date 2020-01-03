@@ -1,68 +1,47 @@
 .categories-container {
-    // border: 1px solid red;
     height: 100vh;
     background: #fff;
     box-shadow: 1px 2px 18px#a1a1a1;
-}
-.categories-wrapper {
-    width: 100%;
-    // border: 1px solid pink;
-    height: 85.5vh;
-    // background: #fff;
-    padding-top: 7%;
-    overflow-y: auto;
-    // border: 1px solid orange;
 
-    & ul {
-        list-style-type: none;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        // border-bottom: 1px solid red;
-        // margin-bottom: 3px;
-        padding: 8px 20px;
-        cursor: pointer;
-        // border:  1px solid lime
-    }
-
-    & ul li {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        // border: 1px solid blue;
-
+    & .categories-wrapper {
+        width: 100%;
+        height: 85.5vh;
+        padding-top: 7%;
+        overflow-y: auto;
+    
         & ul {
-            display: none;
+            list-style-type: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 8px 20px;
+            cursor: pointer;
         }
-
-        & .show-element {
+    
+        & ul li {
             display: flex;
-            flex-direction: row;
-            margin-left: 10px;
+            flex-direction: column;
+            align-items: flex-start;
+    
+            & ul {
+                display: none;
+            }
+    
+            & .show-element {
+                display: flex;
+                flex-direction: row;
+                margin-left: 10px;
+            }
         }
-    }
-
-    & ul li ul:hover {
-        color: #ee5816;
-    }
-
-    // & ul li ul {
-    //     // border: 1px solid red;
-    //     display: flex;
-    //     flex-direction: row;
-    //     align-items: center;
-    //     // line-height: 20px;
-    // }
-
-    // & ul li ul::before {
-    //     content: '\203A';
-    //     padding-right: 5px;
-    //     font-size: 26px;
-    //     margin-top: -3px;
-    // }
-
-    .highlightCategory, .highlightSubCategory {
-        color: #ee5816;
+    
+        & ul li ul:hover {
+            color: #ee5816;
+        }
+    
+        .highlightCategory, .highlightSubCategory {
+            color: #ee5816;
+        }
     }
 }
+
 
 .categories-wrapper::-webkit-scrollbar {
     width: 7px;
@@ -81,31 +60,5 @@
 @media only screen and (max-width: 992px) {
     .categories-wrapper {
         width: 100%;
-        // height: 10vh;
-        // display: flex;
-        // flex-direction: row;
-        // align-items: center;
-        // margin: 0;
-        // padding: 0;
-    
-        // & ul {
-        //     list-style-type: none;
-        //     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        //     display: flex;
-        //     flex-direction: column;
-    
-        // }
-    
-        // & ul li {    
-        //     & ul {
-                
-        //     }
-    
-        //     & .show-element {
-        //         display: flex;
-        //         flex-direction: row;
-        //         margin-left: 10px;
-        //     }
-        // }
     }
 }
