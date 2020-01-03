@@ -140,6 +140,20 @@
                 display: none;
             }
         }
+
+        .wrapper::-webkit-scrollbar {
+            width: 7px;
+        }
+        
+        .wrapper::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 20px;
+        }
+        
+        .wrapper::-webkit-scrollbar-track {
+            background: #ddd;
+            border-radius: 20px;
+        }
     }
 
 
