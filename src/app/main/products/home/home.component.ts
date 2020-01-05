@@ -108,6 +108,20 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     this.products = data;
   }
 
+  public getBrandFilterResult(brand) {
+    console.log(brand.target.value)
+
+    this.products = this.dataService.getProducts().subscribe(products => {
+      this.products = Object.keys(products).map(i => {
+        return products[i];
+      }).filter(product => {
+        if(product.manifacture == brand.target.value) {
+          return product;
+        }
+      })
+    }) 
+  }
+
   public saveToLocalStorage(id: number, title: string, price: string) {
     this.cartProducts = { id: id, title: title, price: price }
   }
