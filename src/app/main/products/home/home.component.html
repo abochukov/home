@@ -10,6 +10,12 @@
             <a (click)="sendSearch()">
                 <img src="assets/images/magnifier-icon.png" width="24">
             </a>
+
+            <select>
+                <option [ngValue]="manifacture" *ngFor="let product of products">
+                {{ product.manifacture }}
+                </option>
+            </select>
         </div>
         
         <div class="wrapper" *ngIf="products">
