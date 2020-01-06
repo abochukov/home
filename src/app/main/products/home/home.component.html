@@ -5,17 +5,22 @@
     </div>    
     
     <div class="product-content">
-        <div>
-            <input type="text" class="search" #searchInput placeholder="Search Product">
-            <a (click)="sendSearch()">
-                <img src="assets/images/magnifier-icon.png" width="24">
-            </a>
+        <div class="filters">
+            <div class="search-content">
+                <input type="text" class="search" #searchInput placeholder="Search Product">
+                <a (click)="sendSearch()">
+                    <img src="assets/images/magnifier-icon.png" width="24">
+                </a>
+            </div>
 
-            <select (change)="getBrandFilterResult($event)">
-                <option [ngValue]="manifacture" *ngFor="let product of products">
-                {{ product.manifacture }}
-                </option>
-            </select>
+            <div class="brand-filter-content">
+                Марка
+                <select (change)="getBrandFilterResult($event)">
+                    <option [ngValue]="manifacture" *ngFor="let product of products">
+                    {{ product.manifacture }}
+                    </option>
+                </select>
+            </div>
         </div>
         
         <div class="wrapper" *ngIf="products">

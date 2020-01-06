@@ -14,13 +14,33 @@
         display: flex;
         flex-direction: column;
 
-        & .search {
-            width: 30%;
-            border-radius: 10px;
-            border: 1px solid #ee5816;
-            padding-left: 7px;
-            margin: 10px 15px 10px 20px;
-            
+        & .filters {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid red;
+
+            & .search-content {
+                width: 30%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                & .search {
+                    width: 100%;                    
+                    border-radius: 10px;
+                    border: 1px solid #ee5816;
+                    padding-left: 7px;
+                    margin: 10px 15px 10px 20px;   
+                }
+            }
+
+            & .brand-filter-content {
+                width: 25%;
+                padding: 0 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
 
         .wrapper {
