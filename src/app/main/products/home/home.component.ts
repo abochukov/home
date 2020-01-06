@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public productBriefImage;
   public hideTooltip: boolean;
+  public brandsFilter;
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -83,6 +84,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public showAllProducts(data: Products[]) {
     this.products = data;
+    this.brandsFilter = data;
   }
 
   public openProductsByDefault() {
@@ -105,6 +107,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           return product;
         }
       })
+      this.brandsFilter = products;
     })
   }
 
