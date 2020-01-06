@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public getBrandFilterResult(brand) {
     let area = window.location.href.split('&')[1].split('=')[1];   
 
-    this.products = this.dataService.getProducts().subscribe(products => {
+    this.dataService.getProducts().subscribe(products => {
       this.products = Object.keys(products).map(i => {
         return products[i];
       }).filter(product => {
