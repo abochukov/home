@@ -85,6 +85,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public showAllProducts(data: Products[]) {
     this.products = data;
     this.brandsFilter = data;
+    console.log(this.brandsFilter)
   }
 
   public openProductsByDefault() {
