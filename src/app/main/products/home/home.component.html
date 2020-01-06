@@ -15,7 +15,7 @@
 
             <div class="brand-filter-content">
                 
-                <select (change)="getBrandFilterResult($event)">
+                <select (change)="getBrandFilterResult($event)" class="brand-filter">
                     <option *ngFor="let brandFilter of brandsFilter" [ngValue]="brandFilter">
                     {{ brandFilter }}
                     </option>
