@@ -7,14 +7,14 @@
     <div class="product-content">
         <div class="filters">
             <div class="search-content">
-                <input type="text" class="search" #searchInput placeholder="Search Product">
+                <input type="text" class="search" #searchInput placeholder="търсене всички продукти">
                 <a (click)="sendSearch()">
                     <img src="assets/images/magnifier-icon.png" width="24">
                 </a>
             </div>
 
             <div class="brand-filter-content">
-                Марка
+                
                 <select (change)="getBrandFilterResult($event)">
                     <option *ngFor="let brandFilter of brandsFilter" [ngValue]="brandFilter">
                     {{ brandFilter }}

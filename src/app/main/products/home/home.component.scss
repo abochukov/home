@@ -17,20 +17,29 @@
         & .filters {
             display: flex;
             flex-direction: row;
+            align-items: center;
+            border-bottom: 2px solid #ee5816;
             // border: 1px solid red;
+            height: 60px;
 
             & .search-content {
                 width: 30%;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                border-radius: 10px;
+                border: 1px solid #ee5816;
+                height: 35px;
+                background: #fff;
+                margin: 0 10px;
+                padding-right: 10px;
 
                 & .search {
                     width: 100%;                    
-                    border-radius: 10px;
-                    border: 1px solid #ee5816;
+                    background: transparent;
                     padding-left: 7px;
-                    margin: 10px 15px 10px 20px;   
+                    margin: 10px 15px 10px 0;   
+                    border: 0;
                 }
             }
 
