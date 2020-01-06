@@ -81,6 +81,10 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+  public showAllProducts(data: Products[]) {
+    this.products = data;
+  }
+
   public openProductsByDefault() {
     let category = 1;
     let area = 7;
@@ -104,18 +108,14 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     })
   }
 
-  public showAllProducts(data: Products[]) {
-    this.products = data;
-  }
-
   public getBrandFilterResult(brand) {
-    console.log(brand.target.value)
+    let area = window.location.href.split('&')[1].split('=')[1];   
 
     this.products = this.dataService.getProducts().subscribe(products => {
       this.products = Object.keys(products).map(i => {
         return products[i];
       }).filter(product => {
-        if(product.manifacture == brand.target.value) {
+        if(product.manifacture == brand.target.value && product.category_id == area) {
           return product;
         }
       })
