@@ -108,8 +108,17 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           return product;
         }
       })
-      this.brandsFilter = products;
-    })
+    });
+
+    this.dataService.getProducts().subscribe(products => {
+      this.brandsFilter = Object.keys(products).map(i => {
+        return products[i];
+      }).filter(product => {
+        if(product.category_id == area) {
+          return product;
+        }
+      })
+    }) 
   }
 
   public getBrandFilterResult(brand) {
