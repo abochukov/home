@@ -16,6 +16,7 @@
             <div class="brand-filter-content">
                 
                 <select (change)="getBrandFilterResult($event)" class="brand-filter">
+                    <option value="" disabled selected>филтрирайте по марка</option>
                     <option *ngFor="let brandFilter of brandsFilter" [ngValue]="brandFilter">
                     {{ brandFilter }}
                     </option>
