@@ -4,6 +4,7 @@ export interface Products {
     productPrice: string;
     subCategoryId: number;
     productImage: string;
+    manifacture?: string;
 }
 
 export interface Categories {
