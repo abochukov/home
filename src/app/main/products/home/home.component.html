@@ -17,7 +17,7 @@
                 Марка
                 <select (change)="getBrandFilterResult($event)">
                     <option *ngFor="let brandFilter of brandsFilter" [ngValue]="brandFilter">
-                    {{ brandFilter.manifacture }}
+                    {{ brandFilter }}
                     </option>
                 </select>
             </div>

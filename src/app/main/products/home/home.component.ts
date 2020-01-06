@@ -84,8 +84,9 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public showAllProducts(data: Products[]) {
     this.products = data;
-    this.brandsFilter = data;
-    console.log(this.brandsFilter)
+    // this.brandsFilter = data;
+    let brands = data;
+    this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];
   }
 
   public openProductsByDefault() {
@@ -111,13 +112,14 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     });
 
     this.dataService.getProducts().subscribe(products => {
-      this.brandsFilter = Object.keys(products).map(i => {
+      let brands = Object.keys(products).map(i => {
         return products[i];
       }).filter(product => {
         if(product.category_id == area) {
           return product;
         }
       })
+      this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];      
     }) 
   }
 
