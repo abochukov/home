@@ -44,20 +44,9 @@ export class DataService {
     });
    }
 
-  //  saveOrderFormCompany(companyValues) {
-  //   return this.http.post('http://test-store.site:4000/api/ordersCompany', companyValues).subscribe(data => {
-      
-  //   })
-  //  }
-
    search(searchKey) {
     return this.http.get<Products>(`http://profitstore.bg:8000/api/search/${searchKey}`,)
    }
-
-  // We don't need this endpoint
-  //  getProductDetails(productId: number) {
-  //    return this.http.get(`http://test-store.site:4000/api/details/${productId}`);
-  //  }
 
    getProductDetailsImages(productId: number) {
     return this.http.get<imageDetails>(`http://profitstore.bg:8000/api/products/${productId}`)
