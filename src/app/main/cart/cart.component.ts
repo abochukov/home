@@ -163,13 +163,21 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   onSubmit() {
     if(this.orderForm.valid) {
+      let allInfo;
       let allCartProducts = this.cartItems.map(products => {
-        return JSON.parse(products).id
+        // return JSON.parse(products).id;
+        allInfo = {
+          id: JSON.parse(products).id,
+          dimension: 0,
+          quantity: 0
+        }
+
+        return allInfo;
       })
 
       this.showOrderForm = false;
       this.showOrderFinish = true;
-
+      console.log(allInfo);
       // localStorage.setItem('profitstore.bg', '');
 
       // console.log(this.orderForm.value, allCartProducts)
