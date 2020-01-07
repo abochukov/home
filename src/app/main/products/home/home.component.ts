@@ -84,7 +84,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public showAllProducts(data: Products[]) {
     this.products = data;
-    // this.brandsFilter = data;
     let brands = data;
     this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];
   }
@@ -159,16 +158,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     })
   }
 
-  public showHoverModal() {
-    console.log('hover in')
-  }
-
-  public hideHoverModal() {
-    // this.modalRef.hide()
-    console.log('hover out')
-  }
-
-
   public initialModal(productDetails, productId: number) {
     let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
     let subCategory = window.location.href.split('&')[1].split('=')[1];
@@ -213,7 +202,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     );
 
     this.modalRef.hide();
-
   }
 
   public addItemNotification(productTitle: string) {
@@ -266,10 +254,5 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           this.products = data;
         });
       }
-      // this.searchingString = Observable.fromEvent(this.searchInput.nativeElement, 'keyup').debounceTime(400).subscribe((value) => {
-      //     this.dataService.search().subscribe(data => {
-      //       this.products = data;
-      //     });
-      //   });
     }
 }
