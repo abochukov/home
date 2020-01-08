@@ -30,7 +30,7 @@
     <div class="order-form-citizen" *ngIf="showCitizenForm">
         <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
             <div>Име* <input type="text" formControlName="firstname" [ngClass]="{'field-error': orderForm.controls.firstname.invalid, 'field-ok':  orderForm.controls.firstname.valid}"></div>
-            <div>Фамилия* <input type="text" formControlName="family" [ngClass]="{'field-error': orderForm.controls.family.invalid, 'field-ok':  orderForm.controls.family.valid}"></div>
+            <!-- <div>Фамилия* <input type="text" formControlName="family" [ngClass]="{'field-error': orderForm.controls.family.invalid, 'field-ok':  orderForm.controls.family.valid}"></div>
             <div>Телефон*<input type="text" formControlName="phone" [ngClass]="{'field-error': orderForm.controls.phone.invalid, 'field-ok':  orderForm.controls.phone.valid}"></div>
             <div>E-mail*<input type="text" formControlName="mail" [ngClass]="{'field-error': orderForm.controls.mail.invalid, 'field-ok':  orderForm.controls.mail.valid}"></div>
             <div>Адрес или офис на куриер*<textarea formControlName="address" [ngClass]="{'field-error': orderForm.controls.address.invalid, 'field-ok':  orderForm.controls.address.valid}"></textarea></div>
@@ -80,7 +80,7 @@
                 <div>ЕИК(Булстат)<input type="text" formControlName="companynumber" class="invoice-field"></div>
                 <div>ЕИК по ДДС <input type="text" formControlName="vatnumber" class="invoice-field"></div>
                 <br/>
-            </ng-container>
+            </ng-container> -->
            
             <button type="submit" class="order-btn"> Поръчай </button>
             

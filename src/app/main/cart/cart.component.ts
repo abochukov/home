@@ -147,42 +147,52 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public order() {
     this.orderForm = this.fb.group({
       firstname: ['', Validators.required],
-      family: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
-      mail: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-      address: ['', Validators.required],
-      region: ['', Validators.required],
-      city: ['', Validators.required],
-      rules: [false, Validators.requiredTrue],
-      companyname: [''],
-      contactperson: [''],
-      companynumber: [''],
-      vatnumber: ['']
+      // family: ['', Validators.required],
+      // phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
+      // mail: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      // address: ['', Validators.required],
+      // region: ['', Validators.required],
+      // city: ['', Validators.required],
+      // rules: [false, Validators.requiredTrue],
+      // companyname: [''],
+      // contactperson: [''],
+      // companynumber: [''],
+      // vatnumber: ['']
     })
   }
 
   onSubmit() {
     if(this.orderForm.valid) {
-      let allInfo;
-      let allCartProducts = this.cartItems.map(products => {
-        // return JSON.parse(products).id;
-        allInfo = {
-          id: JSON.parse(products).id,
-          dimension: 0,
-          quantity: 0
-        }
+      let arr = [];
+      let productIds;
+      let orders = this.cartItems.map(products => {
+        productIds = JSON.parse(products).id;
 
-        return allInfo;
+        arr.push({
+          product_id: JSON.parse(products).id,
+          dimension_id: 0,
+          quantity: 0
+        });
+       
+        return arr
       })
+      let order = orders[0];
+      console.log(order[0].product_id); 
+      console.log(order[0].quantity);
+      console.log(order[0].dimension_id);
+      console.log(order[1].product_id);
+      console.log(order[1].quantity);
+      console.log(order[1].dimension_id);
+      // order[1][product_id]:4
 
       this.showOrderForm = false;
       this.showOrderFinish = true;
-      console.log(allInfo);
+
       // localStorage.setItem('profitstore.bg', '');
 
       // console.log(this.orderForm.value, allCartProducts)
       // this.orderForm.value.productsId = JSON.parse(this.cartItems).id;
-      this.dataService.saveOrderForm(this.orderForm.value, allCartProducts);
+      // this.dataService.saveOrderForm(this.orderForm.value, allCartProducts);
     } else {
       if(this.orderForm.controls.firstname.invalid) {
         this.errorMessage = 'Моля попълнете име'
