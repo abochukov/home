@@ -169,6 +169,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         productIds = JSON.parse(products).id;
 
         arr.push({
+          // name: this.orderForm.value.firstname,
           product_id: JSON.parse(products).id,
           dimension_id: 0,
           quantity: 0
@@ -177,12 +178,14 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         return arr
       })
       let order = orders[0];
-      console.log(order[0].product_id); 
-      console.log(order[0].quantity);
-      console.log(order[0].dimension_id);
-      console.log(order[1].product_id);
-      console.log(order[1].quantity);
-      console.log(order[1].dimension_id);
+      console.log(order);
+      // console.log(order);
+      // console.log(order[0].product_id); 
+      // console.log(order[0].quantity);
+      // console.log(order[0].dimension_id);
+      // console.log(order[1].product_id);
+      // console.log(order[1].quantity);
+      // console.log(order[1].dimension_id);
       // order[1][product_id]:4
 
       this.showOrderForm = false;
