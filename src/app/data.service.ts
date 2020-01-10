@@ -48,6 +48,9 @@ export class DataService {
     // console.log(options)
 
     return this.http.post('http://profitstore.bg:8000/api/order', value, options).subscribe(data => {
+      console.log(data)
+    }, error => {
+      console.log('Error', error.error.message)
     });
    }
 
