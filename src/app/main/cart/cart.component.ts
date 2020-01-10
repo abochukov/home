@@ -35,6 +35,8 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public invoice: boolean = false;
   public errorMessage: string;
 
+  public test;
+
   @Input() cartProducts;
 
   constructor( 
@@ -147,13 +149,13 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public order() {
     this.orderForm = this.fb.group({
       firstname: ['', Validators.required],
-      // family: ['', Validators.required],
-      // phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
-      // mail: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-      // address: ['', Validators.required],
-      // region: ['', Validators.required],
-      // city: ['', Validators.required],
-      // rules: [false, Validators.requiredTrue],
+      family: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
+      mail: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      address: ['', Validators.required],
+      region: ['', Validators.required],
+      city: ['', Validators.required],
+      rules: [false, Validators.requiredTrue],
       // companyname: [''],
       // contactperson: [''],
       // companynumber: [''],
@@ -163,30 +165,36 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   onSubmit() {
     if(this.orderForm.valid) {
-      let arr = [];
-      let productIds;
-      let orders = this.cartItems.map(products => {
-        productIds = JSON.parse(products).id;
+      let arr;
 
-        arr.push({
-          // name: this.orderForm.value.firstname,
+      let orders = this.cartItems.map(products => {
+
+        arr = {
           product_id: JSON.parse(products).id,
-          dimension_id: 0,
-          quantity: 0
-        });
+          quantity: 1,
+          dimension_id: 1
+        }
        
         return arr
       })
-      let order = orders[0];
-      console.log(order);
-      // console.log(order);
-      // console.log(order[0].product_id); 
-      // console.log(order[0].quantity);
-      // console.log(order[0].dimension_id);
-      // console.log(order[1].product_id);
-      // console.log(order[1].quantity);
-      // console.log(order[1].dimension_id);
-      // order[1][product_id]:4
+
+      let c = Object.assign({}, orders);
+      console.log(c);
+
+      this.test = {
+        user_id: '',
+        name: this.orderForm.value.firstname,
+        family: this.orderForm.value.family,
+        phone: this.orderForm.value.phone,
+        email: this.orderForm.value.mail,
+        address: this.orderForm.value.address,
+        province:'hardcode',
+        village: this.orderForm.value.city,
+        subscribe: '0',
+        order: c
+      }
+
+      this.dataService.saveOrderForm(this.test);
 
       this.showOrderForm = false;
       this.showOrderFinish = true;
@@ -195,7 +203,6 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
       // console.log(this.orderForm.value, allCartProducts)
       // this.orderForm.value.productsId = JSON.parse(this.cartItems).id;
-      // this.dataService.saveOrderForm(this.orderForm.value, allCartProducts);
     } else {
       if(this.orderForm.controls.firstname.invalid) {
         this.errorMessage = 'Моля попълнете име'
