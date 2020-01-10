@@ -40,17 +40,17 @@ export class DataService {
    }
 
    saveOrderForm(value) {
-    // console.log(value);
     
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     let options = { headers: headers };
-    // console.log(options)
+    
 
     return this.http.post('http://profitstore.bg:8000/api/order', value, options).subscribe(data => {
       console.log(data)
     }, error => {
-      console.log('Error', error.error.message)
+      window.alert(`Съжаляваме, но възникна грешка ${error.status}. Ваша поръчка не беше приета, моля свържете се с нас по телефона или опитайте отново`);
+      // console.log('Error', error)
     });
    }
 
