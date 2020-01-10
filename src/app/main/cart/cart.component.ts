@@ -148,9 +148,9 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   public order() {
     this.orderForm = this.fb.group({
-      firstname: ['', Validators.required],
-      family: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
+      firstname: ['', [Validators.required, Validators.minLength(3)]],
+      family: ['', [Validators.required, Validators.minLength(3)]],
+      phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8), Validators.maxLength(12)]],
       mail: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       address: ['', Validators.required],
       region: ['', Validators.required],
@@ -194,12 +194,12 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       }
 
       this.dataService.saveOrderForm(this.orders);
+      localStorage.setItem('profitstore.bg', '[]');
+      this.showCartItemsService.setItems(0);
 
       this.showOrderForm = false;
       this.showOrderFinish = true;
-
-      localStorage.setItem('profitstore.bg', '[]');
-      this.showCartItemsService.setItems(0);
+      
     } else {
       if(this.orderForm.controls.firstname.invalid) {
         this.errorMessage = 'Моля попълнете име'
