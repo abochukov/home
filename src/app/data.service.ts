@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Categories, SubCategories, Products } from './common/interfaces/items';
 import { imageDetails } from './common/interfaces/image';
@@ -39,8 +39,15 @@ export class DataService {
     return this.http.get<Products>(`http://profitstore.bg:8000/api/products`);   
    }
 
-   saveOrderForm(formValue, products) {
-    return this.http.post('http://profitstore.bg:8000/api/orders', formValue, products).subscribe(data => {
+   saveOrderForm(value) {
+    // console.log(value);
+    
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    let options = { headers: headers };
+    // console.log(options)
+
+    return this.http.post('http://profitstore.bg:8000/api/order', value, options).subscribe(data => {
     });
    }
 
