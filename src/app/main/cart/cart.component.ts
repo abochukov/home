@@ -35,7 +35,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public invoice: boolean = false;
   public errorMessage: string;
 
-  public test;
+  public orders;
 
   @Input() cartProducts;
 
@@ -165,23 +165,22 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   onSubmit() {
     if(this.orderForm.valid) {
-      let arr;
+      let details;
 
-      let orders = this.cartItems.map(products => {
+      let product = this.cartItems.map(products => {
 
-        arr = {
+        details = {
           product_id: JSON.parse(products).id,
           quantity: 1,
           dimension_id: 1
         }
        
-        return arr
+        return details
       })
 
-      let c = Object.assign({}, orders);
-      console.log(c);
+      let productObj = Object.assign({}, product);
 
-      this.test = {
+      this.orders = {
         user_id: '',
         name: this.orderForm.value.firstname,
         family: this.orderForm.value.family,
@@ -191,10 +190,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         province:'hardcode',
         village: this.orderForm.value.city,
         subscribe: '0',
-        order: c
+        order: productObj
       }
 
-      this.dataService.saveOrderForm(this.test);
+      this.dataService.saveOrderForm(this.orders);
 
       this.showOrderForm = false;
       this.showOrderFinish = true;
