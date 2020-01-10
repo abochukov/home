@@ -199,6 +199,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
       this.showOrderFinish = true;
 
       localStorage.setItem('profitstore.bg', '[]');
+      this.showCartItemsService.setItems(0);
     } else {
       if(this.orderForm.controls.firstname.invalid) {
         this.errorMessage = 'Моля попълнете име'
