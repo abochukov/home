@@ -7,7 +7,7 @@
             <a routerLink = '/about-us' routerLinkActive = 'active'>За нас</a>
             <a routerLink = '/delivery' routerLinkActive = 'active'>Доставка</a>
             <a routerLink = '/contacts' routerLinkActive = 'active'>Контакти</a>
-            <a (click)="openModal(template)" class="shopping-cart-icon">
+            <a (click)="openModal(showCart)" class="shopping-cart-icon">
                 <img src="/assets/images/shopping-cart.png" width="32">
                 <div class="items-count" *ngIf="this.cartItems > 0">
                     <p>{{ cartItems }}</p>
@@ -37,14 +37,14 @@
         <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()">За нас</a>
         <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()">Доставка</a>
         <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()">Контакти</a>
-        <a (click)="openModal(template); closeMenu()"><img src="/assets/images/shopping-cart.png" width="32"></a>
+        <a (click)="openModal(showCart); closeMenu()"><img src="/assets/images/shopping-cart.png" width="32"></a>
     </div>
 
     <!-- <ul *ngFor="let searchResult of searchResults">
         <li>{{ searchResult.productTitle }}</li>
     </ul> -->
 
-    <ng-template #template class="cart-preview">
+    <ng-template #showCart class="cart-preview">
         <div class="modal-header">
             <h4 class="modal-title pull-left">Вашата количка</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
