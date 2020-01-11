@@ -16,7 +16,7 @@
     <app-cart-total-items [totalPrice]="totalPrice" [items]="items" (onRemove)="removeCartItems($event)"></app-cart-total-items>
 
     <div class="total-sum">
-        <span>Дължима сума: </span><span>{{ totalPrice }} лв.</span>
+        <span>Дължима сума: </span><span>{{ totalPrice.toFixed(2) }} лв.</span>
     </div>
 
     <!-- <h4>Начин на плащане - наложен платеж</h4> -->
