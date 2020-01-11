@@ -46,12 +46,14 @@ export class DataService {
     let options = { headers: headers };
     
 
-    return this.http.post('http://profitstore.bg:8000/api/order', value, options).subscribe(data => {
-      console.log(data)
-    }, error => {
-      window.alert(`Съжаляваме, но възникна грешка ${error.status}. Ваша поръчка не беше приета, моля свържете се с нас по телефона или опитайте отново`);
-      // console.log('Error', error)
-    });
+    return this.http.post('http://profitstore.bg:8000/api/order', value, options);
+
+    // .subscribe(data => {
+    //   console.log(data)
+    // }, error => {
+    //   window.alert(`Съжаляваме, но възникна грешка ${error.status}. Ваша поръчка не беше приета, моля свържете се с нас по телефона или опитайте отново`);
+    //   // console.log('Error', error)
+    // });
    }
 
    search(searchKey) {

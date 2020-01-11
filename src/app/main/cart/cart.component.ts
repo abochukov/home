@@ -193,12 +193,17 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         order: productObj
       }
 
-      this.dataService.saveOrderForm(this.orders);
-      localStorage.setItem('profitstore.bg', '[]');
-      this.showCartItemsService.setItems(0);
+      this.dataService.saveOrderForm(this.orders).subscribe(result => {
+        this.showOrderForm = false;
+        this.showOrderFinish = true;
 
-      this.showOrderForm = false;
-      this.showOrderFinish = true;
+        localStorage.setItem('profitstore.bg', '[]');
+        this.showCartItemsService.setItems(0);
+      }, error => {
+        window.alert(`Съжаляваме, но възникна грешка ${error.status}. Ваша поръчка не беше приета, моля свържете се с нас или опитайте отново`);
+      }
+      );
+      
       
     } else {
       if(this.orderForm.controls.firstname.invalid) {
