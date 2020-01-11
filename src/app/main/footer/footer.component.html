@@ -6,7 +6,8 @@
       </div>
       <div>
         <a routerLink = '/home' routerLinkActive = 'active'>Продукти</a>
-        <a routerLink = '/contacts' routerLinkActive = 'active'>Контакти</a>
+        <!-- <a routerLink = '/contacts' routerLinkActive = 'active'>Контакти</a> -->
+        <a (click)="openModal(showCart); closeMenu()">Количка</a>
         <a (click)="showConditions(conditions)">Условия</a>
       </div>
       
@@ -35,5 +36,17 @@
     </div>
     <div class="modal-body">
       dostavka
+    </div>
+  </ng-template>
+
+  <ng-template #showCart class="cart-preview">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Вашата количка</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-cart></app-cart>
     </div>
   </ng-template>

@@ -1,6 +1,8 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ChangeDetectorRef } from '@angular/core';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
+import { ShowCartItemsService } from '../../common/services/show-cart-items.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +11,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class FooterComponent implements OnInit {
 
+  public cartItems: any;
   modalRef: BsModalRef;
 
   config = {
@@ -19,7 +22,11 @@ export class FooterComponent implements OnInit {
     class: "modal-lg",
   };
 
-  constructor(private modalService: BsModalService) { }
+  constructor(
+    private modalService: BsModalService, 
+    private showCartItemsService: ShowCartItemsService,
+    private cd: ChangeDetectorRef
+  ) { }
 
   ngOnInit() {
   }
@@ -34,5 +41,16 @@ export class FooterComponent implements OnInit {
 
   public showDelivery(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config)
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  public showCartItems() {
+    this.showCartItemsService.getItems().subscribe((data => {
+      this.cartItems = data.countItems;
+      this.cd.detectChanges();
+    }));
   }
 }
