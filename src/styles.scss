@@ -93,6 +93,19 @@ ul {
     margin-left: 30px;
 }
 
+.page-link {
+    color: #ee5816;
+}
+
+.page-link:hover {
+    color: #ee5816;
+}
+
+.page-item.active .page-link {
+    background-color: #ee5816;
+    border-color: #fff;
+}
+
 @media only screen and (max-width: 992px) {
     .modal {
         
