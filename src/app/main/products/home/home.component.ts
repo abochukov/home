@@ -40,8 +40,9 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public hideTooltip: boolean;
   public brandsFilter: any;
   public visibleItems: any;
-  public itemsPerPage: number = 3;
+  public itemsPerPage: number = 6;
   public currnetPage: number = 1;
+  public totalItems: number;
 
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
@@ -89,9 +90,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public setVisibleItems(start: number = (this.currnetPage-1) * this.itemsPerPage, end: number = start + this.itemsPerPage) {
     this.visibleItems = this.products.slice(start, end);
-    console.log(this.visibleItems)
-    console.log(start);
-    console.log(end)
   }
 
   public pageChanged(page) {
@@ -107,6 +105,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public showAllProducts(data: Products[]) {
     this.products = data;
+    this.totalItems = this.products.length;
     this.setVisibleItems();
     
     let brands = data;
@@ -133,6 +132,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           return product;
         }
       })
+      this.totalItems = this.products.length;
+      this.setVisibleItems();
     });
 
     this.dataService.getProducts().subscribe(products => {
@@ -144,8 +145,9 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
         }
       })
 
-      this.setVisibleItems();
       this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];      
+      this.totalItems = this.products.length;
+      this.setVisibleItems();
     }) 
   }
 
@@ -160,7 +162,10 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           return product;
         }
       })
+      this.totalItems = this.products.length;
+      this.setVisibleItems();
     }) 
+
   }
 
   public saveToLocalStorage(id: number, title: string, price: string) {
@@ -279,6 +284,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       if(searchString) {
         this.dataService.search(searchString).subscribe(data => {
           this.products = data;
+          this.totalItems = this.products.length;
+          this.setVisibleItems();
         });
       }
     }
