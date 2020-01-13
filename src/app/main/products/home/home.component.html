@@ -27,7 +27,7 @@
                     <option value="" disabled selected>покажи по</option>
                     <option value="1">1 продукт</option>
                     <option value="3">3 продукта</option>
-                    <option value="5">5 продукта</option>
+                    <option value="6">6 продукта</option>
                     <option value="10">10 продукта</option>
                 </select>
             </div>
@@ -53,12 +53,12 @@
             </div>
 
             <app-cart [cartProducts]="cartProducts"></app-cart>
+       
         </div>
-
+        
         <div class="pagination">
-            {{ totalItems }}
             <pagination [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [rotate]="false"
-	        firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
+            firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
         </div>
     </div>
 
