@@ -56,6 +56,21 @@
                     border-radius: 10px;
                 }
             }
+
+            & .items-per-page {
+                width: 17%;
+                padding: 0 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                & .item-chooser {
+                    background: #fff;
+                    height: 30px;
+                    border: 1px solid #ee5816;
+                    border-radius: 10px;
+                }
+            }
         }
 
         .wrapper {

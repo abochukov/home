@@ -14,7 +14,6 @@
             </div>
 
             <div class="brand-filter-content">
-                
                 <select (change)="getBrandFilterResult($event)" class="brand-filter">
                     <option value="" disabled selected>филтрирайте по марка</option>
                     <option *ngFor="let brandFilter of brandsFilter" [ngValue]="brandFilter">
@@ -24,12 +23,11 @@
             </div>
 
             <div class="items-per-page">
-                
-                <select (change)="selectItemsPerPage($event)" class="brand-filter">
-                    <option value="" disabled selected>продукти на страница</option>
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
+                <select (change)="selectItemsPerPage($event)" class="item-chooser">
+                    <option value="" disabled selected>покажи по</option>
+                    <option value="3">3 продукта</option>
+                    <option value="5">5 продукта</option>
+                    <option value="10">10 продукта</option>
                 </select>
             </div>
         </div>
