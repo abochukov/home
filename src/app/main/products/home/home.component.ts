@@ -86,16 +86,23 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
-  public pageChanged(page) {
-    this.currnetPage = page.page;
-    this.setVisibleItems();
-    // console.log('current page ' + this.currnetPage)
-  }
 
   public setVisibleItems(start: number = (this.currnetPage-1) * this.itemsPerPage, end: number = start + this.itemsPerPage) {
     this.visibleItems = this.products.slice(start, end);
+    console.log(this.visibleItems)
     console.log(start);
     console.log(end)
+  }
+
+  public pageChanged(page) {
+    this.currnetPage = page.page;
+    this.setVisibleItems();
+  }
+
+
+  public selectItemsPerPage(option) {
+    this.itemsPerPage = Number(option.target.value);
+    this.setVisibleItems();
   }
 
   public showAllProducts(data: Products[]) {

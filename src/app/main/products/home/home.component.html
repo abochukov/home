@@ -22,6 +22,16 @@
                     </option>
                 </select>
             </div>
+
+            <div class="items-per-page">
+                
+                <select (change)="selectItemsPerPage($event)" class="brand-filter">
+                    <option value="" disabled selected>продукти на страница</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
         </div>
         
         <div class="wrapper" *ngIf="products">
