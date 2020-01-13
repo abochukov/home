@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public brandsFilter: any;
   public visibleItems: any;
   public itemsPerPage: number = 3;
-  public currnetPage: number;
+  public currnetPage: number = 1;
 
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
