@@ -38,7 +38,11 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public productBriefImage;
   public hideTooltip: boolean;
-  public brandsFilter;
+  public brandsFilter: any;
+  public visibleItems: any;
+  public itemsPerPage: number = 3;
+  public currnetPage: number;
+
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -82,8 +86,22 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+  public pageChanged(page) {
+    this.currnetPage = page.page;
+    this.setVisibleItems();
+    // console.log('current page ' + this.currnetPage)
+  }
+
+  public setVisibleItems(start: number = (this.currnetPage-1) * this.itemsPerPage, end: number = start + this.itemsPerPage) {
+    this.visibleItems = this.products.slice(start, end);
+    console.log(start);
+    console.log(end)
+  }
+
   public showAllProducts(data: Products[]) {
     this.products = data;
+    this.setVisibleItems();
+    
     let brands = data;
     this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];
   }
@@ -118,6 +136,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           return product;
         }
       })
+
+      this.setVisibleItems();
       this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];      
     }) 
   }
