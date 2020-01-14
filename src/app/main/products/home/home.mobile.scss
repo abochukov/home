@@ -49,23 +49,39 @@
                     justify-content: center;
                 }
 
+                & .items-per-page {
+                    width: 100%;
+                    padding: 10px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
             }
 
 
             & .wrapper {
                 // border: 3px solid green;
-    
-                & .item {
-                    width: 300px;
-                    height: 280px;
-                    margin: 30px;
-                    border: 1px solid #ff3547;
-                    border-radius: 5px;
+
+                & .product-container {
                     display: flex;
-                    flex-direction: column;
-                    padding: 5px;
-                    background: #fff;
+                    flex-direction: row;
+                    justify-content: center;
+                    flex-wrap: wrap;
+
+                    & .item {
+                        width: 300px;
+                        height: 280px;
+                        margin: 30px;
+                        border: 1px solid #ff3547;
+                        border-radius: 5px;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 5px;
+                        background: #fff;
+                    }
                 }
+    
             }
         }
     

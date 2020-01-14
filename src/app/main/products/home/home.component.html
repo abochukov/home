@@ -57,7 +57,7 @@
             </div>
             
             <div class="pagination">
-                <pagination [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [rotate]="false"
+                <pagination  [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [maxSize]="3" [rotate]="false"
                 firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
             </div>
         </div>
