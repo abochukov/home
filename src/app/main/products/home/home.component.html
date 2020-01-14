@@ -34,32 +34,34 @@
         </div>
         
         <div class="wrapper" *ngIf="products">
-            <div class="item" *ngFor="let product of visibleItems">
-                <!-- <div class="on-sale"><img src="/assets/images/on-sale.png"></div> -->
-                <p>{{ product.name }}</p>
-                <img src="{{ product.images[0].path }}" [tooltip]="popTemplate" [isDisabled]="hideTooltip" triggers="mouseenter:mouseleave" (click)="openModal(productDetails, product.id)">
-                <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p>
-                <div class="price">
-                    <!-- <p class="old-price">1000.00 лв</p> -->
-                    <p>{{ product.price }} лв</p>
+            <div class="product-container">
+                <div class="item" *ngFor="let product of visibleItems">
+                    <!-- <div class="on-sale"><img src="/assets/images/on-sale.png"></div> -->
+                    <p>{{ product.name }}</p>
+                    <img src="{{ product.images[0].path }}" [tooltip]="popTemplate" [isDisabled]="hideTooltip" triggers="mouseenter:mouseleave" (click)="openModal(productDetails, product.id)">
+                    <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p>
+                    <div class="price">
+                        <!-- <p class="old-price">1000.00 лв</p> -->
+                        <p>{{ product.price }} лв</p>
+                    </div>
+                    <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>
+                    
+                    <ng-template #popTemplate>
+                        <img src="{{ product.images[1].path }}">
+                        <p>{{ product.exserpt_description }}</p>
+                        <p class="more-info">За повече информация натиснете върху изображението</p>
+                    </ng-template>
                 </div>
-                <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>
-                
-                <ng-template #popTemplate>
-                    <img src="{{ product.images[1].path }}">
-                    <p>{{ product.exserpt_description }}</p>
-                    <p class="more-info">За повече информация натиснете върху изображението</p>
-                </ng-template>
+    
+                <app-cart [cartProducts]="cartProducts"></app-cart>
             </div>
+            
+            <div class="pagination">
+                <pagination [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [rotate]="false"
+                firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
+            </div>
+        </div>
 
-            <app-cart [cartProducts]="cartProducts"></app-cart>
-       
-        </div>
-        
-        <div class="pagination">
-            <pagination [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [rotate]="false"
-            firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
-        </div>
     </div>
 
     <div class="add-item-notification" id="add-item">
