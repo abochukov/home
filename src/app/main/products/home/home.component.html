@@ -55,8 +55,8 @@
     
                 <app-cart [cartProducts]="cartProducts"></app-cart>
             </div>
-            
-            <div class="pagination">
+
+            <div class="pagination" *ngIf="totalItems > visibleItems.length">
                 <pagination  [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [maxSize]="3" [rotate]="false"
                 firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
             </div>
