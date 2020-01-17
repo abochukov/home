@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public selectItemsPerPage(option) {
     this.itemsPerPage = Number(option.target.value);
     this.setVisibleItems();
-    this.cd.detectChanges();
+    // this.cd.detectChanges();
   }
 
   public showAllProducts(data: Products[]) {
