@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 import { DataService } from '../../data.service';
@@ -46,9 +46,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     private toggleCategories: ToggleCategoriesService,
     private showCartItemsService: ShowCartItemsService,
     private cartRouter: Router,
-    private rt: ActivatedRoute
+    private rt: ActivatedRoute,
+    private cds: ChangeDetectorRef
   ) { 
-    super(modalServices, toggleCategories, dataService, cartRouter, rt);
+    super(modalServices, toggleCategories, dataService, cartRouter, rt, cds);
   }
 
   ngOnInit() {
