@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/debounceTime';  
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'app-home',
@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public itemsPerPage: number = 6;
   public currnetPage: number = 1;
   public totalItems: number;
-
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -211,17 +210,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
     let area = window.location.href.split('&')[1].split('=')[1];
 
-    this.dataService.getProducts().subscribe(products => {
-      this.products = Object.keys(products).map(i => {
-        return products[i];
-      }).filter(product => {
-        if(product.category_id == area) {
-          return product;
-        }
-      })
-      // this.updatePagination();
-    })
-
     this.router.navigate(['.'], 
       { 
         relativeTo: this.route, 
@@ -242,7 +230,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     if(searchString) {
       this.dataService.search(searchString).subscribe(data => {
         this.products = data;
-        // this.updatePagination();
+        this.updatePagination();
       });
     }
   }
