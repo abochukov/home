@@ -101,7 +101,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public selectItemsPerPage(option) {
     this.itemsPerPage = Number(option.target.value);
     this.setVisibleItems();
-    // this.cd.detectChanges();
   }
 
   public showAllProducts(data: Products[]) {
@@ -192,7 +191,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public initialModal(productDetails, productId: number) {
     let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
     let subCategory = window.location.href.split('&')[1].split('=')[1];
-    // console.log(window.location.href.split('&')[1].split('=')[1])
+
     this.productId = productId;
     this.modalRef = this.modalService.show(productDetails, this.config);
 
