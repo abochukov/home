@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, AfterViewInit, TemplateRef, HostListener, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, TemplateRef, HostListener, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 
 import { ToggleCategoriesService } from '../../../common/services/toggle-categories.service';
 import { DataService } from '../../../data.service';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/debounceTime';  
 
 @Component({
   selector: 'app-home',
@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     protected dataService: DataService,
     private router: Router,
     private route: ActivatedRoute,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -94,19 +95,19 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   public pageChanged(page) {
     this.currnetPage = page.page;
-    this.setVisibleItems();
+    this.updatePagination();
   }
 
 
   public selectItemsPerPage(option) {
     this.itemsPerPage = Number(option.target.value);
     this.setVisibleItems();
+    this.cd.detectChanges();
   }
 
   public showAllProducts(data: Products[]) {
     this.products = data;
-    this.totalItems = this.products.length;
-    this.setVisibleItems();
+    this.updatePagination();
     
     let brands = data;
     this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];
@@ -146,8 +147,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       })
 
       this.brandsFilter = [...new Set(brands.map(item => item.manifacture))];      
-      this.totalItems = this.products.length;
-      this.setVisibleItems();
+      
+      this.updatePagination();
     }) 
   }
 
@@ -162,8 +163,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           return product;
         }
       })
-      this.totalItems = this.products.length;
-      this.setVisibleItems();
+      this.updatePagination();
     }) 
 
   }
@@ -219,6 +219,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
           return product;
         }
       })
+      // this.updatePagination();
     })
 
     this.router.navigate(['.'], 
@@ -234,6 +235,22 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     );
 
     this.modalRef.hide();
+  }
+
+  public sendSearch() {
+    let searchString = this.searchInput.nativeElement.value;
+    if(searchString) {
+      this.dataService.search(searchString).subscribe(data => {
+        this.products = data;
+        // this.updatePagination();
+      });
+    }
+  }
+
+  public updatePagination() {
+    this.totalItems = this.products.length;
+    this.setVisibleItems();
+    this.cd.detectChanges();
   }
 
   public addItemNotification(productTitle: string) {
@@ -276,17 +293,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
         this.hideTooltip = true;
       } else {
         this.mobileResolution = false;
-      }
-    }
-
-    public sendSearch() {
-      let searchString = this.searchInput.nativeElement.value;
-      if(searchString) {
-        this.dataService.search(searchString).subscribe(data => {
-          this.products = data;
-          this.totalItems = this.products.length;
-          this.setVisibleItems();
-        });
       }
     }
 }
