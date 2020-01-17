@@ -46,11 +46,11 @@
                     </div>
                     <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>
                     
-                    <!-- <ng-template #popTemplate>
+                    <ng-template #popTemplate>
                         <img src="{{ product.images[1].path }}">
                         <p>{{ product.exserpt_description }}</p>
                         <p class="more-info">За повече информация натиснете върху изображението</p>
-                    </ng-template> -->
+                    </ng-template>
                 </div>
     
                 <app-cart [cartProducts]="cartProducts"></app-cart>
