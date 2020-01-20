@@ -61,6 +61,6 @@ export class DataService {
    }
 
    getProductDetailsImages(productId: number) {
-    return this.http.get<imageDetails>(`http://api.profitstore.bg/api/products/${productId}`)
+    return this.http.get<imageDetails>(`https://api.profitstore.bg/api/products/${productId}`)
    }
 }
