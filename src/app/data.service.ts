@@ -24,7 +24,7 @@ export class DataService {
    }
 
    getAllCategories(): Observable<Categories> {
-     return this.http.get<Categories>('http://profitstore.bg:8000/api/category');
+     return this.http.get<Categories>('https://api.profitstore.bg/api/category');
    }
 
   //  getSubCategories(id: number): Observable<SubCategories> {
@@ -32,11 +32,11 @@ export class DataService {
   //  }
 
    getProduct(productId: number): Observable<Products> {
-     return this.http.get<Products>(`http://profitstore.bg:8000/api/products/${productId}`);
+     return this.http.get<Products>(`https://api.profitstore.bg/api/products/${productId}`);
    }
 
    getProducts(): Observable<Products> {
-    return this.http.get<Products>(`http://profitstore.bg:8000/api/products`);   
+    return this.http.get<Products>(`https://api.profitstore.bg/api/products`);   
    }
 
    saveOrderForm(value) {
@@ -46,7 +46,7 @@ export class DataService {
     let options = { headers: headers };
     
 
-    return this.http.post('http://profitstore.bg:8000/api/order', value, options);
+    return this.http.post('https://api.profitstore.bg/api/order', value, options);
 
     // .subscribe(data => {
     //   console.log(data)
@@ -57,10 +57,10 @@ export class DataService {
    }
 
    search(searchKey) {
-    return this.http.get<Products>(`http://profitstore.bg:8000/api/search/${searchKey}`,)
+    return this.http.get<Products>(`https://api.profitstore.bg/api/search/${searchKey}`,)
    }
 
    getProductDetailsImages(productId: number) {
-    return this.http.get<imageDetails>(`http://profitstore.bg:8000/api/products/${productId}`)
+    return this.http.get<imageDetails>(`http://api.profitstore.bg/api/products/${productId}`)
    }
 }
