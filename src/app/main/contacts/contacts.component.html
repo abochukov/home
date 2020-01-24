@@ -18,7 +18,11 @@
                 <input type="text" placeholder="телефон" formControlName="phone" >
                 <input type="text" placeholder="e-mail" formControlName="email" >
                 <textarea placeholder="съобщение" formControlName="message"></textarea>
-                <br/><br/>
+                <br/>
+                <div class="rules err-msg">
+                    {{ errorMessage }}
+                </div>
+                <br/>
                 <button class="save-btn">изпрати</button>
                 <!-- <button class="reset-btn" (click)="onReset()"> Reset </button> -->
             </form>

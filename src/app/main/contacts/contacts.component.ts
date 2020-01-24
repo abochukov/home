@@ -12,14 +12,15 @@ export class ContactsComponent implements OnInit {
 
   public myForm: FormGroup;
   public formattedMessage: string;
+  public errorMessage: string;
 
   constructor(private fb: FormBuilder, private dataService: DataService) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      name: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', Validators.required],
+      name:  ['', [Validators.required, Validators.minLength(3)]],
+      phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8), Validators.maxLength(12)]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       message: ['', Validators.required]
     });
 
@@ -39,7 +40,13 @@ export class ContactsComponent implements OnInit {
         }
       })
     } else {
-      console.log('in valid')
+      if(this.myForm.controls.name.invalid) {
+        this.errorMessage = 'Моля попълнете име'
+      } else if(this.myForm.controls.phone.invalid) {
+        this.errorMessage = 'Полето телефонен номер трявба да съдържа само цифри и валиден номер'
+      } else if(this.myForm.controls.email.invalid) {
+        this.errorMessage = 'Моля въведете валиден e-mail адрес'
+      }
     }
   }
 
