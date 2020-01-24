@@ -25,15 +25,15 @@ export class ContactsComponent implements OnInit {
       message: ['', Validators.required]
     });
 
-    this.contactForm.get('name').statusChanges.subscribe(name => {
-      console.log(name);
-    })
+    // this.contactForm.get('name').statusChanges.subscribe(name => {
+    //   console.log(name);
+    // })
 
   }
 
   onSubmit() {
     if(this.contactForm.valid) {
-      console.log(this.contactForm.value.name);
+      this.errorMessage = '';
       this.dataService.sendMail(this.contactForm.value).subscribe(data => {
       }, error => {
         if(error.statusText == 'OK') {
