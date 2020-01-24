@@ -12,7 +12,7 @@
 
     <div class="wrapper">
         <div class="contact-form">
-            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <!-- <input type="text" placeholder="name" formControlName="name" [ngClass]="{ 'error': myForm.controls.name.invalid, 'brd': myForm.controls.name.valid }"> -->
                 <input type="text" placeholder="име" formControlName="name">
                 <input type="text" placeholder="телефон" formControlName="phone" >
