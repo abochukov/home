@@ -63,4 +63,14 @@ export class DataService {
    getProductDetailsImages(productId: number) {
     return this.http.get<imageDetails>(`https://api.profitstore.bg/api/products/${productId}`)
    }
+
+   sendMail(value) {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    let options = { headers: headers };
+
+    return this.http.post('https://api.profitstore.bg/api/contact', value, options).subscribe(data => {
+      console.log(data)
+    });
+   }
 }

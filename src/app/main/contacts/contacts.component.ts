@@ -32,10 +32,10 @@ export class ContactsComponent implements OnInit {
   onSubmit() {
     if(this.myForm.valid) {
       console.log(this.myForm.value.name);
+      this.dataService.sendMail(this.myForm.value);
     } else {
       console.log('in valid')
     }
-    this.dataService.saveFormData(this.myForm.value);
   }
 
   onReset() {
