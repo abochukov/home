@@ -13,6 +13,7 @@ export class ContactsComponent implements OnInit {
   public contactForm: FormGroup;
   public formattedMessage: string;
   public errorMessage: string;
+  public successMessage: string;
 
   constructor(private fb: FormBuilder, private dataService: DataService) { }
 
@@ -37,6 +38,7 @@ export class ContactsComponent implements OnInit {
       }, error => {
         if(error.statusText == 'OK') {
           this.contactForm.reset();
+          this.successMessage = 'Благодарим, че се свързахте с нас. Вашето съобщение, че бъде прегледано възможно най-скоро и при необходимост ще се свържем с вас в най-кратък срок!';
         }
       })
     } else {

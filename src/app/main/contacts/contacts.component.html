@@ -19,8 +19,11 @@
                 <input type="text" placeholder="e-mail" formControlName="email" >
                 <textarea placeholder="съобщение" formControlName="message"></textarea>
                 <br/>
-                <div class="rules err-msg">
+                <div class="err-msg">
                     {{ errorMessage }}
+                </div>
+                <div class="success-msg">
+                    {{ successMessage }}
                 </div>
                 <br/>
                 <button class="save-btn">изпрати</button>
