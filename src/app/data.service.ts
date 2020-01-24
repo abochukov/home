@@ -69,8 +69,6 @@ export class DataService {
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     let options = { headers: headers };
 
-    return this.http.post('https://api.profitstore.bg/api/contact', value, options).subscribe(data => {
-      console.log(data)
-    });
+    return this.http.post('https://api.profitstore.bg/api/contact', value, options);
    }
 }
