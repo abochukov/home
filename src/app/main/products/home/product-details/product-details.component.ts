@@ -22,6 +22,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     // public detailsImages: imageDetails;
     public detailsImages: any;
     public allGalleryImages: any;
+    public stock: string;
 
   @Input() productId: any;
   @Output() onClose = new EventEmitter();
@@ -42,6 +43,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       this.productTitle = this.itemDetails.name;
       this.productPrice = this.itemDetails.price;
       this.productDescription = this.itemDetails.description;
+      this.stock = this.itemDetails.stock;
     })
 
 

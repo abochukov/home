@@ -25,7 +25,12 @@
                 <span [innerHTML]="productDescription"></span>
             </div>
             <div class="modal-footer">
-                <button (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">вземи</button>
+                <ng-container *ngIf="stock != 0">
+                    <button (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">вземи</button>
+                </ng-container>
+                <ng-container *ngIf="stock == 0">
+                    <span class="out-of-stock">Не е в наличност</span>
+                </ng-container>
                 Цена: {{ productPrice }} лв
             </div>
         </div>
