@@ -39,12 +39,13 @@
                     <!-- <div class="on-sale"><img src="/assets/images/on-sale.png"></div> -->
                     <p>{{ product.name }}</p>
                     <img src="{{ product.images[0].path }}" [tooltip]="popTemplate" [isDisabled]="hideTooltip" triggers="mouseenter:mouseleave" (click)="openModal(productDetails, product.id)">
-                    <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p>
+                    <!-- <p (click)="openModal(productDetails, product.id)" class="product-details">повече информация</p> -->
                     <div class="price">
                         <!-- <p class="old-price">1000.00 лв</p> -->
                         <p>{{ product.price }} лв</p>
                     </div>
-                    <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button>
+                    <!-- <button (click)="saveToLocalStorage(product.id, product.name, product.price)" class="add-to-cart">вземи</button> -->
+                    <button (click)="openModal(productDetails, product.id)" class="add-to-cart">виж повече</button>
                     
                     <ng-template #popTemplate>
                         <img src="{{ product.images[1].path }}">
