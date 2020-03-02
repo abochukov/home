@@ -29,11 +29,11 @@
                 display: flex;
                 flex-direction: row;
                 margin-left: 10px;
+
+                & div:hover {
+                    color: #ee5816;
+                }
             }
-        }
-    
-        & ul li ul:hover {
-            color: #ee5816;
         }
     
         .highlightCategory, .highlightSubCategory {
