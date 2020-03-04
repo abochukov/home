@@ -112,8 +112,25 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   public openProductsByDefault() {
-    let category = 1;
-    let area = 7;
+    // let category = 1;
+    // let area = 7;
+
+    // let category: any = window.location.href.split('?')[1].split('&')[0].split('=')[1];
+    // let area: any = window.location.href.split('&')[1].split('=')[1];
+
+    let category: any;
+    let area: any;
+
+    // console.log(window.location.href)
+
+    // if(window.location.href == 'http://localhost:4200/home') {
+    if(window.location.href == 'https://profitstore.bg/home') {
+      category = 1;
+      area = 7;
+    } else {
+      category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
+      area = window.location.href.split('&')[1].split('=')[1];
+    }
 
     this.router.navigate([], {
       queryParams: {
@@ -127,7 +144,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
       this.products = Object.keys(products).map(i => {
         return products[i];
       }).filter(product => {
-        if(product.category_id == 7) {
+        if(product.category_id == area) {
           return product;
         }
       })
