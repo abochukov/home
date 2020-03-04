@@ -105,6 +105,7 @@ ul {
 .page-item.active .page-link {
     background-color: #ee5816;
     border-color: #fff;
+    z-index: 0;
 }
 
 @media only screen and (max-width: 992px) {
