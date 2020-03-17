@@ -71,4 +71,8 @@ export class DataService {
 
     return this.http.post('https://api.profitstore.bg/api/contact', value, options);
    }
+
+   getTerms() {
+     return this.http.get('https://api.profitstore.bg/api/terms/general/1');
+   }
 }
