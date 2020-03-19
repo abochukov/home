@@ -22,6 +22,7 @@ import { ProductDetailsComponent } from './main/products/home/product-details/pr
 import { FooterComponent } from './main/footer/footer.component';
 import { AboutUsComponent } from './main/about-us/about-us.component';
 import { DeliveryComponent } from './main/delivery/delivery.component';
+import { ArticlesComponent } from './main/articles/articles.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'about-us', component: AboutUsComponent },
-  { path: 'delivery', component: DeliveryComponent }
+  { path: 'delivery', component: DeliveryComponent },
+  { path: 'articles', component: ArticlesComponent }
   // { path: 'wiki-search', component: SearchComponent },
 ]
 
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     ProductDetailsComponent,
     FooterComponent,
     AboutUsComponent,
-    DeliveryComponent,    
+    DeliveryComponent,
+    ArticlesComponent,    
   ],
   imports: [
     BrowserModule,
