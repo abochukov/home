@@ -75,4 +75,8 @@ export class DataService {
    getTerms() {
      return this.http.get('https://api.profitstore.bg/api/terms/general/1');
    }
+
+   getArticles() {
+     return this.http.get('https://api.profitstore.bg/api/article');
+   }
 }
