@@ -79,4 +79,8 @@ export class DataService {
    getArticles() {
      return this.http.get('https://api.profitstore.bg/api/article');
    }
+
+   getArticlesById(articleId: number) {
+    return this.http.get(`https://api.profitstore.bg/api/article/${articleId}`);
+  }
 }
