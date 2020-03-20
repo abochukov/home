@@ -1,1 +1,29 @@
-<p>articles works!</p>
+<div class="articles-container">
+    <div class="article-content">
+        <div class="article-wrapper">
+            <div *ngFor="let article of articles" class="article">
+                <a href="">
+                    <div class="article-heading">{{ article.article_title }}</div>
+                </a>
+                <div class="article-image"><img src="assets/images/blog-post.jpg"/></div>
+                <div class="article-text">{{ article.article_content }}</div>
+                <div class="date-author">
+                    <div class="article-date">{{ article.created_at }}</div>
+                    <div class="article-author">by Georgi Kondev</div>
+                </div>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <div class="articles-suggestion">
+        <div class="suggestion-wrapper">
+            <ul>
+                <li>Related 1</li>
+                <li>Related 2</li>
+                <li>Related 3</li>
+                <li>Related 4</li>
+                <li>Related 5</li>
+            </ul>
+        </div>
+    </div>
+</div>
