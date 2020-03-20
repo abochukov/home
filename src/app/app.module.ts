@@ -23,6 +23,7 @@ import { FooterComponent } from './main/footer/footer.component';
 import { AboutUsComponent } from './main/about-us/about-us.component';
 import { DeliveryComponent } from './main/delivery/delivery.component';
 import { ArticlesComponent } from './main/articles/articles.component';
+import { SingleArticleComponent } from './main/articles/single-article/single-article.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'delivery', component: DeliveryComponent },
-  { path: 'articles', component: ArticlesComponent }
+  { path: 'articles', component: ArticlesComponent },
+  { path: 'single-article/:id', component: SingleArticleComponent }
   // { path: 'wiki-search', component: SearchComponent },
 ]
 
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     FooterComponent,
     AboutUsComponent,
     DeliveryComponent,
-    ArticlesComponent,    
+    ArticlesComponent,
+    SingleArticleComponent,    
   ],
   imports: [
     BrowserModule,
