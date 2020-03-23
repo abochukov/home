@@ -123,8 +123,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
     // console.log(window.location.href)
 
-    // if(window.location.href == 'http://localhost:4200/home') {
-    if(window.location.href == 'https://profitstore.bg/home') {
+    if(window.location.href == 'http://localhost:4200/home') {
+    // if(window.location.href == 'https://profitstore.bg/home') {
       category = 1;
       area = 7;
     } else {

@@ -9,7 +9,7 @@
             <div class="search-content">
                 <input type="text" class="search" #searchInput placeholder="търсене всички продукти">
                 <a (click)="sendSearch()">
-                    <img src="assets/images/magnifier-icon.png" width="24">
+                    <img src="assets/images/menu-icons/profitstore_search.png" width="24">
                 </a>
             </div>
 
@@ -61,8 +61,11 @@
                 <pagination  [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [maxSize]="3" [rotate]="false"
                 firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
             </div>
+            <!-- <div class="know-how-tooltip">
+                <div class="close-tooltip">&times;</div>
+                Полезно е да знаете
+            </div> -->
         </div>
-
     </div>
 
     <div class="add-item-notification" id="add-item">

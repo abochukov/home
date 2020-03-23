@@ -80,6 +80,7 @@
             flex-direction: column;
             padding-bottom: 50px;
             overflow-y: auto;
+            border: 1px solid red;
 
             & .product-container {
                 display: flex;
@@ -196,6 +197,32 @@
     
             app-cart {
                 display: none;
+            }
+
+            & .know-how-tooltip {
+                position: fixed;
+                bottom: 6.5%;
+                left: 10%;
+                z-index: 0;
+                width: 250px;
+                height: 40px;
+                background: #fff;
+                padding: 10px;
+                border-radius: 5px;
+                // background: #ee5816;
+                color: #212529;
+                border: 1px solid #ee5816;
+                -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+
+                & .close-tooltip {
+                    position: absolute;
+                    top: 0;
+                    right: 5px;
+                    font-size: 22px;
+                    color: #ee5816;
+                }
             }
         }
 
