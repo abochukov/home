@@ -136,16 +136,17 @@ a.active {
 
         & .mobile-navigation {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: space-around;
             align-items: center;
             width: 100%;
             position: absolute;
-            top: 60px;
+            top: 55px;
             height: auto;
             background: #fff;
-            padding: 20px 0;
+            padding: 10px 0;
             box-shadow: 1px 2px 18px #a1a1a1;
+            z-index: -1;
 
             div {
                 img{
@@ -156,7 +157,9 @@ a.active {
             & a {
                 text-decoration: none;
                 color: #343434;
-                padding-top: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
         }
 

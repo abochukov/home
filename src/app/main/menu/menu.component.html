@@ -7,7 +7,7 @@
             <a routerLink = '/about-us' routerLinkActive = 'active'>За нас</a>
             <a routerLink = '/delivery' routerLinkActive = 'active'>Доставка</a>
             <a routerLink = '/contacts' routerLinkActive = 'active'>Контакти</a>
-            <a routerLink = '/articles' routerLinkActive = 'active'>Полезно</a>
+            <!-- <a routerLink = '/articles' routerLinkActive = 'active'>Полезно</a> -->
             <a (click)="openModal(showCart)" class="shopping-cart-icon">
                 <img src="/assets/images/shopping-cart.png" width="32">
                 <div class="items-count" *ngIf="this.cartItems > 0">
@@ -26,19 +26,20 @@
     
         <div class="logo"><img src="assets/images/logo.png"/></div>
     
-        <button class="menu-toggler" (click)="showMenuOnMobile()">
+        <!-- <button class="menu-toggler" (click)="showMenuOnMobile()">
             <span class="navbar-toggler-icon">
                 <img src="assets/images/64x64.png" width="26">
             </span>
-        </button>
+        </button> -->
     </div>
 
-    <div class="mobile-navigation" *ngIf="buttonMenuClicked">
-        <a routerLink = '/home' routerLinkActive = 'active' (click)="closeMenu()">Продукти</a>
-        <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()">За нас</a>
-        <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()">Доставка</a>
-        <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()">Контакти</a>
-        <a (click)="openModal(showCart); closeMenu()"><img src="/assets/images/shopping-cart.png" width="32"></a>
+    <!-- <div class="mobile-navigation" *ngIf="buttonMenuClicked"> -->
+    <div class="mobile-navigation">
+        <a routerLink = '/home' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_menu.png" width="30" />Продукти</a>
+        <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_about.png" width="30" />За нас</a>
+        <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_delivery.png" width="30" />   Доставка</a>
+        <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_contact.png" width="30" />Контакти</a>
+        <a (click)="openModal(showCart); closeMenu()"><img src="/assets/images/menu-icons/profitstore_cart.png" width="30">Количка</a>
     </div>
 
     <!-- <ul *ngFor="let searchResult of searchResults">
