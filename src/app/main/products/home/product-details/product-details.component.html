@@ -26,7 +26,7 @@
             </div>
             <div class="modal-footer">
                 <ng-container *ngIf="stock != '0'">
-                    <button (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">вземи</button>
+                    <div (click)="addProduct(productId, productTitle, productPrice)" class="add-to-cart">вземи</div>
                 </ng-container>
                 <ng-container *ngIf="stock == '0'">
                     <span class="out-of-stock">Не е в наличност</span>
