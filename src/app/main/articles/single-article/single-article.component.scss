@@ -1,0 +1,79 @@
+.articles-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    & .article-content {
+        display: flex;
+        flex-direction: row;
+        // align-content: center;
+        justify-content: center;
+        width: 70%;
+        padding: 20px;
+        // border: 1px solid green;
+
+        & .article-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            background: #fff;
+            text-align: center;
+            padding: 10px;
+            height: 80vh;
+            overflow-y: auto;
+
+            & .article {
+                width: 100%;
+
+                & .article-heading {
+                    font-size: 22px;
+                    letter-spacing: 0;
+                    // border: 1px solid red;
+                }
+    
+                & .article-image {
+                    margin: 20px 0;
+                }
+    
+                & .article-text {
+                    font-size: 16px;
+                }
+    
+                .date-author {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin: 40px 20px;
+                    color: #999;
+                    font-size: 14px;
+                }
+            }
+
+        }
+
+        .article-wrapper::-webkit-scrollbar {
+            width: 7px;
+          }
+           
+          .article-wrapper::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 20px;
+          }
+          
+          .article-wrapper::-webkit-scrollbar-track {
+            background: #ddd;
+            border-radius: 20px;
+          }
+    }
+
+    & .articles-suggestion {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+
+        & .suggestion-wrapper {
+            padding: 20px 40px;
+        }
+    }
+}
