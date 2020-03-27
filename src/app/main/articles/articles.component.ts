@@ -16,7 +16,6 @@ export class ArticlesComponent implements OnInit {
   ngOnInit() {
     this.dataService.getArticles().subscribe(data => {
       this.articles = data;
-      console.log(data);
     })
   }
 
