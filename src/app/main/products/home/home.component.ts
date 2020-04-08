@@ -191,7 +191,22 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     this.cartProducts = {id: productDetails.id, title: productDetails.title, price: productDetails.price }
   }
 
+  test() {
+    let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
+    let area = window.location.href.split('&')[1].split('=')[1];
 
+    this.dataService.getProducts().subscribe(products => {
+      this.products = Object.keys(products).map(i => {
+        return products[i];
+      }).filter(product => {
+        if(product.category_id == area) {
+          return product;
+        }
+      });
+      
+      this.updatePagination();
+    })
+  }
 
   public openModal(template: TemplateRef<any>, productId: number) {
     this.productId = productId;
