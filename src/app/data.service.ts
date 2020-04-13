@@ -27,6 +27,10 @@ export class DataService {
      return this.http.get<Categories>('https://api.profitstore.bg/api/category');
    }
 
+   getCategory(category_id: number): Observable<Categories> {
+    return this.http.get<Categories>(`http://api.profitstore.bg/api/products-cat/${category_id}`);
+   }
+
   //  getSubCategories(id: number): Observable<SubCategories> {
   //   return this.http.get<SubCategories>(`http://profitstore.bg:8000/api/category/${id}`)
   //  }
