@@ -15,51 +15,79 @@
             
             width: 100%;
 
-            & div:first-child {
-            }
-
-            & .filters {
-                display: flex;
-                flex-direction: column;
-                border: 0;
-                height: auto;
-                margin-top: 20%;
-
-                & .search-content {
-                    width: 92%;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    margin: 10px;
-
-                    & .search {
-                        width: 100%;
-                        height: 35px;
-                        background: transparent;
-                    }
-                }
-
-                & .brand-filter-content {
-                    width: 100%;
-                    padding: 0 20px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                }
-
-                & .items-per-page {
-                    width: 100%;
-                    padding: 10px 20px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                }
-
-            }
-
-
             & .wrapper {
-                // border: 3px solid green;
+
+                & .filters-mobile {
+                    display: flex;
+                    flex-direction: column;
+                    border: 0;
+                    height: auto;
+                    margin-top: 20%;
+    
+                    & .search-content {
+                        width: 100%;
+                        padding: 0 20px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        & .search-filter {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-radius: 10px;
+                            border: 1px solid #ee5816;
+                            height: 30px;
+                            background: #fff;
+            
+                            & .search {
+                                // width: 100%;                    
+                                background: transparent;
+                                padding-left: 7px;
+                                margin: 10px 15px 10px 0;   
+                                border: 0;
+                            }
+
+                            a {
+                                width: 45px;
+                            }
+                        }
+                    }
+    
+
+                    & .brand-filter-content {
+                        width: 100%;
+                        padding: 0 20px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+        
+                        & .brand-filter {
+                            background: #fff;
+                            height: 30px;
+                            border: 1px solid #ee5816;
+                            border-radius: 10px;
+                        }
+                    }
+
+                    & .items-per-page {
+                        width: 100%;
+                        padding: 0 20px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+        
+                        & .item-chooser {
+                            background: #fff;
+                            height: 30px;
+                            border: 1px solid #ee5816;
+                            border-radius: 10px;
+                        }
+                    }
+    
+                }
 
                 & .product-container {
                     display: flex;

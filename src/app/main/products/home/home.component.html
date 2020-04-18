@@ -5,7 +5,7 @@
     </div>    
     
     <div class="product-content">
-        <div class="filters">
+        <div class="filters-desktop" *ngIf="!mobileResolution">
             <div class="search-content">
                 <input type="text" class="search" #searchInput placeholder="търсене всички продукти">
                 <a (click)="sendSearch()">
@@ -37,6 +37,38 @@
         </div>
         
         <div class="wrapper" *ngIf="products">
+            <div class="filters-mobile" *ngIf="mobileResolution">
+                <div class="search-content">
+                    <div class="search-filter">
+                        <input type="text" class="search" #searchInput placeholder="търсене всички продукти">
+                        <a (click)="sendSearch()">
+                            <img src="assets/images/menu-icons/profitstore_search.png" width="24">
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="brand-filter-content">
+                    <select (change)="getBrandFilterResult($event)" class="brand-filter">
+                        <option value="" disabled selected>филтрирайте по марка</option>
+                        <option *ngFor="let brandFilter of brandsFilter" [ngValue]="brandFilter">
+                        {{ brandFilter }}
+                        </option>
+                    </select>
+                </div>
+    
+                <div class="items-per-page">
+                    <select (change)="selectItemsPerPage($event)" class="item-chooser">
+                        <option value="" disabled selected>покажи по</option>
+                        <option value="1">1 продукт</option>
+                        <option value="3">3 продукта</option>
+                        <option value="6">6 продукта</option>
+                        <option value="10">10 продукта</option>
+                    </select>
+                </div>
+                <div>
+                    <a (click)="test()">изчисти филтрите</a>
+                </div>
+            </div>
             <div class="product-container">
                 <div class="item" *ngFor="let product of visibleItems">
                     <!-- <div class="on-sale"><img src="/assets/images/on-sale.png"></div> -->
