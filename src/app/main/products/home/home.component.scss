@@ -71,6 +71,29 @@
                     border-radius: 10px;
                 }
             }
+
+            & .reset-filters-content {
+                width: 17%;
+                padding: 0 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                & .reset-filters {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 180px;
+                    height: 28px;
+
+                    background: #ee5816;
+                    border-radius: 5px;
+                    color: #FFF;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
         }
 
         .wrapper {
