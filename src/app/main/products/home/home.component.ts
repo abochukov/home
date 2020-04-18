@@ -180,7 +180,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     this.cartProducts = {id: productDetails.id, title: productDetails.title, price: productDetails.price }
   }
 
-  public resetFilters() {
+  test() {
     let category = window.location.href.split('?')[1].split('&')[0].split('=')[1];
     let area = window.location.href.split('&')[1].split('=')[1];
 
