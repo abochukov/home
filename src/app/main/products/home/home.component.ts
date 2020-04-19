@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
+  @ViewChild('wrapper', {static: false}) wrapper: ElementRef;
 
   config = {
     animated: false,
@@ -95,6 +96,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public pageChanged(page) {
     this.currnetPage = page.page;
     this.updatePagination();
+
+    this.wrapper.nativeElement.scrollTop = 0;
   }
 
 
