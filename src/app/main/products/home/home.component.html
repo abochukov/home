@@ -7,7 +7,7 @@
     <div class="product-content">
         <div class="filters-desktop" *ngIf="!mobileResolution">
             <div class="search-content">
-                <input type="text" class="search" #searchInput placeholder="търсене всички продукти">
+                <input type="text" class="search" (keyup.enter)="sendSearch()" #searchInput placeholder="търсене всички продукти">
                 <a (click)="sendSearch()">
                     <img src="assets/images/menu-icons/profitstore_search.png" width="24">
                 </a>
