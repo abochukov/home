@@ -39,7 +39,12 @@
         <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_about.png" width="30" />За нас</a>
         <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_delivery.png" width="30" />   Доставка</a>
         <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_contact.png" width="30" />Контакти</a>
-        <a (click)="openModal(showCart); closeMenu()"><img src="/assets/images/menu-icons/profitstore_cart.png" width="30">Количка</a>
+        <a (click)="openModal(showCart); closeMenu()"><img src="/assets/images/menu-icons/profitstore_cart.png" width="30">
+            Количка
+            <div class="items-count" *ngIf="this.cartItems > 0">
+                <p>{{ cartItems }}</p>
+            </div>
+        </a>
     </div>
 
     <!-- <ul *ngFor="let searchResult of searchResults">

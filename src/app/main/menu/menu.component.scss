@@ -148,6 +148,26 @@ a.active {
             box-shadow: 1px 2px 18px #a1a1a1;
             z-index: -1;
 
+            .items-count {
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+                position: absolute;
+                top: 5%;
+                right: 3%;
+                background: #fff;
+                color: #ee5816;
+                border: 1px solid #ee5816;
+                text-align: center;
+    
+                & p {
+                    margin-top: -2px;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+             
+            }
+
             div {
                 img{
                     margin-left: 10px;
