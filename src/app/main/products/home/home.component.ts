@@ -254,7 +254,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     if(searchString) {
       this.dataService.search(searchString).subscribe(data => {
         if(data == null) {
-          // alert('Не са намерени резултати съответстващи на вашите критерии')
           this.noSearchResults = true;
         } else {
           this.products = data;
