@@ -6,6 +6,7 @@ import {RouterModule, Routes } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     PaginationModule.forRoot(),
+    AlertModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
