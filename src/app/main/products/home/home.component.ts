@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public itemsPerPage: number = 6;
   public currnetPage: number = 1;
   public totalItems: number;
+  public noSearchResults: boolean = false;
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -253,7 +254,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     if(searchString) {
       this.dataService.search(searchString).subscribe(data => {
         if(data == null) {
-          alert('Не са намерени резултати съответстващи на вашите критерии')
+          // alert('Не са намерени резултати съответстващи на вашите критерии')
+          this.noSearchResults = true;
         } else {
           this.products = data;
         }
@@ -310,4 +312,8 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
         this.mobileResolution = false;
       }
     }
+
+  public closeNoSearchResultsContainer() {
+    this.noSearchResults = false;
+  }
 }

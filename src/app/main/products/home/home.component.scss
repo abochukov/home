@@ -370,4 +370,31 @@
         75%  {opacity: 1; right: 0%; }
         100% {opacity: 0; right: 0% }
     }
+
+    .no-search-results-container {
+        position: absolute;
+        z-index: 9999;
+        display: flex;
+        width: 100vw;
+
+        & .no-search-result-alert {
+            margin: 0 auto;
+            text-align: center;
+            font-weight: bold;
+
+            & .close-no-results-found {
+                background: #ee5816;
+                color: #fff;
+                width: 80px;
+                height: 35px;
+                font-weight: normal;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 15px auto;
+                cursor: pointer;
+            }
+        }
+    }
 }

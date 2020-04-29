@@ -3,7 +3,7 @@
     <div class="sidebar" *ngIf="!mobileResolution || categoryStatus">
         <app-categories (showProducts)=showAllProducts($event)></app-categories>
     </div>    
-    
+
     <div class="product-content">
         <div class="filters-desktop" *ngIf="!mobileResolution">
             <div class="search-content">
@@ -119,6 +119,12 @@
 
     <div class="already-add-item-notification" id="already-add-item"> 
         <p>Този продукт вече е добавен!</p>
+    </div>
+    <div class="no-search-results-container" *ngIf="noSearchResults">
+        <alert type="danger" class="no-search-result-alert">
+            Не са намерени резултати съответстващи на вашите критерии
+            <div class="close-no-results-found" (click)="closeNoSearchResultsContainer()">затвори</div>
+        </alert>
     </div>
 
     <ng-template #productDetails>
