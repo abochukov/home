@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectorRef, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 import { DataService } from '../../data.service';
@@ -34,6 +34,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   public showCitizenForm: boolean = true;
   public invoice: boolean = false;
   public errorMessage: string;
+  public terms;
 
   public orders;
 
@@ -56,6 +57,10 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
     this.loadCart();
     this.order();
     this.initialize = true;
+
+    this.dataService.getTerms().subscribe(data => {
+      this.terms = data[0].content;
+    });
   }
 
   ngOnChanges() {
@@ -229,5 +234,9 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
 
   clearForm(form: FormGroup) {
     form.reset()
+  }
+
+  public showConditions(template: TemplateRef<any>) {
+    this.modalRef = this.modalServices.show(template, this.config)
   }
 }

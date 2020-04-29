@@ -68,9 +68,21 @@
                 </select>
             </div>
             <div>Населено място*<input formControlName="city" [ngClass]="{'field-error': orderForm.controls.city.invalid, 'field-ok':  orderForm.controls.city.valid}"></div>
-            <div class="rules"><input type="checkbox" formControlName="rules">Съгласен съм с общите условия*</div>
+            <div class="rules"><input type="checkbox" formControlName="rules">Съгласен съм с &nbsp; <a (click)="showConditions(conditions)"> общите условия</a>*</div>
             <div class="rules">* задължително поле</div>
             <div class="rules err-msg">{{ errorMessage }}</div>
+
+            <ng-template #conditions>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Условия</h4>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  {{ terms }}
+                </div>
+              </ng-template>
              
             <br/>
             
