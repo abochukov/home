@@ -6,11 +6,18 @@ import { DataService } from '../../../data.service';
 import { Products, Categories } from '../../../common/interfaces/items';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Subscription } from 'rxjs';
+import { Subscription, fromEvent, VirtualTimeScheduler } from 'rxjs';
+// import 'rxjs/add/observable/fromEvent';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/debounceTime';
+
+import {debounceTime} from 'rxjs/operators';
+// import 'rxjs/add/operator/tap';
+import { Subject } from 'rxjs';
+import { mergeMap, map } from 'rxjs/operators';
+import { distinctUntilChanged } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -44,6 +51,7 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public currnetPage: number = 1;
   public totalItems: number;
   public noSearchResults: boolean = false;
+  public subject = new Subject<string>();
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
@@ -87,6 +95,29 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     } else {
       // console.log('dont open modal')
     }
+
+    this.searchByType();
+  }
+
+  public searchByType() {
+    let searchBox = document.querySelector('.search');
+
+    if(searchBox) {
+      searchBox.addEventListener('input', (e) => {
+        setTimeout(() => {
+        let target = e.target as HTMLInputElement;
+        let searchString = target.value;
+        this.dataService.search(searchString).subscribe(data => {
+            if(data == null) {
+              this.noSearchResults = true;
+            } else {
+              this.products = data;
+            }
+            this.updatePagination();
+          });
+        }, 400)
+      });
+    }
   }
 
 
@@ -116,16 +147,9 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   public openProductsByDefault() {
-    // let category = 1;
-    // let area = 7;
-
-    // let category: any = window.location.href.split('?')[1].split('&')[0].split('=')[1];
-    // let area: any = window.location.href.split('&')[1].split('=')[1];
 
     let category: any;
     let area: any;
-
-    // console.log(window.location.href)
 
     if(window.location.href == 'http://localhost:4200/home') {
     // if(window.location.href == 'https://profitstore.bg/home') {
@@ -247,20 +271,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
     );
 
     this.modalRef.hide();
-  }
-
-  public sendSearch() {
-    let searchString = this.searchInput.nativeElement.value;
-    if(searchString) {
-      this.dataService.search(searchString).subscribe(data => {
-        if(data == null) {
-          this.noSearchResults = true;
-        } else {
-          this.products = data;
-        }
-        this.updatePagination();
-      });
-    }
   }
 
   public updatePagination() {

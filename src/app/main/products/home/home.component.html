@@ -7,10 +7,8 @@
     <div class="product-content">
         <div class="filters-desktop" *ngIf="!mobileResolution">
             <div class="search-content">
-                <input type="text" class="search" (keyup.enter)="sendSearch()" #searchInput placeholder="търсене всички продукти">
-                <a (click)="sendSearch()">
-                    <img src="assets/images/menu-icons/profitstore_search.png" width="24">
-                </a>
+                <input type="text" class="search" placeholder="търсене всички продукти">
+                <img src="assets/images/menu-icons/profitstore_search.png" width="24">
             </div>
 
             <div class="brand-filter-content">
@@ -39,11 +37,11 @@
             </div>
         </div>
         
-        <div class="wrapper" *ngIf="products" #wrapper>
+        <div class="wrapper" #wrapper>
             <div class="filters-mobile" *ngIf="mobileResolution">
                 <div class="search-content">
                     <div class="search-filter">
-                        <input type="text" class="search" #searchInput placeholder="търсене всички продукти">
+                        <input type="text" class="search" placeholder="търсене всички продукти">
                         <a (click)="sendSearch()">
                             <img src="assets/images/menu-icons/profitstore_search.png" width="24">
                         </a>
@@ -97,10 +95,11 @@
     
                 <app-cart [cartProducts]="cartProducts"></app-cart>
             </div>
-
-            <div class="pagination" *ngIf="totalItems > visibleItems.length">
-                <pagination  [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [maxSize]="3" [rotate]="false"
-                firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
+            <div *ngIf="products">
+                <div class="pagination" *ngIf="totalItems > visibleItems.length">
+                    <pagination  [totalItems]="totalItems"  [itemsPerPage]=itemsPerPage [maxSize]="3" [rotate]="false"
+                    firstText="&laquo;" lastText="&raquo;" previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="pageChanged($event)"></pagination>
+                </div>
             </div>
             <!-- <div class="know-how-tooltip">
                 <div class="close-tooltip">&times;</div>
