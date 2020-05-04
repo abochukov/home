@@ -6,18 +6,8 @@ import { DataService } from '../../../data.service';
 import { Products, Categories } from '../../../common/interfaces/items';
  
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Subscription, fromEvent, VirtualTimeScheduler } from 'rxjs';
-// import 'rxjs/add/observable/fromEvent';
+import { Subscription} from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-
-import {debounceTime} from 'rxjs/operators';
-// import 'rxjs/add/operator/tap';
-import { Subject } from 'rxjs';
-import { mergeMap, map } from 'rxjs/operators';
-import { distinctUntilChanged } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +31,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public currentUrl: any;
 
   public headImage: any;
-  public searchingString;
 
   public productBriefImage;
   public hideTooltip: boolean;
@@ -51,7 +40,6 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
   public currnetPage: number = 1;
   public totalItems: number;
   public noSearchResults: boolean = false;
-  public subject = new Subject<string>();
 
   @ViewChild('productDetails', {static: false}) productDetails: ElementRef;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
