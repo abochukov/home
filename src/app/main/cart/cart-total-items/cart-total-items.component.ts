@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angu
 @Component({
   selector: 'app-cart-total-items',
   templateUrl: './cart-total-items.component.html',
-  styleUrls: ['./cart-total-items.component.scss']
+  styleUrls: ['./cart-total-items.component.scss', './cart-total-items.mobile.scss']
 })
 export class CartTotalItemsComponent implements OnInit, OnChanges {
 
