@@ -14,7 +14,6 @@ export class CartTotalItemsComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.items);
   }
 
   ngOnChanges() {
