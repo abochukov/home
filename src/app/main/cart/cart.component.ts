@@ -71,7 +71,7 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
   }
 
   public addCartItems() { 
-    let item = { id: this.cartProducts.id, title: this.cartProducts.title, price: this.cartProducts.price };
+    let item = { id: this.cartProducts.id, title: this.cartProducts.title, price: this.cartProducts.price, image: this.cartProducts.image };
     
     if(localStorage.getItem('profitstore.bg') == null) {
       let cart: any = [];
@@ -120,7 +120,8 @@ export class CartComponent extends HomeComponent implements OnInit, OnChanges {
         this.items.push({
           id: item.id,
           title: item.title,
-          price: item.price
+          price: item.price,
+          image: item.image
         })
         this.totalPrice += Number(item.price);
       }
