@@ -188,12 +188,12 @@ export class HomeComponent implements OnInit, OnChanges, AfterViewInit {
 
   }
 
-  public saveToLocalStorage(id: number, title: string, price: string) {
-    this.cartProducts = { id: id, title: title, price: price }
+  public saveToLocalStorage(id: number, title: string, price: string, image: string) {
+    this.cartProducts = { id: id, title: title, price: price, image: image }
   }
 
-  public addFromProductDetails(productDetails: { id: number, title: string, price:number }) {
-    this.cartProducts = {id: productDetails.id, title: productDetails.title, price: productDetails.price }
+  public addFromProductDetails(productDetails: { id: number, title: string, price:number, image: string }) {
+    this.cartProducts = { id: productDetails.id, title: productDetails.title, price: productDetails.price, image: productDetails.image }
   }
 
   test() {
