@@ -1,4 +1,6 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { DataService } from '../../../../data.service';
 
@@ -23,12 +25,21 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     public detailsImages: any;
     public allGalleryImages: any;
     public stock: string;
+    modalRef: BsModalRef;
 
   @Input() productId: any;
   @Output() onClose = new EventEmitter();
   @Output() onAdd = new EventEmitter<cartItems>();
 
-  constructor( private dataService: DataService) { }
+  config = {
+    animated: false,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false,
+    class: "modal-lg",
+  };
+
+  constructor( private dataService: DataService, private modalService: BsModalService) { }
 
   ngOnInit() {
   }
@@ -56,6 +67,10 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     })
 
     this.gallery();
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
   }
 
   public gallery() {
@@ -87,8 +102,8 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     this.onClose.emit();
   }
 
-  addProduct(id: number, title: string, price: number) {
-    this.onAdd.emit({id: id, title: title, price: price});
+  addProduct(id: number, title: string, price: number, image: string) {
+    this.onAdd.emit({id: id, title: title, price: price, image: image});
   }
 
 }
