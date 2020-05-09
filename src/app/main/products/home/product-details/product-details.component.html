@@ -1,60 +1,63 @@
-<div *ngIf="headDetailImage && allGalleryImages && productDescription">
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">{{ productTitle }}</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div class="modal-details">
-            <div class="gallery-details">
-                <div class="panel-main" >
-                    <img src="{{ headDetailImage }}" id="selected">
+<div *ngIf="showDetailsModal">
+    <div *ngIf="headDetailImage && allGalleryImages && productDescription">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">{{ productTitle }}</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-details">
+                <div class="gallery-details">
+                    <div class="panel-main" >
+                        <img src="{{ headDetailImage }}" id="selected">
+                    </div>
+                
+                    <div class="panel-thumbnails">
+                        <ng-container *ngFor="let image of allGalleryImages">
+                            <div class="thumbs">
+                                <img src="{{ image }}">
+                            </div>
+                        </ng-container>
+                    </div>
                 </div>
-            
-                <div class="panel-thumbnails">
-                    <ng-container *ngFor="let image of allGalleryImages">
-                        <div class="thumbs">
-                            <img src="{{ image }}">
-                        </div>
+                
+                <div class="product-description">
+                    <span [innerHTML]="productDescription"></span>
+                </div>
+                <div class="modal-footer">
+                    <ng-container *ngIf="stock != '0'">
+                        <div (click)="addProduct(productId, productTitle, productPrice, headDetailImage)" class="add-to-cart">вземи</div>
                     </ng-container>
+                    <ng-container *ngIf="stock == '0'">
+                        <span class="out-of-stock">Не е в наличност</span>
+                    </ng-container>
+                    <div class="price-tag">
+                        {{ productPrice }} лв
+                    </div>
                 </div>
-            </div>
-            
-            <div class="product-description">
-                <span [innerHTML]="productDescription"></span>
-            </div>
-            <div class="modal-footer">
-                <ng-container *ngIf="stock != '0'">
-                    <div (click)="addProduct(productId, productTitle, productPrice, headDetailImage)" class="add-to-cart">вземи</div>
-                </ng-container>
-                <ng-container *ngIf="stock == '0'">
-                    <span class="out-of-stock">Не е в наличност</span>
-                </ng-container>
-                <div class="price-tag">
-                     {{ productPrice }} лв
+                <br/><br/>
+                <div class="finish-order">
+                    <a (click)="openModal(showCart);">
+                        Вашата количка <img src="assets/images/shopping-cart.png" width="30">
+                    </a>
                 </div>
-            </div>
-            <br/><br/>
-            <div class="finish-order">
-                <a (click)="openModal(showCart);">
-                    Вашата количка <img src="assets/images/shopping-cart.png" width="30">
-                </a>
             </div>
         </div>
     </div>
+
+    <ng-template #showCart class="cart-preview">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Вашата количка</h4>
+            <!-- <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"> -->
+            <button type="button" class="close pull-right" aria-label="Close" (click)="closeCart()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <app-cart></app-cart>
+        </div>
+    </ng-template>
+
+    <ng-template #stillLoading><img src = "https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.webp?cid=790b7611b9f2b26c7ac254214f34c9db931bcff5491d52fc&rid=giphy.webp"></ng-template>
 </div>
-
-<ng-template #showCart class="cart-preview">
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">Вашата количка</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <app-cart></app-cart>
-    </div>
-</ng-template>
-
-<ng-template #stillLoading><img src = "https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.webp?cid=790b7611b9f2b26c7ac254214f34c9db931bcff5491d52fc&rid=giphy.webp"></ng-template>

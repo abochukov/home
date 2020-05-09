@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
@@ -26,10 +26,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     public allGalleryImages: any;
     public stock: string;
     modalRef: BsModalRef;
+    public showDetailsModal: boolean = true;
 
   @Input() productId: any;
   @Output() onClose = new EventEmitter();
   @Output() onAdd = new EventEmitter<cartItems>();
+  @ViewChild('showCart', {static: false}) showCart: ElementRef;
 
   config = {
     animated: false,
@@ -71,6 +73,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
+    this.showDetailsModal = false;
+  }
+
+  closeCart() {
+    this.showDetailsModal = true;
+    this.modalRef.hide();
   }
 
   public gallery() {
