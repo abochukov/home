@@ -18,33 +18,33 @@
     </div>
 
     <div class="mobile-menu">
-        <button class="categories-toggler" (click)="showCategoriesOnMobile()" [hidden]=showCategoryButton>
+        <!-- <button class="categories-toggler" (click)="showCategoriesOnMobile()" [hidden]=showCategoryButton>
             <span class="navbar-toggler-icon">
                 <img src="assets/images/categories-icon.png" width="27">
             </span>
-        </button>
-    
-        <div class="logo"><img src="assets/images/logo.png"/></div>
-    
-        <!-- <button class="menu-toggler" (click)="showMenuOnMobile()">
-            <span class="navbar-toggler-icon">
-                <img src="assets/images/64x64.png" width="26">
-            </span>
         </button> -->
-    </div>
-
-    <!-- <div class="mobile-navigation" *ngIf="buttonMenuClicked"> -->
-    <div class="mobile-navigation">
-        <a routerLink = '/home' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_menu.png" width="30" />Продукти</a>
-        <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_about.png" width="30" />За нас</a>
-        <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_delivery.png" width="30" />   Доставка</a>
-        <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_contact.png" width="30" />Контакти</a>
-        <a (click)="openModal(showCart); closeMenu()"><img src="/assets/images/menu-icons/profitstore_cart.png" width="30">
-            Количка
+    
+        <div class="logo"><img src="assets/images/logo_mobile.png"/></div>
+    
+        <a (click)="openModal(showCart); closeMenu()" class="cart-mobile-icon">
+            <img src="/assets/images/menu-icons/profitstore_cart.png" width="30">
             <div class="items-count" *ngIf="this.cartItems > 0">
                 <p>{{ cartItems }}</p>
             </div>
         </a>
+    </div>
+
+    <!-- <div class="mobile-navigation" *ngIf="buttonMenuClicked"> -->
+    <div class="mobile-navigation">
+        <a  class="categories-toggler" (click)="showCategoriesOnMobile()" [hidden]=showCategoryButton>
+            <span class="navbar-toggler-icon">
+                <img src="assets/images/categories-icon.png" width="27">
+            </span>
+        </a>
+        <a routerLink = '/home' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_menu.png" width="30" />Продукти</a> 
+        <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_about.png" width="30" />За нас</a>
+        <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_delivery.png" width="30" />   Доставка</a>
+        <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_contact.png" width="30" />Контакти</a>
     </div>
 
     <!-- <ul *ngFor="let searchResult of searchResults">
