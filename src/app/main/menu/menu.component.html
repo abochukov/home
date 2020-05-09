@@ -37,19 +37,14 @@
     <!-- <div class="mobile-navigation" *ngIf="buttonMenuClicked"> -->
     <div class="mobile-navigation">
         <a  class="categories-toggler" (click)="showCategoriesOnMobile()" [hidden]=showCategoryButton>
-            <span class="navbar-toggler-icon">
-                <img src="assets/images/categories-icon.png" width="27">
-            </span>
+            <img src="assets/images/categories-icon.png" width="27">
+            Категории
         </a>
         <a routerLink = '/home' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_menu.png" width="30" />Продукти</a> 
         <a routerLink = '/about-us' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_about.png" width="30" />За нас</a>
         <a routerLink = '/delivery' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_delivery.png" width="30" />   Доставка</a>
         <a routerLink = '/contacts' routerLinkActive = 'active' (click)="closeMenu()"><img src="assets/images/menu-icons/profitstore_contact.png" width="30" />Контакти</a>
     </div>
-
-    <!-- <ul *ngFor="let searchResult of searchResults">
-        <li>{{ searchResult.productTitle }}</li>
-    </ul> -->
 
     <ng-template #showCart class="cart-preview">
         <div class="modal-header">

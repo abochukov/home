@@ -114,14 +114,12 @@ a.active {
                 border: none;
                 padding: 0 10px;
                 cursor: pointer;
-                // border: 1px solid red;
             }
 
             & .logo {
                 width: 70%;
                 padding: 0;
                 margin: 0;
-                // border: 1px solid red;
                 img {
                     // width: 40%;
                     margin: 0 auto;
@@ -129,7 +127,6 @@ a.active {
             }
 
             .cart-mobile-icon {
-                // border: 1px solid red;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -189,6 +186,10 @@ a.active {
                 flex-direction: column;
                 align-items: center;
                 font-size: 13px;
+            }
+
+            & a.categories-toggler {
+                color: $primary;
             }
         }
 
