@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 import { DataService } from '../../../data.service';
 import { ToggleCategoriesService } from '../../../common/services/toggle-categories.service';
@@ -6,12 +6,11 @@ import { ToggleCategoriesService } from '../../../common/services/toggle-categor
 import { Categories, SubCategories, Products } from '../../../common/interfaces/items';
 
 import { Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  styleUrls: ['./categories.component.scss', './categories.mobile.scss']
 })
 export class CategoriesComponent implements OnInit {
 
@@ -24,6 +23,7 @@ export class CategoriesComponent implements OnInit {
   public lastSelectedCategory = [];
 
   @Output() showProducts = new EventEmitter();
+  @ViewChild('categoriesWrapper', {static: false}) categoriesWrapper: ElementRef;
 
   constructor(private dataService: DataService, private router: Router, private toggleCategoriesService: ToggleCategoriesService) { }
 
@@ -87,5 +87,10 @@ export class CategoriesComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     })
+  }
+
+  closeCategories() {
+    console.log(this.categoriesWrapper.nativeElement);
+    this.categoriesWrapper.nativeElement.classList.add('hide-cat');
   }
 }
