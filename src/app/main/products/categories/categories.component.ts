@@ -23,8 +23,6 @@ export class CategoriesComponent implements OnInit {
   public lastSelectedCategory = [];
 
   @Output() showProducts = new EventEmitter();
-  @ViewChild('categoriesWrapper', {static: false}) categoriesWrapper: ElementRef;
-
   constructor(private dataService: DataService, private router: Router, private toggleCategoriesService: ToggleCategoriesService) { }
 
   ngOnInit() {
@@ -87,10 +85,5 @@ export class CategoriesComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     })
-  }
-
-  closeCategories() {
-    console.log(this.categoriesWrapper.nativeElement);
-    this.categoriesWrapper.nativeElement.classList.add('hide-cat');
   }
 }
