@@ -1,7 +1,14 @@
+@import '../../../../variables.scss';
+
 .categories-container {
     height: 100vh;
     background: #fff;
+    margin: 0 20px;
     box-shadow: 1px 2px 18px#a1a1a1;
+    // border-left: 1px solid $primary;
+    // border-right: 1px solid $primary;
+    // box-shadow: 0px 1px 18px #bfbfbf;
+    // box-shadow: 0px 1px 18px #faccb8;
 
     & .categories-wrapper {
         width: 100%;
@@ -55,6 +62,10 @@
   .categories-wrapper::-webkit-scrollbar-track {
     background: #ddd;
     border-radius: 20px;
+  }
+
+  .hide-cat {
+      display: none;
   }
 
 @media only screen and (max-width: 992px) {
