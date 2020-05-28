@@ -1,4 +1,5 @@
-<div class="categories-container">
+<div class="categories-container" #categoriesWrapper>
+    <!-- <div class="close-categories" (click)="closeCategories()">&times;</div> -->
     <div class="categories-wrapper">
        <ul *ngFor="let category of categories">
            <li [ngClass]="{'show-active': selectedElement === category.id}">
