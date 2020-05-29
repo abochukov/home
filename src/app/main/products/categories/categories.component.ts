@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, HostListener } from '@angular/core';
 
 import { DataService } from '../../../data.service';
 import { ToggleCategoriesService } from '../../../common/services/toggle-categories.service';
@@ -21,9 +21,16 @@ export class CategoriesComponent implements OnInit {
   public selectedSubCategory: any;
   public openCategoryStatus: boolean = false;
   public lastSelectedCategory = [];
+  public clickOutsideCategory = 0;
 
   @Output() showProducts = new EventEmitter();
-  constructor(private dataService: DataService, private router: Router, private toggleCategoriesService: ToggleCategoriesService) { }
+  @ViewChild('categoryWrapper', {read: ElementRef, static: false}) categoryWrapper: ElementRef;
+
+  constructor(
+    private dataService: DataService, 
+    private router: Router, 
+    private toggleCategoriesService: ToggleCategoriesService,
+    private eRef: ElementRef) { }
 
   ngOnInit() {
     this.getAllCategories();
@@ -85,5 +92,25 @@ export class CategoriesComponent implements OnInit {
       },
       queryParamsHandling: 'merge'
     })
+  }
+
+  public closeCategories() {
+    this.toggleCategoriesService.sendStatus(false);
+  }
+
+  @HostListener('document: click', ['$event'])
+  clickout(event) {
+    if(this.categoryWrapper.nativeElement.contains(event.target)) {
+      console.log('цат inside');
+    } else {
+      this.clickOutsideCategory++;
+      console.log('цат outside');
+      console.log(this.clickOutsideCategory);
+      if(this.clickOutsideCategory == 1){
+        this.toggleCategoriesService.sendStatus(true);
+      } else {
+        this.toggleCategoriesService.sendStatus(false);
+      }
+    }
   }
 }
