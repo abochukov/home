@@ -94,10 +94,6 @@ export class CategoriesComponent implements OnInit {
     })
   }
 
-  public closeCategories() {
-    this.toggleCategoriesService.sendStatus(false);
-  }
-
   @HostListener('document: click', ['$event'])
   clickout(event) {
     if(this.categoryWrapper.nativeElement.contains(event.target)) {
