@@ -2,18 +2,4 @@
 
 .categories-container {
     margin: 0;
-
-    & .close-categories {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: flex-end;
-        margin-right: 10px;
-
-        & .close-btn {
-            font-size: 30px;
-            margin: 0;
-            padding: 0;
-        }
-    }
 }
